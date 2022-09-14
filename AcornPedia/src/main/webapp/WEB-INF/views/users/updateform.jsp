@@ -21,21 +21,8 @@
 </head>
 <body>
 <div class="container">
-	<h1>가입 정보 수정 폼 입니다.</h1>
-	<a id="profileLink" href="javascript:">
-		<c:choose>
-			<c:when test="${empty dto.profile }">
-				<svg id="profileImage" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-					  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-					  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-				</svg>
-			</c:when>
-			<c:otherwise>
-				<img id="profileImage" 
-					src="${pageContext.request.contextPath}${dto.profile}" />
-			</c:otherwise>
-		</c:choose>
-	</a>
+	<h1>회원정보 수정</h1>
+	<a id="profileLink" href="javascript:"></a>
 	<form action="${pageContext.request.contextPath}/users/update.do" method="post">
 		<input type="hidden" name="profile" 
 			value="${ empty dto.profile ? '' : dto.profile}"/>
@@ -47,8 +34,20 @@
 			<label for="email">이메일</label>
 			<input type="text" name="email" id="email" value="${dto.email }"/>
 		</div>
+		<div>
+			<label for="pwd">비밀번호</label>
+			<td><a href="${pageContext.request.contextPath}/users/pwd_updateform.do">수정하기</a></td>
+		</div>
 		<button type="submit">수정반영</button>
 	</form>
+	<h2>본인 확인</h2>
+		<table>
+			<tr>
+				<th>연락처 </th>
+				<td>???</td>
+			</tr>
+			
+		</table>
 	
 	<form action="${pageContext.request.contextPath}/users/ajax_profile_upload.do" method="post" 
 				id="imageForm" enctype="multipart/form-data">

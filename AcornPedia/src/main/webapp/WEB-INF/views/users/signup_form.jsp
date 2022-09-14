@@ -11,9 +11,11 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
 </head>
+
 <body>
 <div class="container">
-	<h1>회원 가입 폼 입니다.</h1>
+
+	<h1>회원정보를 입력해 주세여 </h1>
 	<form class="animate__animated animate__bounceInDown" action="${pageContext.request.contextPath}/users/signup.do" method="post" id="myForm">
 		<div>
 			<label class="control-label" for="id">아이디</label>
@@ -35,6 +37,11 @@
 			<label class="control-label" for="email">이메일</label>
 			<input class="form-control" type="text" name="email" id="email"/>
 			<div class="invalid-feedback">이메일 형식을 확인 하세요.</div>
+		</div>
+		<div>
+			<label class="control-label" for="mpn">휴대폰 번호</label>
+			<input class="form-control" type="number" name="mpn" id="mpn"/>
+			<div class="invalid-feedback">정확한 번호를 기재해 주세요.</div>
 		</div>
 		<button class="btn btn-primary" type="submit">가입</button>
 	</form>
