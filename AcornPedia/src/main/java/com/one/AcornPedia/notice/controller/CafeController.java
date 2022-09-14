@@ -1,4 +1,4 @@
-package com.one.AcornPedia.cafe.controller;
+package com.one.AcornPedia.notice.controller;
 
 import java.util.HashMap;
 import java.util.Map;
