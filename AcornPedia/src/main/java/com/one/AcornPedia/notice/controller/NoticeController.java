@@ -19,7 +19,7 @@ import com.one.AcornPedia.cafe.dto.CafeDto;
 import com.one.AcornPedia.cafe.service.CafeService;
 
 @Controller
-public class CafeController {
+public class NoticeController {
 	@Autowired
 	private CafeService service;
 	
