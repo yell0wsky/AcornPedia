@@ -41,12 +41,10 @@
 		<button type="submit">수정반영</button>
 	</form>
 	<h2>본인 확인</h2>
-		<table>
-			<tr>
-				<th>연락처 </th>
-				<td>???</td>
-			</tr>
-			
+		<div>
+			<label for="phone">연락처</label>
+			<input type="text" name="phone" id="phone" value="???"/>
+		</div>
 		</table>
 	
 	<form action="${pageContext.request.contextPath}/users/ajax_profile_upload.do" method="post" 
