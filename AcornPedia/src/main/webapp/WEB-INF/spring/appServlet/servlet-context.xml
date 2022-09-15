@@ -40,7 +40,7 @@
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
 		<beans:property name="configLocation"
-	value="classpath:com/one/AcornPedia/mybatis/Configuration.xml"/>
+	value="classpath:com/one/apedia/mybatis/Configuration.xml"/>
 	</beans:bean>
 	<!-- 
 		sessionFactory=new SqlSessionFactoryBean();
@@ -81,9 +81,12 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
-	<context:component-scan base-package="com.one.AcornPedia" />
-	<context:component-scan base-package="com.one.AcornPedia.aspect" />
+	<!-- 
+		com.gura.step04패키지를 포함한 하위 패키지를 모두 scan해서 spring 이 관리하는
+		bean 으로 만들것들은 만들어서 관리하기
+	 -->
+	<context:component-scan base-package="com.one.apedia" />
+	<context:component-scan base-package="com.one.apedia.aspect" />
 	
 	<!-- Multipart 폼 전송 처리를 위한 bean 설정 -->
 	<beans:bean id="multipartResolver"
