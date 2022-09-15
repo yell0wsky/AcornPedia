@@ -47,7 +47,7 @@
 <div class="container">
    	<a href="${pageContext.request.contextPath}/gallery/upload_form.do">사진 업로드 하러 가기</a><br/>
    	<a href="${pageContext.request.contextPath}/gallery/ajax_form.do">사진 업로드 하러 가기2</a>
-   	<h1>겔러리 목록 입니다.</h1>
+   	<h1>영화목록</h1>
    	<div class="row">
 		<c:forEach var="tmp" items="${list }">
 			<div class="col-6 col-md-4 col-lg-3">
@@ -61,6 +61,9 @@
                			<p class="card-text">${tmp.caption}</p>
                			<p class="card-text">by <strong>${tmp.writer}</strong></p>
                			<p><small>${tmp.regdate}</small></p>
+               			<c:if test= "${tmp.writer eq id}">
+               				<a href="${pageContext.request.contextPath}/gallery/delete.do?num=${tmp.num}"><p>삭제</p></a>
+               			</c:if>               			
             		</div>
          		</div>
       		</div>

@@ -175,4 +175,12 @@ public class GalleryServiceImpl implements GalleryService {
 		//ModelAndView 에 가져온 GalleryDto 를 담는다.
 		mView.addObject("dto", dto);
 	}
+	
+	//갤러리의 num에 해당하는 번호 사진게시글 삭제
+	@Override
+	public void delete(ModelAndView mView, int num) {
+		dao.delete(num);
+		
+	}
+	
 }

@@ -111,7 +111,7 @@ public class CafeController {
 		
 		service.getData(request);
 		
-		return  new ModelAndView("cafe/updateform");
+		return new ModelAndView("cafe/updateform");
 	}
 	//카페글 수정 요청 처리 
 	@RequestMapping(value = "/cafe/update", method = RequestMethod.POST)

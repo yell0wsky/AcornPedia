@@ -30,4 +30,9 @@
 			ORDER BY num DESC)
 		WHERE num = #{num}
 	</select>
+	<delete id="delete" parameterType="int">
+		DELETE
+		FROM board_gallery
+		WHERE num = #{num}
+	</delete>
 </mapper>

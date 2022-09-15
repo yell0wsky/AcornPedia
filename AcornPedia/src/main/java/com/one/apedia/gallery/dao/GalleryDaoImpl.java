@@ -59,4 +59,13 @@ public class GalleryDaoImpl implements GalleryDao {
 		return session.selectOne("gallery.getData", num);
 	}
 	
+	/*
+	 * Mapper's namespace : gallery
+	 * sql's id : delete
+	 * parameterType : int 
+	 */
+	@Override
+	public void delete(int num) {
+		session.delete("gallery.delete", num);
+	}
 }

@@ -45,7 +45,12 @@ public class GalleryController {
 		//request :  imagePath 만드는데 사용, session 영역의 id 가져오는데 사용
 		service.saveImage(dto, request);
 		
-		return new ModelAndView("gallery/upload");
+		if (dto.getCaption()==null) {
+			return new ModelAndView("gallery/list");
+		}	
+		else {
+			return new ModelAndView("gallery/upload");
+		}
 	}
 	
 	//gallery 사진 업로드 form - ajax form
@@ -77,7 +82,7 @@ public class GalleryController {
 		return new ModelAndView("gallery/upload");
 	}
 	
-	//gallery 게시글의 num 이 parameter get 방식으로 넘어온다.
+	//gallery 게시글의 num이 parameter get 방식으로 넘어온다.
 	//detail 페이지
 	@RequestMapping(value = "/gallery/detail", method = RequestMethod.GET)
 	public ModelAndView detail(ModelAndView mView, @RequestParam int num) {
@@ -86,6 +91,18 @@ public class GalleryController {
 		mView.setViewName("gallery/detail");
 		
 		return mView;
+	}
+	
+	//gallery 게시글의 num이 parameter get 방식으로 넘어온다.
+	//delete 페이지
+	@RequestMapping(value = "/gallery/delete", method = RequestMethod.GET)
+	public ModelAndView authDelete(ModelAndView mView, @RequestParam int num) {
+		//get방식으로 받아온 num에 해당하는 갤러리 게시글을 삭제한다.
+		service.delete(mView, num);
+		mView.setViewName("gallery/delete");
+		
+		return mView;
+		
 	}
 	
 }
