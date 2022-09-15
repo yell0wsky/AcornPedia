@@ -9,8 +9,13 @@
 </head>
 <body>
 	<script>
-		alert("사진 업로드에 성공했습니다.");
-		location.href = "${pageContext.request.contextPath}/gallery/list.do";
+		var a='${file}'
+		if(a=="false"){
+			alert("사진 업로드에 실패했습니다.");
+		}else{
+			alert("사진 업로드에 성공했습니다.");
+		}
+		location.href = "${pageContext.request.contextPath}/gallery/list.do"
 	</script>
 </body>
 </html>

@@ -45,12 +45,14 @@ public class GalleryController {
 		//request :  imagePath 만드는데 사용, session 영역의 id 가져오는데 사용
 		service.saveImage(dto, request);
 		
-		if (dto.getCaption()==null) {
-			return new ModelAndView("gallery/list");
-		}	
-		else {
-			return new ModelAndView("gallery/upload");
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("gallery/upload");
+		
+		if (dto.getImage().getSize()==0) {
+			mv.addObject("file",false);
 		}
+		return mv;
+		
 	}
 	
 	//gallery 사진 업로드 form - ajax form
