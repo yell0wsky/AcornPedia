@@ -37,7 +37,9 @@
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
+	<c:if test="${id=='admin' }">
 	<a href="insertform.do">새글 작성</a>
+	</c:if>
 	<h1>글 목록 입니다.</h1>
 	<table>
 		<thead>
