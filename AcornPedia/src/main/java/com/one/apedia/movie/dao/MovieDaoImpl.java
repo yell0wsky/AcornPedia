@@ -17,8 +17,8 @@ public class MovieDaoImpl implements MovieDao {
 	/*
 	 * Mapper's namespace : movie
 	 * sql's id : getList
-	 * parameterType : movieDto
-	 * resultType : movieDto
+	 * parameterType : MovieDto
+	 * resultType : MovieDto
 	 */
 	//movie 의 모든 리스트 가져오기
 	@Override
@@ -41,7 +41,7 @@ public class MovieDaoImpl implements MovieDao {
 	/*
 	 * Mapper's namespace : movie
 	 * sql's id : insert
-	 * parameterType : movieDto
+	 * parameterType : MovieDto
 	 */
 	@Override
 	public void insert(MovieDto dto) {
@@ -52,11 +52,20 @@ public class MovieDaoImpl implements MovieDao {
 	 * Mapper's namespace : movie
 	 * sql's id : getData
 	 * parameterType : int
-	 * resultType : movieDto
+	 * resultType : MovieDto
 	 */
 	@Override
 	public MovieDto getData(int num) {
 		return session.selectOne("movie.getData", num);
 	}
 	
+	/*
+	 * Mapper's namespace : movie
+	 * sql's id : delete
+	 * parameterType : int 
+	 */
+	@Override
+	public void delete(int num) {
+		session.delete("movie.delete", num);
+	}
 }
