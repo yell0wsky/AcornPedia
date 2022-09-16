@@ -29,12 +29,8 @@
 			<td></td>
 		</tr>
 		<tr>
-			<th>닉네임</th>
-			<td>???</td>
-		</tr>
-		<tr>
 				<th>연락처 </th>
-				<td>???</td>
+				<td></td>
 			</tr>
 		<tr>
 			<th>가입일</th>
@@ -45,6 +41,7 @@
 	<a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a>
 	<a href="javascript:deleteConfirm()">탈퇴</a>
 </div>
+
 <script>
 	function deleteConfirm(){
 		const isDelete=confirm("${id} 님 탈퇴 하시겠습니까?");
