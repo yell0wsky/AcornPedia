@@ -15,10 +15,10 @@
     		<div class="collapse navbar-collapse" id="navbarNav">
       			<ul class="navbar-nav me-auto">
 	        		<li class="nav-item">
-	          			<a class="nav-link ${param.thisPage eq 'cafe' ? 'active' : '' }" href="${pageContext.request.contextPath}/cafe/list.do">카페</a>
+	          			<a class="nav-link ${param.thisPage eq 'cafe' ? 'active' : '' }" href="${pageContext.request.contextPath}/cafe/list.do">자유게시판</a>
 	        		</li>
 	     			<li class="nav-item">
-	          			<a class="nav-link ${param.thisPage eq 'movie' ? 'active' : '' }" href="${pageContext.request.contextPath}/movie/list.do">겔러리</a>
+	          			<a class="nav-link ${param.thisPage eq 'movie' ? 'active' : '' }" href="${pageContext.request.contextPath}/movie/list.do">영화</a>
 	        		</li>
       			</ul>
       			<c:choose>
