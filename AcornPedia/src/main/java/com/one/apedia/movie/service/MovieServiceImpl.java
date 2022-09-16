@@ -65,7 +65,7 @@ public class MovieServiceImpl implements MovieService {
 		}
 		
 		//request 영역에 담아주기
-		request.setAttribute("list", list);	//Movie list
+		request.setAttribute("list", list);	//movie list
 		request.setAttribute("startPageNum", startPageNum);	//시작 페이지 번호
 		request.setAttribute("endPageNum", endPageNum);	//끝 페이지 번호
 		request.setAttribute("pageNum", pageNum);	//현재 페이지 번호
@@ -109,7 +109,7 @@ public class MovieServiceImpl implements MovieService {
 		//-> num, regdate : db 에 추가하면서 자동으로 들어감
 		String id = (String)request.getSession().getAttribute("id");
 		dto.setWriter(id);
-		//Movie 는 사진 다운 기능이 없다. -> orgFileName, saveFileName, fileSize 저장할 필요X
+		//movie 는 사진 다운 기능이 없다. -> orgFileName, saveFileName, fileSize 저장할 필요X
 		//imagePath 만 저장해주면 됨
 		dto.setImagePath("/upload/" + saveFileName);
 		
@@ -175,4 +175,12 @@ public class MovieServiceImpl implements MovieService {
 		//ModelAndView 에 가져온 MovieDto 를 담는다.
 		mView.addObject("dto", dto);
 	}
+	
+	//갤러리의 num에 해당하는 번호 사진게시글 삭제
+	@Override
+	public void delete(ModelAndView mView, int num) {
+		dao.delete(num);
+		
+	}
+	
 }

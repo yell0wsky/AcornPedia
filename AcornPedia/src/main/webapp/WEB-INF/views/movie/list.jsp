@@ -2,11 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/gallery/list.jsp</title>
+<title>/movie/list.jsp</title>
 <%-- bootstrap 읽어오기 --%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 <style>
@@ -45,14 +46,14 @@
 </head>
 <body>
 <div class="container">
-   	<a href="${pageContext.request.contextPath}/gallery/upload_form.do">사진 업로드 하러 가기</a><br/>
-   	<a href="${pageContext.request.contextPath}/gallery/ajax_form.do">사진 업로드 하러 가기2</a>
+   	<a href="${pageContext.request.contextPath}/movie/upload_form.do">사진 업로드 하러 가기</a><br/>
+   	<a href="${pageContext.request.contextPath}/movie/ajax_form.do">사진 업로드 하러 가기2</a>
    	<h1>영화목록</h1>
    	<div class="row">
 		<c:forEach var="tmp" items="${list }">
 			<div class="col-6 col-md-4 col-lg-3">
          		<div class="card mb-3">
-            		<a href="${pageContext.request.contextPath}/gallery/detail.do?num=${tmp.num}">
+            		<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
 	               		<div class="img-wrapper">
 	                  		<img class="card-img-top" src="${pageContext.request.contextPath }${tmp.imagePath}" />
 	               		</div>
@@ -62,8 +63,8 @@
                			<p class="card-text">by <strong>${tmp.writer}</strong></p>
                			<p><small>${tmp.regdate}</small></p>
                			<c:if test= "${tmp.writer eq id}">
-               				<a href="${pageContext.request.contextPath}/gallery/delete.do?num=${tmp.num}"><p>삭제</p></a>
-               			</c:if>               			
+               				<a href="${pageContext.request.contextPath}/movie/delete.do?num=${tmp.num}"><p>삭제</p></a>
+               			</c:if>
             		</div>
          		</div>
       		</div>
@@ -74,7 +75,7 @@
 		<c:choose>
 			<c:when test="${startPageNum ne 1 }">
 				<li class="page-item">
-               		<a class="page-link" href="${pageContext.request.contextPath}/gallery/list.do?pageNum=${startPageNum - 1}">Prev</a>
+               		<a class="page-link" href="${pageContext.request.contextPath}/movie/list.do?pageNum=${startPageNum - 1}">Prev</a>
             	</li>
 			</c:when>
 			<c:otherwise>
@@ -87,12 +88,12 @@
 			<c:choose>
 				<c:when test="${i eq pageNum }">
 					<li class="page-item active">
-                  		<a class="page-link" href="${pageContext.request.contextPath}/gallery/list.do?pageNum=${i}">${i }</a>
+                  		<a class="page-link" href="${pageContext.request.contextPath}/movie/list.do?pageNum=${i}">${i }</a>
                		</li>
 				</c:when>
 				<c:otherwise>
 					<li class="page-item">
-                  		<a class="page-link" href="${pageContext.request.contextPath}/gallery/list.do?pageNum=${i}">${i}</a>
+                  		<a class="page-link" href="${pageContext.request.contextPath}/movie/list.do?pageNum=${i}">${i}</a>
                		</li>
 				</c:otherwise>
 			</c:choose>
@@ -100,7 +101,7 @@
 		<c:choose>
 			<c:when test="${endPageNum lt totalPageCount }">
 				<li class="page-item">
-               		<a class="page-link" href="${pageContext.request.contextPath}/gallery/list.do?pageNum=${endPageNum + 1}">Next</a>
+               		<a class="page-link" href="${pageContext.request.contextPath}/movie/list.do?pageNum=${endPageNum + 1}">Next</a>
             	</li>
 			</c:when>
 			<c:otherwise>
@@ -118,7 +119,3 @@
 </script> --%>
 </body>
 </html>
-
-
-
-

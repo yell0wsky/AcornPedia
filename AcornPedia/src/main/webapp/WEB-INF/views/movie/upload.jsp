@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/gallery/upload.jsp</title>
+<title>/views/movie/upload.jsp</title>
 </head>
 <body>
 	<script>
@@ -15,7 +15,7 @@
 		}else{
 			alert("사진 업로드에 성공했습니다.");
 		}
-		location.href = "${pageContext.request.contextPath}/gallery/list.do"
+		location.href = "${pageContext.request.contextPath}/movie/list.do"
 	</script>
 </body>
 </html>

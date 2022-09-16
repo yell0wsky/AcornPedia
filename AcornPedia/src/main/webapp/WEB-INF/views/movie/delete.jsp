@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/gallery/delete.jsp</title>
+<title>/views/movie/delete.jsp</title>
 </head>
 <body>
 	<script>
 		alert("사진이 삭제되었습니다.");
-		location.href="${pageContext.request.contextPath}/gallery/list.do";
+		location.href="${pageContext.request.contextPath}/movie/list.do";
 	</script>
 </body>
 </html>

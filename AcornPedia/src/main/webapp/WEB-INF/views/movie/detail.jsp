@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/gallery/detail.jsp</title>
+<title>/movie/detail.jsp</title>
 <%-- bootstrap --%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" >
 </head>
@@ -17,7 +17,7 @@
             <a href="${pageContext.request.contextPath }/">Home</a>
          </li>
          <li class="breadcrumb-item">
-            <a href="${pageContext.request.contextPath }/gallery/list.do">겔러리 목록</a>
+            <a href="${pageContext.request.contextPath }/movie/list.do">겔러리 목록</a>
          </li>
          <li class="breadcrumb-item active">상세보기</li>
       </ul>
@@ -35,7 +35,7 @@
          <c:choose>
          	<c:when test="${dto.prevNum ne 0 }">
          		<li class="page-item mr-3">
-               		<a class="page-link" href="${pageContext.request.contextPath}/gallery/detail.do?num=${dto.prevNum}">&larr; Prev</a>
+               		<a class="page-link" href="${pageContext.request.contextPath}/movie/detail.do?num=${dto.prevNum}">&larr; Prev</a>
             	</li>
          	</c:when>
          	<c:otherwise>
@@ -47,7 +47,7 @@
          <c:choose>
          	<c:when test="${dto.nextNum ne 0 }">
          		<li class="page-item">
-               		<a class="page-link" href="${pageContext.request.contextPath}/gallery/detail.do?num=${dto.nextNum}">Next &rarr;</a>
+               		<a class="page-link" href="${pageContext.request.contextPath}/movie/detail.do?num=${dto.nextNum}">Next &rarr;</a>
             	</li>
          	</c:when>
          	<c:otherwise>
