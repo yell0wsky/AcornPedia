@@ -124,19 +124,15 @@
         @media screen and (max-width: 670px) {
             .navbar-ul{
                 display: flex;
-                flex-direction: column;
                 justify-content: center;
             }
             .navbar-atext{
-                display: flex;
+                display: none;
                 width: 100%;
                 justify-content: center;
                 text-align: center;
                 height: 3rem;
                 align-items: center;
-            }
-            .css-textweb{
-                margin-right: 0px;
             }
             .css-hidden{
                 display: none;
@@ -144,16 +140,62 @@
             #haha{
                 display: none;
             }
-            .navbar-li{
-                margin-left: 0px;
-            }
-            .css-search{
-                height: 0px;
-            }
-        }    
+        } 
         .container{
         	padding-top: 100px;
         }   
+        
+        
+         /* footer css */
+
+        .css-footer-box{
+            width: 100%;
+            background-color: #222222;
+            height: auto;
+            display: flex;
+            font-size: 14px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .css-footer-margin{
+            margin-right: 0.4rem;
+        }
+
+        .css-footer-text{
+            flex-direction: column;
+            margin:2rem 0px 2rem 3.125rem;
+        }
+
+        .css-footer-1line,
+        .css-footer-2line,
+        .css-footer-3line,
+        .css-footer-4line {
+            display: flex;
+        }
+
+        .css-footer-2line,
+        .css-footer-3line{
+            margin-top: 1rem;
+        }
+
+        .css-footer-1line,
+        .css-footer-2line{
+            color: #a5a5a7;
+            
+        }
+        .css-footer-3line,
+        .css-footer-4line{
+            color: #858585;  
+        }
+
+        @media screen and (max-width: 670px) {
+            .css-footer-3line{
+                flex-direction: column;
+            }   
+        }
+        
+        
 </style>
 <body>
  	<nav class="navbar-box">
@@ -206,6 +248,31 @@
 		<li><a href="${pageContext.request.contextPath}/movie/list.do">영화 게시판 바로가기</a></li>
 		<li><a href="${pageContext.request.contextPath}/cafe/list.do">자유 게시판 바로가기</a></li>
 	</ul>
+</div>
+<div class="css-footer-box">
+    <div class="css-footer-count"></div>
+    <div class="css-footer-information">
+        <div class="css-footer-text">
+            <ul class="css-footer-1line">
+                <li class="css-footer-001 css-footer-margin">서비스 이용약관 |</li>
+                <li class="css-footer-002 css-footer-margin">개인정보 처리방침 | </li>
+                <li class="css-footer-003 css-footer-margin">회사 안내</li>
+            </ul>
+            <ul class="css-footer-2line">
+                <li class="css-footer-003 css-footer-margin">고객센터 |</li>
+                <li class="css-footer-004 css-footer-margin">cs@acorn.co.kr</li>
+            </ul>
+            <ul class="css-footer-3line">
+                <li class="css-footer-005 css-footer-margin">에이콘 1조 |</li>
+                <li class="css-footer-006 css-footer-margin">조장 황하늘 |</li>
+                <li class="css-footer-007">서울특별시 강남구 테헨란로 124 삼원타워 5층</li>
+            </ul>
+            <ul class="css-footer-4line">
+                <img src="${pageContext.request.contextPath}/images/awtcha.png"> © 2022 by WATCHA, Inc. All rights reserved
+            </ul>
+        </div>
+        <div class="css-footer-icon"></div>
+    </div>
 </div>
 </body>
 </html>
