@@ -7,6 +7,7 @@
 <title>/views/movie/delete.jsp</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 	<script>
 		alert("사진이 삭제되었습니다.");
 		location.href="${pageContext.request.contextPath}/movie/list.do";

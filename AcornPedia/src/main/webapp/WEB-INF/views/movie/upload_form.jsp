@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 	<div class="container">
 	   	<h1>이미지 업로드 폼</h1>
 	   	<form action="${pageContext.request.contextPath}/movie/upload.do" method="post" enctype="multipart/form-data">

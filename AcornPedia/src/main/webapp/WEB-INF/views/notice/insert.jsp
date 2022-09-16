@@ -1,17 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/cafe/update.jsp</title>
+<title>/views/notice/insert.jsp</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 	<script>
-		alert("${id} 님 글을 수정 했습니다.");
-		location.href="${pageContext.request.contextPath}/cafe/detail.do?num=${param.num}";
+		alert("새글이 추가 되었습니다.");
+		location.href="${pageContext.request.contextPath}/notice/list.do";
 	</script>
 </body>
-</html> 
+</html>
+
+
+
+
+

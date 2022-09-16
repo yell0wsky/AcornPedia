@@ -15,6 +15,7 @@
 			</when>
 		</choose>
 	</sql>
+
    <select id="getList" parameterType="noticeDto" resultType="noticeDto">
       SELECT *
       FROM
