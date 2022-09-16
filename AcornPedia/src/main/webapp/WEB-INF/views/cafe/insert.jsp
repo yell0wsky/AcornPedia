@@ -7,6 +7,7 @@
 <title>/views/cafe/insert.jsp</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 	<script>
 		alert("새글이 추가 되었습니다.");
 		location.href="${pageContext.request.contextPath}/cafe/list.do";

@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" >
 </head>
 <body>
+<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
    <nav>
       <ul class="breadcrumb">

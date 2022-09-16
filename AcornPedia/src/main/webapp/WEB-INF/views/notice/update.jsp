@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/cafe/update.jsp</title>
+<title>/views/notice/update.jsp</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 	<script>
 		alert("${id} 님 글을 수정 했습니다.");
-		location.href="${pageContext.request.contextPath}/cafe/detail.do?num=${param.num}";
+		location.href="${pageContext.request.contextPath}/notice/detail.do?num=${param.num}";
 	</script>
 </body>
 </html> 

@@ -8,6 +8,7 @@
 <title>/views/movie/upload.jsp</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 	<script>
 		var a='${file}'
 		if(a=="false"){

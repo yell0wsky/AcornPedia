@@ -17,7 +17,7 @@
         }
         html{
             font-family: 'Noto Sans KR', sans-serif;
-            height: 400vh;
+            height: auto;
         }
         li{
             list-style:none;
@@ -247,6 +247,7 @@
 	<ul>
 		<li><a href="${pageContext.request.contextPath}/movie/list.do">영화 게시판 바로가기</a></li>
 		<li><a href="${pageContext.request.contextPath}/cafe/list.do">자유 게시판 바로가기</a></li>
+		<li><a href="${pageContext.request.contextPath}/notice/list.do">공지사항</a></li>
 	</ul>
 </div>
 <div class="css-footer-box">
