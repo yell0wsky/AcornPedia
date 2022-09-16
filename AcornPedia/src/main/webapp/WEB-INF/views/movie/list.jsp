@@ -45,6 +45,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
    	<a href="${pageContext.request.contextPath}/movie/upload_form.do">사진 업로드 하러 가기</a><br/>
    	<a href="${pageContext.request.contextPath}/movie/ajax_form.do">사진 업로드 하러 가기2</a>

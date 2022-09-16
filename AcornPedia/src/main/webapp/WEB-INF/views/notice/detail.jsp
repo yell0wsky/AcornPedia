@@ -98,7 +98,6 @@
 </style>
 </head>
 <body>
-<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
 	<c:if test="${dto.prevNum ne 0 }">
 		<a href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }">이전글</a>
