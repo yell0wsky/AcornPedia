@@ -39,10 +39,3 @@ public class ExceptionController {
 		return mView;
 	}	
 }
-
-
-
-
-
-
-

@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/cafe/detail.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <style>
 	.content{
@@ -98,6 +99,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
 	<c:if test="${dto.prevNum ne 0 }">
 		<a href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }">이전글</a>
@@ -140,7 +142,7 @@
 	</table>
 	<ul>
 		<li><a href="list.do">목록보기</a></li>
-		<c:if test="${dto.writer eq id }">
+		<c:if test="${id=='admin' }">
 			<li><a href="updateform.do?num=${dto.num }">수정</a></li>
 			<li><a href="delete.do?num=${dto.num }">삭제</a></li>
 		</c:if>
