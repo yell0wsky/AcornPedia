@@ -50,10 +50,13 @@ public class UsersDaoImpl implements UsersDao{
 	public void delete(String id) {
 		session.delete("users.delete", id);
 	}
+	@Override
+	public void pointup(String id) {
+		session.update("users.pointup", id);
+	}
+	@Override
+	public void pointdown(String id) {
+		session.update("users.pointdown", id);
+	}
 	
 }
-
-
-
-
-

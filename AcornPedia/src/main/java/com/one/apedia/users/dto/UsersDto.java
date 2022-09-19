@@ -8,9 +8,11 @@ public class UsersDto {
 	private String profile;
 	private String regdate;
 	private String newPwd;
-	//디폴트 생성자 
+	private int point;
+	
 	public UsersDto() {}
-	public UsersDto(String id, String pwd, String email, String profile, String regdate, String newPwd) {
+	
+	public UsersDto(String id, String pwd, String email, String profile, String regdate, String newPwd, int point) {
 		super();
 		this.id = id;
 		this.pwd = pwd;
@@ -18,7 +20,9 @@ public class UsersDto {
 		this.profile = profile;
 		this.regdate = regdate;
 		this.newPwd = newPwd;
+		this.point = point;
 	}
+	
 	public String getId() {
 		return id;
 	}
@@ -55,5 +59,10 @@ public class UsersDto {
 	public void setNewPwd(String newPwd) {
 		this.newPwd = newPwd;
 	}
-	
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
+	}
 }

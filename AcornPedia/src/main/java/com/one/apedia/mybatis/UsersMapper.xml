@@ -35,10 +35,17 @@
 		DELETE FROM users
 		WHERE id=#{id}
 	</delete>
+	
+	<update id="pointup" parameterType="string">
+		UPDATE users
+		SET point=point+10
+		WHERE id=#{id}
+	</update>
+	
+	<update id="pointdown" parameterType="string">
+		UPDATE users
+		SET point=point-10
+		WHERE id=#{id}
+	</update>
+	
 </mapper>
-
-
-
-
-
-
