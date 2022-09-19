@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
 
 	<h1>회원정보를 입력해 주세여 </h1>
