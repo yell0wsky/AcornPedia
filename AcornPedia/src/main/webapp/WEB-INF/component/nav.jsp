@@ -186,6 +186,8 @@ li {
    margin-right: 0.8rem;
 }
 
+
+
 .navbar-divicon #fuck {
    position: absolute;
    opacity: .65;
@@ -195,9 +197,15 @@ li {
 .navbar-divicon input {
    height: 2rem;
    width: 17rem;
-   padding: 4px 10px 4px 2rem;
+   padding: 4px 1rem 4px 2rem;
    background-color: rgb(243, 243, 243);
    border: 0px solid;
+}
+
+.navbar-divicon button {
+	position:absolute;
+	border: none;
+	margin: 8px 0px -30px -15px;
 }
 
 .css-search {
@@ -228,13 +236,6 @@ li {
    color: black;
    opacity: 0.65;
    margin-top: 5px;
-}
-
-.button-delete {
-   position: absolute;
-   right: 210px;
-   top: 1.3rem;
-   border: none;
 }
 
 @media screen and (max-width: 930px) {
@@ -341,30 +342,25 @@ li {
          <form action="#">
             <div class="navbar-divicon">
                <i class="fas fa-search" id="fuck"></i> <input type="text"
-                  placeholder="콘텐츠, 인물, 컬렉션를 검색해보세요."> <i
-                  class="fas fa-search" id="haha"></i>
+                  placeholder="콘텐츠, 인물, 컬렉션를 검색해보세요.">
+                  <i class="fas fa-search" id="haha"></i>
             </div>
          </form>
       </li>
       <c:choose>
          <c:when test="${ empty sessionScope.id}">
-            <li class="navbar-li css-text css-hidden"><a
-               href="${pageContext.request.contextPath}/users/loginform.do"
-               class="navbar-atext" data-toggle="modal" data-target="#loginmodal">로그인</a>
-
-
-               <a href="${pageContext.request.contextPath}/users/signup_form.do"
-               class="navbar-atext navbar-margin navbar-color" data-toggle="modal"
-               data-target="#signupmodal"> <span>회원가입</span>
-            </a></li>
+            <li class="navbar-li css-text css-hidden">
+	            <a href="${pageContext.request.contextPath}/users/loginform.do" class="navbar-atext" data-toggle="modal" data-target="#loginmodal">로그인</a>
+	            <a href="${pageContext.request.contextPath}/users/signup_form.do"
+	               class="navbar-atext navbar-margin navbar-color" data-toggle="modal"
+	               data-target="#signupmodal"><span>회원가입</span></a>
+        	 </li>
          </c:when>
          <c:otherwise>
-            <li class="navbar-li css-text css-hidden"><a
-               href="${pageContext.request.contextPath}/users/info.do"
-               class="navbar-atext">${sessionScope.id }</a> <a
-               href="${pageContext.request.contextPath}/users/logout.do"
-               class="navbar-atext navbar-margin navbar-color"> <span>로그아웃</span>
-            </a></li>
+            <li class="navbar-li css-text css-hidden">
+	            <a href="${pageContext.request.contextPath}/users/info.o" cdlass="navbar-atext">${sessionScope.id }</a>
+	            <a href="${pageContext.request.contextPath}/users/logout.do" class="navbar-atext navbar-margin navbar-color"> <span>로그아웃</span>
+            </a><li>
          </c:otherwise>
       </c:choose>
    </ul>
@@ -372,28 +368,6 @@ li {
 
 </body>
 <script>
-   const input = document.querySelector(".navbar-divicon input");
-   const navbarDivicon = document.querySelector(".navbar-divicon");
-   const buttonDaelete = document.querySelector(".button-delete");
-   const smallIcon = document.querySelector("#haha");
-   const navLiRemove = document.querySelectorAll(".navbar-li-remove");
+   
 
-   function handleClick() {
-      const button = document.createElement("button");
-      button.innerText = ("✕")
-      navbarDivicon.appendChild(button);
-      button.classList.add("button-delete")
-      button.addEventListener("click", buttonremove);
-   }
-
-   function buttonremove() {
-      input.value = "";
-      document.querySelector(".button-delete").remove();
-   };
-
-   function handleInputClick() {
-   }
-
-   input.addEventListener("click", handleClick);
-   smallIcon.addEventListener("click", handleInputClick)
 </script>
