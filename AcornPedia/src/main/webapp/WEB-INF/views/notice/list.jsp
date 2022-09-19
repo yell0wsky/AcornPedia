@@ -22,15 +22,18 @@
       color: red;
       font-weight: bold;
       text-decoration: underline;
+      
    }
    .page-ui ul{
+      display: block;
+      text-align:center;
       list-style-type: none;
       padding: 0;
    }
    
    .page-ui ul > li{
-      float: left;
-      padding: 5px;
+      float: none;
+      padding: -5px;
    }
    
 </style>
@@ -67,10 +70,10 @@
       </tbody>
       
    </table>
-   <div class="page-ui clearfix">
+   <div class="page-ui clearfix" >
       <ul class="pagination">
          <c:if test="${startPageNum ne 1 }">
-            <li>
+            <li >
                <a href="list.do?pageNum=${startPageNum-1 }&condition=${condition }&keyword=${encodedK }">Prev</a>
             </li>
          </c:if>
@@ -78,7 +81,7 @@
             <li>
                <c:choose>
                   <c:when test="${pageNum eq i }">
-                     <a  class="active" href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
+                     <a  class="active "  href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
                   </c:when>
                   <c:otherwise>
                      <a href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
@@ -97,13 +100,13 @@
    <div style="clear:both">
    
    <form action="list.do" method="get"> 
-      <div class="input-group">
-      <select style="width:300px" class="form-select form-select-sm" aria-label=".form-select-sm example" name="condition" id="condition">
+      <div class="input-group w-50" style="margin:0 auto">
+      <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="condition" id="condition">
          <option value="title_content" ${condition eq 'title_content' ? 'selected' : '' }>제목+내용</option>
          <option value="title" ${condition eq 'title' ? 'selected' : '' }>제목</option>
          <option value="writer" ${condition eq 'writer' ? 'selected' : '' }>작성자</option>
       </select>
-      <input style="width:300px" class="form-control " type="text" id="keyword" name="keyword" placeholder="검색어..." value="${keyword }"/>
+      <input style="width:350px" class="form-control" type="text" id="keyword" name="keyword" placeholder="검색어..." value="${keyword }"/>
       <button class="btn btn-outline-secondary pull-right" type="submit">검색</button>
       </div>
    </form>   
