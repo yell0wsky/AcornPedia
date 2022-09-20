@@ -31,9 +31,16 @@
       padding: 0;
    }
    
-   .page-ui ul > li{
-      float: none;
-      padding: -5px;
+   .page-ui ul{
+   	  display:flex;
+   	  justify-content:center;
+      text-align:center;
+      list-style-type: none;
+      padding: 0;
+   }
+   
+   .pagination li a{
+   	  margin: 0px 0.3rem;
    }
    
 </style>
@@ -81,7 +88,7 @@
             <li>
                <c:choose>
                   <c:when test="${pageNum eq i }">
-                     <a  class="active "  href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
+                     <a  class="active" href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
                   </c:when>
                   <c:otherwise>
                      <a href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>

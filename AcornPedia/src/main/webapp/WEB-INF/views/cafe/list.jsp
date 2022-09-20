@@ -24,16 +24,17 @@
       text-decoration: underline;
       
    }
+   
    .page-ui ul{
-      display: block;
+   	  display:flex;
+   	  justify-content:center;
       text-align:center;
       list-style-type: none;
       padding: 0;
    }
    
-   .page-ui ul > li{
-      float: none;
-      padding: -5px;
+    .pagination li a{
+   	  margin: 0px 0.3rem;
    }
 </style>
 </head>
