@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/info.css" />
 </head>
 <body>
-<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 
   <div id="wrap">
   
@@ -19,8 +18,6 @@
         <div id="top-a">
           <img src="../images/watcha.png" alt="pedia" />
           <br>
-        
-          
           <form>
             <label for="name">이름</label>
             <input type="text" name="name" id="name" placeholder=" ">
@@ -57,6 +54,5 @@
 	}
 </script>
 </body>
-<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </html>
 

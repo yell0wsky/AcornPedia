@@ -55,7 +55,7 @@
 		</div>
 		<div class="container">
 			<label class="control-label" for="mpn">이름</label>
-			<input class="form-control" type="text" name="name"  id="name"/>
+			<input class="form-control" type="text" name="name" id="name"/>
 			<div class="invalid-feedback"></div>
 		</div>
 		<div class="container">
@@ -72,11 +72,6 @@
 			<label class="control-label" for="email">이메일</label>
 			<input class="form-control" type="text" name="email"  id="email"/>
 			<div class="invalid-feedback">이메일 형식을 확인 하세요.</div>
-		</div>
-		<div class="container">
-			<label class="control-label" for="phone">연락처</label>
-			<input class="form-control" type="text" name="phone"  id="phone"/>
-			<div class="invalid-feedback">정확한 번호를 기재해 주세요.</div>
 		</div>
 		<div class="button">		
 		<button class="btn btn-primary" type="submit">가입</button>
@@ -196,8 +191,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
