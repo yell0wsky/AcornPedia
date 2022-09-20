@@ -358,7 +358,7 @@ li {
          </c:when>
          <c:otherwise>
             <li class="navbar-li css-text css-hidden">
-	            <a href="${pageContext.request.contextPath}/users/info.o" cdlass="navbar-atext">${sessionScope.id }</a>
+	            <a href="${pageContext.request.contextPath}/users/info.do" class="navbar-atext">${sessionScope.id }</a>
 	            <a href="${pageContext.request.contextPath}/users/logout.do" class="navbar-atext navbar-margin navbar-color"> <span>로그아웃</span>
             </a><li>
          </c:otherwise>

@@ -43,7 +43,7 @@
 	<h2>본인 확인</h2>
 		<div>
 			<label for="phone">연락처</label>
-			<input type="text" name="phone" id="phone" value="???"/>
+			<input type="text" name="phone" id="phone" value="${dto.phone }"/>
 		</div>
 		</table>
 	
