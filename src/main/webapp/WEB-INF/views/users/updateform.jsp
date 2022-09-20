@@ -6,8 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/users/updateform.jsp</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/info.css" />
 <style>
 	/* 프로필 이미지를 작은 원형으로 만든다 */
 	#profileImage{
@@ -22,57 +20,39 @@
 </style>
 </head>
 <body>
-<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
-  <div id="wrap">
-      <div id="container">
-        <div id="top-a">
-          <a id="profileLink" href="javascript:">
-		<c:choose>
-			<c:when test="${empty dto.profile }">
-				<svg id="profileImage" xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-					  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-					  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-				</svg>
-			</c:when>
-			<c:otherwise>
-				<img id="profileImage" 
-					src="${pageContext.request.contextPath}${dto.profile}" />
-			</c:otherwise>
-		</c:choose>
-	</a>
+<div class="container">
+	<h1>회원정보 수정</h1>
+	<a id="profileLink" href="javascript:"></a>
 	<form action="${pageContext.request.contextPath}/users/update.do" method="post">
 		<input type="hidden" name="profile" 
 			value="${ empty dto.profile ? '' : dto.profile}"/>
-          
-            <label for="name">이름</label>
-            <input type="text" name="name" id="name" style="height:20px;" value="${dto.name }" />
-            
-            <label for="id">아이디</label>
-            <input type="text" name="id" id="id" style="height:20px;" value="${id }" />
-
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" style="height:20px;" value="${dto.email }" />
-           
-            
-            <label for="phone"></label>
-            <input type="hidden" name="name" id="id">
-         
-          <br />
-        
-            <a href="${pageContext.request.contextPath}/users/pwd_updateform.do">비밀번호 수정</a>
-            <button type="submit">수정반영</button>
-            </form>
-          <form action="${pageContext.request.contextPath}/users/ajax_profile_upload.do" method="post" 
+		<div>
+			<label for="id">아이디</label>
+			<input type="text" id="id" value="${id }" disabled/>
+		</div>
+		<div>
+			<label for="email">이메일</label>
+			<input type="text" name="email" id="email" value="${dto.email }"/>
+		</div>
+		<div>
+			<label for="pwd">비밀번호</label>
+			<td><a href="${pageContext.request.contextPath}/users/pwd_updateform.do">수정하기</a></td>
+		</div>
+		<button type="submit">수정반영</button>
+	</form>
+	<h2>본인 확인</h2>
+		<div>
+			<label for="phone">연락처</label>
+			<input type="text" name="phone" id="phone" value="${dto.phone }"/>
+		</div>
+		</table>
+	
+	<form action="${pageContext.request.contextPath}/users/ajax_profile_upload.do" method="post" 
 				id="imageForm" enctype="multipart/form-data">
 		<input type="file" name="image" id="image" 
 			accept=".jpg, .jpeg, .png, .JPG, .JPEG, .gif"/>
 	</form>
-        </div>  
-               
-      </div>
-</div>	
-
-<script>
+</div>
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
 	//프로필 이미지 링크를 클릭하면 
@@ -123,7 +103,6 @@
 	});
 </script>
 </body>
-<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </html>
 
 
