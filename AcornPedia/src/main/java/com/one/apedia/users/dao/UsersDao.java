@@ -15,4 +15,9 @@ public interface UsersDao {
 	public void update(UsersDto dto);
 	//회원 정보를 삭제하는 메소드
 	public void delete(String id);
+	//회원포인트를 올리는 메소드
+	public void pointup(String id);
+	//회원 포인트를 내리는 메소드
+	public void pointdown(String id);
+	
 }
