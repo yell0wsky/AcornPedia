@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script src="https://kit.fontawesome.com/2e01103920.js"
-	crossorigin="anonymous"></script>
 
 <!-- The Modal -->
-<div class="modal fade" id="loginmodal">
-
+<div class="modal fade" id="loginmodal" aria-hidden="true" aria-labelledby="loginmodalLabel" tabindex="-1">
 	<div class="modal-dialog modal-sm modal-dialog-centered">
 		<section id="loginmodalsection">
 			<div class="modal-content">
@@ -50,17 +47,18 @@
 							<button type="submit" class="btn-btn-primary">로그인</button>
 						</div>
 
-						<div>
-							<button class="btn btn-primary" data-bs-target="#signupmodal"
-								data-bs-toggle="modal">회원가입</button>
-						</div>
 
 
 
-						<a href="${pageContext.request.contextPath}/users/signup_form.do"
-							data-toggle="modal" data-target="#signupmodal">회원가입</a>
+
 
 					</form>
+					<div>
+					<a href="${pageContext.request.contextPath}/users/signup_form.do"
+							data-toggle="modal" data-target="#signupmodal">
+						<button class="btn btn-primary" data-bs-target="#signupmodal"
+							data-bs-toggle="modal">회원가입</button></a>
+					</div>
 				</div>
 
 
@@ -69,7 +67,7 @@
 	</div>
 </div>
 <!-- The Modal -->
-<div class="modal fade" id="signupmodal">
+<div class="modal fade" id="signupmodal" aria-hidden="true" aria-labelledby="signupmodalLabel" tabindex="-1">
 	<div class="modal-dialog modal-sm modal-dialog-centered">
 		<section id="signupmodalsection">
 			<div class="modal-content">
@@ -78,8 +76,6 @@
 						src="${pageContext.request.contextPath}/resources/images/watcha.png"
 						id="modal-logo">
 				</div>
-
-				<!-- Modal Header -->
 				<header class="header">
 
 					<h2 class="modal-title">회원가입</h2>
@@ -135,12 +131,12 @@
 						<div class="btn" id="submitbtn">
 							<button class="btn-btn-primary" type="submit">회원가입</button>
 						</div>
+						<div>
 						<a href="${pageContext.request.contextPath}/users/loginform.do"
 							class="navbar-atext" data-toggle="modal"
-							data-target="#loginmodal">로그인</a>
-						<div>
+							data-target="#loginmodal">
 							<button class="btn btn-primary" data-bs-target="#loginmodal"
-								data-bs-toggle="modal">로그인</button>
+								data-bs-toggle="modal">로그인</button></a>
 						</div>
 
 					</form>
@@ -149,7 +145,6 @@
 		</section>
 	</div>
 </div>
-
 <nav class="navbar-box">
 	<ul class="navbar-ul">
 		<li class="navbar-li css-logo"><a

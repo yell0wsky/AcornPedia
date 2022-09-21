@@ -24,18 +24,16 @@ input:focus {
 }
 
 #loginmodalsection{
-	width:300px;
-	height:400px;
 }
 
 #signupmodalsection{
-	width:400px;
-	height:550px;
 }
 
 .modal fade {
-	width: 400px;
-	height: 550px;
+	position:fixed;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
 }
 #img-logo{
 	display:flex;
