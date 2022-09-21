@@ -5,49 +5,80 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/users/signup_form.jsp</title>
+<style>
+.wrap {
+	margin-top: 100px;
+	margin-down: 20px;	
+}
+.wrap h1{
+	
+	text-align:center;
+	height:100px;
+}
+.mid-header {
+	text-align:center; 
+	margin-down:50px;
+}
+.container {
+	width:400px;
+	text-align: center;
+}
+.container input{
+	height: 40px;
+	width: 30%;
+	padding: 20px 10px 10px;
+	margin: 0 auto;
+}
+.button{
+	text-align: center;
+}
+</style>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-
 <body>
-<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
-<div class="container">
-
-	<h1>회원정보를 입력해 주세여 </h1>
+	<div class="mid-header">
+		<h1>
+			<img src="../images/watcha.png" height="80px" text-align="center"/>
+		</h1>
+</div>
+	<div class="wrap">
+		<h1>회원가입</h1>
+		</div>
 	<form class="animate__animated animate__bounceInDown" action="${pageContext.request.contextPath}/users/signup.do" method="post" id="myForm">
-		<div>
+
+		<div class="container">
 			<label class="control-label" for="id">아이디</label>
-			<input class="form-control" type="text" name="id" id="id"/>
+			<input class="form-control" type="text" name="id"  id="id"/>
 			<small class="form-text text-muted">영문자 소문자로 시작하고 5글자~10글자 이내로 입력하세요.</small>
 			<div class="invalid-feedback">사용할수 없는 아이디 입니다.</div>
 		</div>
-		<div>
+		<div class="container">
+			<label class="control-label" for="mpn">이름</label>
+			<input class="form-control" type="text" name="name" id="name"/>
+			<div class="invalid-feedback"></div>
+		</div>
+		<div class="container">
 			<label class="control-label" for="pwd">비밀번호</label>
-			<input class="form-control" type="password" name="pwd" id="pwd"/>
+			<input class="form-control" type="password" name="pwd"  id="pwd"/>
 			<small class="form-text text-muted">5글자~10글자 이내로 입력하세요.</small>
 			<div class="invalid-feedback">비밀번호를 확인 하세요.</div>
 		</div>
-		<div>
+		<div class="container">
 			<label class="control-label" for="pwd2">비밀번호 확인</label>
-			<input class="form-control" type="password" name="pwd2" id="pwd2"/>
+			<input class="form-control" type="password" name="pwd2"  id="pwd2"/>
 		</div>
-		<div>
+		<div class="container">
 			<label class="control-label" for="email">이메일</label>
-			<input class="form-control" type="text" name="email" id="email"/>
+			<input class="form-control" type="text" name="email"  id="email"/>
 			<div class="invalid-feedback">이메일 형식을 확인 하세요.</div>
 		</div>
-		<div>
-			<label class="control-label" for="mpn">휴대폰 번호</label>
-			<input class="form-control" type="number" name="mpn" id="mpn"/>
-			<div class="invalid-feedback">정확한 번호를 기재해 주세요.</div>
-		</div>
+		<div class="button">		
 		<button class="btn btn-primary" type="submit">가입</button>
-	</form>
-</div>
-<script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
+	</div>
+</form>
+
+		<script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
 	//아이디, 비밀번호, 이메일의 유효성 여부를 관리한 변수 만들고 초기값 대입
 	let isIdValid=false;
@@ -160,8 +191,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-

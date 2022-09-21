@@ -6,45 +6,36 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/users/info.jsp</title>
-<style>
-	/* 프로필 이미지를 작은 원형으로 만든다 */
-	#profileImage{
-		width: 50px;
-		height: 50px;
-		border: 1px solid #cecece;
-		border-radius: 50%;
-	}
-</style>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/info.css" />
 </head>
 <body>
-<div class="container">
-	<h1>회원 정보</h1>
-	<table>
-		<tr>
-			<th>아이디</th>
-			<td>${id }</td>
-		</tr>
-		<tr>
-			<th>이름</th>
-			<td></td>
-		</tr>
-		<tr>
-			<th>닉네임</th>
-			<td>???</td>
-		</tr>
-		<tr>
-				<th>연락처 </th>
-				<td>???</td>
-			</tr>
-		<tr>
-			<th>가입일</th>
-			<td>${dto.regdate }</td>
-		</tr>
-</table>
-		
-	<a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a>
-	<a href="javascript:deleteConfirm()">탈퇴</a>
-</div>
+  <div id="wrap">
+     <div id="container">
+     <h3>회원 정보</h3>
+        <div id="top-a">
+          <img src="../images/watcha.png" alt="pedia" />
+          <br>
+          <form>
+            <label for="name">이름</label>
+            <input type="text" name="name" id="name" placeholder=" ">
+            
+            <label for="id">아이디</label>
+            <input type="text" name="id" id="id" placeholder="${id } ">
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="${dto.email }">
+            
+            <label for="regdate">가입일</label>
+            <input type="text" name="regdate" id="regdate" placeholder="${dto.regdate } ">
+           
+            <a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a>
+			<a href="javascript:deleteConfirm()">회원탈퇴</a>
+          </form>
+        </div>         
+      </div>
+</div>	
+
 <script>
 	function deleteConfirm(){
 		const isDelete=confirm("${id} 님 탈퇴 하시겠습니까?");
@@ -55,8 +46,4 @@
 </script>
 </body>
 </html>
-
-
-
-
 
