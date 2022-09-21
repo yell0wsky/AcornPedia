@@ -13,7 +13,7 @@
 				ON board_notice_comment.writer=users.id
 				WHERE ref_group=#{ref_group}
 				ORDER BY comment_group ASC, num ASC) result1)
-		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}	
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
 	</select>
 	<update id="delete" parameterType="int">
 		UPDATE board_notice_comment

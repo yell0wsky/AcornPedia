@@ -75,7 +75,7 @@
      background-color: #f5f5f5;
      border: 1px solid #ccc;
      border-radius: 4px;
-   }   
+   }
    
    .loader{
       /* 로딩 이미지를 가운데 정렬하기 위해 */
@@ -471,4 +471,5 @@
    }
 </script>
 </body>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </html>

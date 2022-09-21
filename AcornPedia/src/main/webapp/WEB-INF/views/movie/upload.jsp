@@ -19,4 +19,5 @@
 		location.href = "${pageContext.request.contextPath}/movie/list.do"
 	</script>
 </body>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </html>

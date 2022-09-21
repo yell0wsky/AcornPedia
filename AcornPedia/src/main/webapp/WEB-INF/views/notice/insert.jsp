@@ -13,6 +13,7 @@
 		location.href="${pageContext.request.contextPath}/notice/list.do";
 	</script>
 </body>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </html>
 
 

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/cafe/updateform.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
@@ -83,4 +84,5 @@
 	}
 </script>
 </body>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </html>

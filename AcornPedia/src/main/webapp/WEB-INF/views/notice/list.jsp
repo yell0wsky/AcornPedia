@@ -52,7 +52,7 @@
    <a class="btn btn-default pull-right" href="insertform.do">글쓰기</a>
    </c:if>
    <h1>공지사항</h1>
-   <table class="table table" style="text-align: center;">
+   <table class="table table-hover" style="text-align: center;">
       <thead>
          <tr>
             <th style="background-color: #eeeeee; text-align: center;">글번호</th>
@@ -68,7 +68,7 @@
             <td>${tmp.num }</td>
             <td>${tmp.writer }</td>
             <td>
-               <a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }[]</a>
+               <a style="text-decoration-line: none" class="text-dark " href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}" >${tmp.title }</a>
             </td>
             <td>${tmp.viewCount }</td>
             <td>${tmp.regdate }</td>
@@ -125,4 +125,5 @@
    </c:if>
 </div>
 </body>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </html>

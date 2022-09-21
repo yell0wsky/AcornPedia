@@ -28,7 +28,6 @@ public class CafeController {
 	
 	@RequestMapping("/cafe/list")
 	public String getList(HttpServletRequest request) {
-		
 		service.getList(request);
 		
 		return "cafe/list";
@@ -70,7 +69,6 @@ public class CafeController {
 	//댓글 더보기 요청 처리
 	@RequestMapping("/cafe/ajax_comment_list")
 	public String ajaxCommentList(HttpServletRequest request) {
-		
 		service.moreCommentList(request);
 		
 		try {
@@ -114,9 +112,7 @@ public class CafeController {
 	
 	@RequestMapping("/cafe/updateform")
 	public ModelAndView authUpdateForm(HttpServletRequest request) {
-		
 		service.getData(request);
-		
 		return new ModelAndView("cafe/updateform");
 	}
 	//카페글 수정 요청 처리 

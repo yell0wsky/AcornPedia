@@ -283,10 +283,10 @@ li {
 .css-footer-box {
    width: 100%;
    background-color: #222222;
-   height: auto;
+   height : auto;
+   min-height: 100%;
    display: flex;
    font-size: 14px;
-   position: absolute;
    bottom: 0;
 }
 

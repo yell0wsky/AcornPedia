@@ -14,4 +14,5 @@
 		location.href="${pageContext.request.contextPath}/cafe/detail.do?num=${param.num}";
 	</script>
 </body>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </html> 
