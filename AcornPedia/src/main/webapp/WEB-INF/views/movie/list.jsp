@@ -10,6 +10,7 @@
 <title>/movie/list.jsp</title>
 <%-- bootstrap 읽어오기 --%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css">
 <style>
    /* card 이미지 부모요소의 높이 지정 */
    .img-wrapper{
@@ -118,6 +119,6 @@
    // card 이미지의 부모 요소를 선택해서 imgLiquid  동작(jquery plugin 동작) 하기 
    $(".img-wrapper").imgLiquid();
 </script> --%>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>

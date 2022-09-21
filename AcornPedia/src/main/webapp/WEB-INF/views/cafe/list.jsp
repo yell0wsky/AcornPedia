@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>/views/cafe/list.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css">
+
+
 <style>
 	 .page-ui a{
       text-decoration: none;
@@ -125,6 +128,6 @@
 		</p>
 	</c:if>
 </div>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>

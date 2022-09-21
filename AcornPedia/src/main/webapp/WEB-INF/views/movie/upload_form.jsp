@@ -7,6 +7,7 @@
 <title>/movie/upload_form.jsp</title>
 <%-- bootstrap 읽어오기 --%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
@@ -25,6 +26,6 @@
 	      	<button type="submit">업로드</button>
 	   	</form>
 	</div>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>

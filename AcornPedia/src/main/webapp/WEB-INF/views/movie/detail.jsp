@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <title>/movie/detail.jsp</title>
 <%-- bootstrap --%>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" >
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
@@ -60,7 +61,7 @@
       </ul>
    </nav>      
 </div>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>
 

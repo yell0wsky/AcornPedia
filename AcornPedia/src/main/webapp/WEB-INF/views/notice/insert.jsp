@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/notice/insert.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
@@ -12,8 +13,8 @@
 		alert("새글이 추가 되었습니다.");
 		location.href="${pageContext.request.contextPath}/notice/list.do";
 	</script>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>
 
 

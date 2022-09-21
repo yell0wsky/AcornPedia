@@ -55,6 +55,6 @@
 			document.querySelector("#insertForm").submit();
 		});
 	</script>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>

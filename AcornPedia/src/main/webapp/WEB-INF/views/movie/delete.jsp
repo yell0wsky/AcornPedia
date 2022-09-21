@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/movie/delete.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
@@ -12,6 +14,6 @@
 		alert("사진이 삭제되었습니다.");
 		location.href="${pageContext.request.contextPath}/movie/list.do";
 	</script>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>

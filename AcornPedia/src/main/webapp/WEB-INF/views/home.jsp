@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>/views/home.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
@@ -18,6 +19,6 @@
 		<li><a href="${pageContext.request.contextPath}/notice/list.do">공지사항</a></li>
 	</ul>
 </div>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>

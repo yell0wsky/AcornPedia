@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/notice/update.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
@@ -13,6 +14,6 @@
 		alert("${id} 님 글을 수정 했습니다.");
 		location.href="${pageContext.request.contextPath}/notice/detail.do?num=${param.num}";
 	</script>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html> 

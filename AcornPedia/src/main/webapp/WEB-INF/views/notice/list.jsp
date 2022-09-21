@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/notice/list.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <style>
    .page-ui a{
@@ -124,6 +125,6 @@
       </p>
    </c:if>
 </div>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>

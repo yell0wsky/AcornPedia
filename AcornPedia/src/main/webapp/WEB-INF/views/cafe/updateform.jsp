@@ -83,6 +83,6 @@
 		oEditors.getById["content"].setDefaultFont(sDefaultFont, nFontSize);
 	}
 </script>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>

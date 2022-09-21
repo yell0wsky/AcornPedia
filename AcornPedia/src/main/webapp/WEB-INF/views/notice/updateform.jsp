@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/notice/updateform.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 </head>
 <body>
@@ -83,6 +84,6 @@
 		oEditors.getById["content"].setDefaultFont(sDefaultFont, nFontSize);
 	}
 </script>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>

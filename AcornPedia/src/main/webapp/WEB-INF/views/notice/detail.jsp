@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/notice/detail.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <style>
@@ -470,6 +471,6 @@
       }
    }
 </script>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>

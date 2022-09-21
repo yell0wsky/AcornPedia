@@ -13,6 +13,6 @@
 		alert("${id} 님 글을 수정 했습니다.");
 		location.href="${pageContext.request.contextPath}/cafe/detail.do?num=${param.num}";
 	</script>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html> 

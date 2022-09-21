@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/notice/insertform.jsp</title>
-<link rel="stylesheet" 
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <style>
 	#content{
 		height: 500px;
@@ -106,8 +106,8 @@
 			
 		});
 </script>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>
 
 
