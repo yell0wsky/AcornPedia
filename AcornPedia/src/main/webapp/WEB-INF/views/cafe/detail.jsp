@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/cafe/detail.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <style>
@@ -75,7 +76,7 @@
      background-color: #f5f5f5;
      border: 1px solid #ccc;
      border-radius: 4px;
-   }   
+   }
    
    .loader{
       /* 로딩 이미지를 가운데 정렬하기 위해 */
@@ -470,5 +471,6 @@
       }
    }
 </script>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>

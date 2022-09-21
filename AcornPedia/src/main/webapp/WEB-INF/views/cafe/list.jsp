@@ -7,7 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/cafe/list.jsp</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
 <style>
 	 .page-ui a{
       text-decoration: none;
@@ -24,16 +30,22 @@
       text-decoration: underline;
       
    }
+   
    .page-ui ul{
-      display: block;
+   	  display:flex;
+   	  justify-content:center;
       text-align:center;
       list-style-type: none;
       padding: 0;
    }
    
-   .page-ui ul > li{
-      float: none;
-      padding: -5px;
+    .pagination li a{
+   	  margin: 0px 0.3rem;
+   }
+   
+   .move-tr:hover{
+   		background-color: #cecece;
+   		cursor:pointer;
    }
 </style>
 </head>
@@ -54,16 +66,21 @@
 		</thead>
 		<tbody>
 		<c:forEach var="tmp" items="${list }">
-			<tr>
+			<tr class="move-tr" onclick="move('detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}')">
 				<td>${tmp.num }</td>
 				<td>${tmp.writer }</td>
 				<td>
-					<a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }[]</a>
+					<a style="text-decoration-line: none" class="text-dark " href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }</a>
 				</td>
 				<td>${tmp.viewCount }</td>
 				<td>${tmp.regdate }</td>
 			</tr>
 		</c:forEach>
+		<script>
+			function move(dest){
+				location.href=dest;
+			}
+		</script>
 		</tbody>
 	</table>
 	<a class="btn btn-outline-danger pull-right" href="insertform.do">글쓰기</a>
@@ -114,5 +131,6 @@
 		</p>
 	</c:if>
 </div>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>
