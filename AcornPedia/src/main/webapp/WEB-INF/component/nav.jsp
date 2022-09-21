@@ -1,20 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script src="https://kit.fontawesome.com/2e01103920.js"
-	crossorigin="anonymous"></script>
+	crossorigin="anonymous"
+></script>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.css"
+/>
 <script
-	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"
+></script>
 <script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+></script>
 <script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+></script>
 
 <!-- The Modal -->
 <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog"
-	aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
+>
 
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
@@ -23,7 +30,8 @@
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLongTitle">로그인</h5>
 				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
+					aria-label="Close"
+				>
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
@@ -31,23 +39,25 @@
 			<div class="modal-body">
 				<form class="animate__animated animate__bounceInDown"
 					action="${pageContext.request.contextPath}/users/login.do"
-					method="post">
+					method="post"
+				>
 					<c:choose>
 						<c:when test="${ empty param.url }">
 							<input type="hidden" name="url"
-								value="${pageContext.request.contextPath}/" />
+								value="${pageContext.request.contextPath}/"
+							/>
 						</c:when>
 						<c:otherwise>
 							<input type="hidden" name="url" value="${param.url }" />
 						</c:otherwise>
 					</c:choose>
 					<div>
-						<label class="control-label" for="id">아이디</label> <input
-							class="form-control" type="text" name="id" id="id" />
+						<label class="control-label" for="id">아이디</label>
+						<input class="form-control" type="text" name="id" id="id" />
 					</div>
 					<div>
-						<label class="control-label" for="pwd">비밀번호</label> <input
-							class="form-control" type="password" name="pwd" id="pwd" />
+						<label class="control-label" for="pwd">비밀번호</label>
+						<input class="form-control" type="password" name="pwd" id="pwd" />
 					</div>
 					<!-- Modal footer -->
 					<div class="modal-footer">
@@ -73,32 +83,33 @@
 			<div class="modal-body">
 				<form class="animate__animated animate__bounceInDown"
 					action="${pageContext.request.contextPath}/users/signup.do"
-					method="post" id="myForm">
+					method="post" id="myForm"
+				>
 					<div>
-						<label class="control-label" for="id">아이디</label> <input
-							class="form-control" type="text" name="id" id="id" /> <small
-							class="form-text text-muted">영문자 소문자로 시작하고 5글자~10글자 이내로
-							입력하세요.</small>
+						<label class="control-label" for="id">아이디</label>
+						<input class="form-control" type="text" name="id" id="id" />
+						<small class="form-text text-muted">영문자 소문자로 시작하고 5글자~10글자
+							이내로 입력하세요.</small>
 						<div class="invalid-feedback">사용할수 없는 아이디 입니다.</div>
 					</div>
 					<div>
-						<label class="control-label" for="name">이름</label> <input
-							class="form-control" type="text" name="name" id="name" />
+						<label class="control-label" for="name">이름</label>
+						<input class="form-control" type="text" name="name" id="name" />
 						<div class="invalid-feedback"></div>
 					</div>
 					<div>
-						<label class="control-label" for="pwd">비밀번호</label> <input
-							class="form-control" type="password" name="pwd" id="pwd" /> <small
-							class="form-text text-muted">5글자~10글자 이내로 입력하세요.</small>
+						<label class="control-label" for="pwd">비밀번호</label>
+						<input class="form-control" type="password" name="pwd" id="pwd" />
+						<small class="form-text text-muted">5글자~10글자 이내로 입력하세요.</small>
 						<div class="invalid-feedback">비밀번호를 확인 하세요.</div>
 					</div>
 					<div>
-						<label class="control-label" for="pwd2">비밀번호 확인</label> <input
-							class="form-control" type="password" name="pwd2" id="pwd2" />
+						<label class="control-label" for="pwd2">비밀번호 확인</label>
+						<input class="form-control" type="password" name="pwd2" id="pwd2" />
 					</div>
 					<div>
-						<label class="control-label" for="email">이메일</label> <input
-							class="form-control" type="text" name="email" id="email" />
+						<label class="control-label" for="email">이메일</label>
+						<input class="form-control" type="text" name="email" id="email" />
 						<div class="invalid-feedback">이메일 형식을 확인 하세요.</div>
 					</div>
 					<!-- Modal footer -->
@@ -107,9 +118,6 @@
 					</div>
 				</form>
 			</div>
-
-
-
 		</div>
 	</div>
 </div>
@@ -323,25 +331,30 @@ li {
 <nav class="navbar-box">
 	<ul class="navbar-ul">
 		<li class="navbar-li css-logo"><a
-			href="${pageContext.request.contextPath}/home.do"> <img
+			href="${pageContext.request.contextPath}/home.do"
+		> <img
 				src="${pageContext.request.contextPath}/resources/images/watcha.png"
-				id="logo">
+				id="logo"
+			>
 		</a></li>
 		<li class="navbar-li css-text navbar-li-remove"><a
 			href="${pageContext.request.contextPath}/notice/list.do"
-			class="navbar-atext">공지</a></li>
+			class="navbar-atext"
+		>공지</a></li>
 		<li class="navbar-li css-text navbar-li-remove"><a
 			href="${pageContext.request.contextPath}/movie/list.do"
-			class="navbar-atext">영화</a></li>
+			class="navbar-atext"
+		>영화</a></li>
 		<li class="navbar-li css-text navbar-li-remove"><a
 			href="${pageContext.request.contextPath}/cafe/list.do"
-			class="navbar-atext">자유</a></li>
+			class="navbar-atext"
+		>자유</a></li>
 		<li class="navbar-li css-text css-search">
 			<form action="#">
 				<div class="navbar-divicon">
-					<i class="fas fa-search" id="fuck"></i> <input type="text"
-						placeholder="콘텐츠, 인물, 컬렉션를 검색해보세요."> <i
-						class="fas fa-search" id="haha"></i>
+					<i class="fas fa-search" id="fuck"></i>
+					<input type="text" placeholder="콘텐츠, 인물, 컬렉션를 검색해보세요.">
+					<i class="fas fa-search" id="haha"></i>
 				</div>
 			</form>
 		</li>
@@ -349,25 +362,24 @@ li {
 			<c:when test="${ empty sessionScope.id}">
 				<li class="navbar-li css-text css-hidden"><a
 					href="${pageContext.request.contextPath}/users/loginform.do"
-					class="navbar-atext" data-toggle="modal" data-target="#loginmodal">로그인</a>
-					<a href="${pageContext.request.contextPath}/users/signup_form.do"
+					class="navbar-atext" data-toggle="modal" data-target="#loginmodal"
+				>로그인</a> <a
+					href="${pageContext.request.contextPath}/users/signup_form.do"
 					class="navbar-atext navbar-margin navbar-color" data-toggle="modal"
-					data-target="#signupmodal"><span>회원가입</span></a></li>
+					data-target="#signupmodal"
+				><span>회원가입</span></a></li>
 			</c:when>
 			<c:otherwise>
 				<li class="navbar-li css-text css-hidden"><a
 					href="${pageContext.request.contextPath}/users/info.do"
-					class="navbar-atext">${sessionScope.id }</a> <a
+					class="navbar-atext"
+				>${sessionScope.id }</a> <a
 					href="${pageContext.request.contextPath}/users/logout.do"
-					class="navbar-atext navbar-margin navbar-color"> <span>로그아웃</span>
+					class="navbar-atext navbar-margin navbar-color"
+				> <span>로그아웃</span>
 				</a>
 				<li>
 			</c:otherwise>
 		</c:choose>
 	</ul>
 </nav>
-
-</body>
-<script>
-	
-</script>

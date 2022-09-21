@@ -18,6 +18,6 @@
 		<li><a href="${pageContext.request.contextPath}/notice/list.do">공지사항</a></li>
 	</ul>
 </div>
-</body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+</body>
 </html>

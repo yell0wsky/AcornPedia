@@ -10,10 +10,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/info.css" />
 </head>
 <body>
-
   <div id="wrap">
-  
-      <div id="container">
+     <div id="container">
      <h3>회원 정보</h3>
         <div id="top-a">
           <img src="../images/watcha.png" alt="pedia" />
@@ -30,19 +28,12 @@
             
             <label for="regdate">가입일</label>
             <input type="text" name="regdate" id="regdate" placeholder="${dto.regdate } ">
-
-            <label for="phone">연락처</label>
-            <input type="text" name="phone" id="phone" placeholder=" ">
-            
-            <label for="phone"></label>
-            <input type="hidden" name="name" id="id">
            
             <a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a>
 			<a href="javascript:deleteConfirm()">회원탈퇴</a>
           </form>
         </div>         
       </div>
-
 </div>	
 
 <script>
