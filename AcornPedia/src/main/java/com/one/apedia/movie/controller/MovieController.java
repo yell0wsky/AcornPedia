@@ -53,7 +53,7 @@ public class MovieController {
 		
 	}
 	@RequestMapping("/movie/getStars")
-	public String getStars(HttpSession session, HttpServletRequest request) {
+	public ModelAndView getStars(HttpSession session, HttpServletRequest request) {
 		//get 방식으로 받아온 num에 해당하는 영화에 star만큼의 별점을 올린다.
 		
 		String id=(String)session.getAttribute("id");
@@ -61,6 +61,6 @@ public class MovieController {
 		int star=Integer.parseInt(request.getParameter("rating"));
 		service.addStars(id, num, star);
 		
-		return "movie/detail";
+		return new ModelAndView("redirect:/movie/detail.do?num="+num);
 	}
 }
