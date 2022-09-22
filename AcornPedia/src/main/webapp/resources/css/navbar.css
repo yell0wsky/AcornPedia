@@ -273,9 +273,11 @@ li {
 	}
 }
 
-.container {
-	padding-top: 100px;
-	text-decoration: none;
+.container,
+.a172938a {
+   padding-top: 100px;
+   text-decoration: none;
+   flex: 1 0 auto;
 }
 
 /* footer css */
@@ -319,4 +321,11 @@ li {
 	.css-footer-3line {
 		flex-direction: column;
 	}
+}
+  .container,
+  .a172938a{
+    z-index: 0;
+}
+   .navbar-box{
+    z-index: 200;
 }
