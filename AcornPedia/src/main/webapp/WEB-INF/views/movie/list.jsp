@@ -22,26 +22,31 @@
             overflow: hidden;
         }
 
-        .slides {
+        .slides,
+        .slides2 {
         	position:absolute;
             left: 0; top:0;
             width: 2820px;
             padding: 0px;
             transition: left 0.5s ease-out;
+            display: flex;       
         }
 
         .movie-css-listimg img {
             height: 330px;
             width: 220px;
+            border-radius:5px;
         }
 		
-		.slides li:not(:last-child) {
+		.slides li,
+		.slides2 li {
 			float: left;
 			margin-right: 30px
 		} 
 		.i9h72v {
 			margin-left: 50px;
 		}
+		
 		.controls{
 			display: flex;
 			justify-content: space-between;
@@ -52,8 +57,21 @@
 		}
 		
 		.a172938a{
-			margin: 0 30px
+			margin: 0 30px;
+			padding-top: 100px
 		}
+		.a172938a2{
+			margin: 0 30px;
+		}
+		
+		.movie-css-listText p{
+			width: 220px;
+			color: black;
+		}
+		.slide_wrapper a{
+			text-decoration-line:none;
+		}
+		
 		
     </style>
 </head>
@@ -74,8 +92,32 @@
 	                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmp.poster_path }" />
 	                        </div>
 	                        <div class="movie-css-listText">
-	                            <p class="">${tmp.title}</p>
-	                            <p class="">by <strong>${tmp.original_title}</strong></p>
+	                            <p class="8277n1m" >${tmp.title}</p>
+	                            <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
+	                        </div>
+                   		</a>
+                    </li>
+            	</c:forEach>
+            </ul>
+        </div>
+    </div>
+    <div class="a172938a2">
+	    <h1 class="i9h72v">2번째 영화목록</h1>
+		<p class="controls">
+			<span class="prev2"><</span>
+			<span class="next2">></span>
+		</p>
+        <div class="slide_wrapper">
+            <ul class="slides2">
+            	<c:forEach var="tmp" items="${list }">
+                    <li>
+                    	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
+	                        <div class="movie-css-listimg">
+	                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmp.poster_path }" />
+	                        </div>
+	                        <div class="movie-css-listText">
+	                            <p class="8277n1m" >${tmp.title}</p>
+	                            <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
 	                        </div>
                    		</a>
                     </li>
@@ -113,6 +155,36 @@
 	        moveSlide(currentIdx -1);
 	    }else{
 	        moveSlide(slideCount -7);
+	    }
+	})
+	
+	var slides2=document.querySelector(".slides2"),
+	    slide2=document.querySelectorAll(".slides2 li"),
+	    currentIdx2=0,
+	    slideCount2=slide2.length,
+	    prevBtn2=document.querySelector(".prev2"),
+	    slideWidth =220,
+	    slideMargin =30,
+	    nextBtn2=document.querySelector(".next2");
+	
+	slides2.style.width=(slideWidth+slideMargin)*slideCount-slideMargin+"px";
+
+	function moveSlide2(num){
+		slides2.style.left=-num * 250 +"px";
+		currentIdx2=num;
+	}
+	nextBtn2.addEventListener("click",function(){
+	    if(currentIdx2<slideCount2 -7){
+	    	moveSlide2(currentIdx2+1);
+	    }else{
+	    	moveSlide2(0)
+	    }
+	})
+	prevBtn2.addEventListener("click",function(){
+	    if(currentIdx2> 0){
+	    	moveSlide2(currentIdx2 -1);
+	    }else{
+	    	moveSlide2(slideCount2 -7);
 	    }
 	})
 	
