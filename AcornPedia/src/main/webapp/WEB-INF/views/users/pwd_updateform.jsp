@@ -5,27 +5,33 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/users/pwd_updateform.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/pwdupdateform.css" />
 </head>
 <body>
-<div class="container">
-	<h1>비밀 번호 수정 폼</h1>
+<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
+<div id="wrap">
+<div id="container">
+	<div id="top-a">
+	<h1>패스워드 변경</h1>
 	<form action="${pageContext.request.contextPath}/users/pwd_update.do" method="post" id="myForm">
 		<div>
-			<label for="pwd">기존 비밀 번호</label>
+			<label for="pwd">기존 패스워드</label>
 			<input type="password" name="pwd" id="pwd"/>
 		</div>
 		<div>
-			<label for="newPwd">새 비밀번호</label>
+			<label for="newPwd">새 패스워드</label>
 			<input type="password" name="newPwd" id="newPwd"/>
 		</div>
 		<div>
-			<label for="newPwd2">새 비밀번호 확인</label>
+			<label for="newPwd2">새 패스워드 확인</label>
 			<input type="password" id="newPwd2"/>
 		</div>
 		<button type="submit">수정하기</button>
-		<button type="reset">리셋</button>
+		
 	</form>
-</div>
+	</div>
+	</div>
+ </div>
 <script>
 	//폼에 submit 이벤트가 일어났을때 실행할 함수를 등록하고 
 	document.querySelector("#myForm").addEventListener("submit", function(e){
@@ -39,6 +45,7 @@
 	});
 </script>
 </body>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </html>
 
 

@@ -30,7 +30,7 @@
 	
           <form>
             <label for="name">이름</label>
-            <input type="text" name="name" id="name" style="height:20px;" value="${dto.name }" readonly/>
+            <input type="text" name="name" id="name" style="height:20px;" maxlength='3' value="${dto.name }" readonly/>
             
             <label for="id">아이디</label>
             <input type="text" name="id" id="id" style="height:20px;" value="${id }" readonly/>
