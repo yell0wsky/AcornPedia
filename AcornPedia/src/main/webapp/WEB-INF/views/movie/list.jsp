@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>/movie/list.jsp</title>
-
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -63,8 +62,8 @@
     <div class="a172938a">
 	    <h1 class="i9h72v">영화목록</h1>
 		<p class="controls">
-			<span class="prev"></span>
-			<span class="next"></span>
+			<span class="prev"><</span>
+			<span class="next">></span>
 		</p>
         <div class="slide_wrapper">
             <ul class="slides">
