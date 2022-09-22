@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="movie">
 	<select id="getList" parameterType="movieDto" resultType="movieDto">
-		SELECT num, title, genre, poster_path, stars
+		SELECT *
+		FROM
+		(SELECT num, title, genre, poster_path, stars
 		FROM movie
+		ORDER BY stars ASC)
+		WHERE ROWNUM BETWEEN 1 AND 30
 	</select>
 
 	<select id="getData" parameterType="int" resultType="movieDto">
