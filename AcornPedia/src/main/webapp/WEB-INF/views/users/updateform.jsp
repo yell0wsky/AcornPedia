@@ -7,14 +7,14 @@
 <meta charset="UTF-8">
 <title>/views/users/updateform.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/updateform.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/users.css" />
 <style>
 	/* 프로필 이미지를 작은 원형으로 만든다 */
 	#profileImage{
-		width: 20px;
-		height: 20px;
-		border: 1px solid #cecece;
-		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+		border: 0px solid #cecece;
+		border-radius: 70%;
 	}
 	#imageForm{
 		display: none;
@@ -54,10 +54,9 @@
             <label for="email">Email</label>
             <input type="email" name="email" id="email" style="height:20px;" value="${dto.email }" />
            
-            
-            <label for="phone"></label>
-            <input type="hidden" name="name" id="id">
-         
+          
+         <br>
+         <br>
         	<button type="submit" class="btn btn-outline-primary">저장</button>
         	<button type="submit" class="btn btn-outline-primary"><a href="${pageContext.request.contextPath}/users/pwd_updateform.do">비밀번호 수정</a></button>
         	

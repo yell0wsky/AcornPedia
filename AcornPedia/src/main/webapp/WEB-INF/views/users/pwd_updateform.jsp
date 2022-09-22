@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/users/pwd_updateform.jsp</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/pwdupdateform.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/users.css" />
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
@@ -13,22 +14,28 @@
 <div id="container">
 	<div id="top-a">
 	<h1>패스워드 변경</h1>
+	
+	<br>
 	<form action="${pageContext.request.contextPath}/users/pwd_update.do" method="post" id="myForm">
-		<div>
+	<form>
+		
 			<label for="pwd">기존 패스워드</label>
-			<input type="password" name="pwd" id="pwd"/>
-		</div>
-		<div>
+			<input type="password" name="pwd" id="pwd" style="height:20px;"/>
+		
+		
 			<label for="newPwd">새 패스워드</label>
-			<input type="password" name="newPwd" id="newPwd"/>
-		</div>
-		<div>
+			<input type="password" name="newPwd" id="newPwd" style="height:20px;"/>
+		
+		
 			<label for="newPwd2">새 패스워드 확인</label>
-			<input type="password" id="newPwd2"/>
-		</div>
-		<button type="submit">수정하기</button>
+			<input type="password" id="newPwd2" style="height:20px;"/>
+			
+			
+		<br>
+		<button type="submit" class="btn btn-outline-primary">수정</button>
 		
 	</form>
+</form>
 	</div>
 	</div>
  </div>

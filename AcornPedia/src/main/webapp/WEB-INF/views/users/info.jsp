@@ -6,14 +6,26 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/users/info.jsp</title>
+<style>
+#profileImage{
+		width: 100px;
+		height: 100px;
+		border: 0px solid #cecece;
+		border-radius: 70%;
+	}
+#imageForm{
+		display: none;
+	}
+</style>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/info.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/users.css" />
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
   <div id="wrap">
       <div id="container">
         <div id="top-a">
+        <a id="profileLink" href="javascript:">
           <c:choose>
 				<c:when test="${empty dto.profile }">
 					<svg id="profileImage" xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16 " >
@@ -26,11 +38,12 @@
 						src="${pageContext.request.contextPath}${dto.profile}"/>
 				</c:otherwise>
 			</c:choose>
+			</a>
 			<br />
 	
           <form>
             <label for="name">이름</label>
-            <input type="text" name="name" id="name" style="height:20px;" maxlength='3' value="${dto.name }" readonly/>
+            <input type="text" name="name" id="name" style="height:20px;" value="${dto.name }" readonly/>
             
             <label for="id">아이디</label>
             <input type="text" name="id" id="id" style="height:20px;" value="${id }" readonly/>
@@ -45,9 +58,10 @@
             <label for="phone"></label>
             <input type="hidden" name="name" id="id">
          
-          <br />
-            <a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a>
-			<a href="javascript:deleteConfirm()">회원탈퇴</a>
+          <br>
+            <button type="submit" class="btn btn-outline-primary"><a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a></button>
+            
+			<button type="submit" class="btn btn-outline-primary" onclick="javascript:deleteConfirm()">회원탈퇴</button>
           </form>
         </div>         
       </div>
