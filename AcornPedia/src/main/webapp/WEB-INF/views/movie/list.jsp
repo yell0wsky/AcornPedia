@@ -82,6 +82,23 @@
             	</c:forEach>
             </ul>
         </div>
+        <div class="slide_wrapper">
+            <ul class="slides">
+            	<c:forEach var="tmp" items="${list2 }">
+                    <li>
+                    	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
+	                        <div class="movie-css-listimg">
+	                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmp.poster_path }" />
+	                        </div>
+	                        <div class="movie-css-listText">
+	                            <p class="">${tmp.title}</p>
+	                            <p class="">by <strong>${tmp.original_title}</strong></p>
+	                        </div>
+                   		</a>
+                    </li>
+            	</c:forEach>
+            </ul>
+        </div>
     </div>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>

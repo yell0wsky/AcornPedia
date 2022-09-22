@@ -9,6 +9,15 @@
 		ORDER BY stars ASC)
 		WHERE ROWNUM BETWEEN 1 AND 30
 	</select>
+	
+	<select id="getList2" parameterType="movieDto" resultType="movieDto">
+		SELECT *
+		FROM
+		(SELECT num, title, genre, poster_path, stars
+		FROM movie
+		ORDER BY stars DESC)
+		WHERE ROWNUM BETWEEN 1 AND 30
+	</select>
 
 	<select id="getData" parameterType="int" resultType="movieDto">
 		SELECT *
@@ -20,11 +29,16 @@
 		DELETE
 		FROM movie
 		WHERE num = #{num}
-
 	</delete>
-	<update id="getStars" parameterType="map">
-		UPDATE movie
-		SET stars=stars+#{star}
-		WHERE num = #{num}
-	</update>
+	<insert id="addStars" parameterType="map">
+		INSERT INTO STARS
+		(movie_no, user_id, stars)
+		VALUES(#{num},#{id},#{star})
+	</insert>
+	<select id="getStars" parameterType="map" resultType="int">
+		SELECT stars
+		FROM Stars
+		WHERE movie_no=#{} AND user_id=#{id}
+	</select>
+	
 </mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 자주 사용하는 type 의 별칭을 등록 해 놓고  Mapper xml 에서 사용할수 있다. -->
+	<typeAliases>
+		<typeAlias type="com.one.apedia.users.dto.UsersDto" alias="usersDto"/>
+		<typeAlias type="com.one.apedia.cafe.dto.CafeDto" alias="cafeDto"/>
+		<typeAlias type="com.one.apedia.cafe.dto.CafeCommentDto" alias="cafeCommentDto"/>
+		<typeAlias type="com.one.apedia.movie.dto.MovieDto" alias="movieDto"/>
+		<typeAlias type="com.one.apedia.notice.dto.NoticeDto" alias="noticeDto"/>
+		<typeAlias type="com.one.apedia.notice.dto.NoticeCommentDto" alias="noticeCommentDto"/>
+	</typeAliases>
+	<!-- 필요한 Mapper xml 등록하기  -->
+	<mappers>
+		<mapper resource="com/one/apedia/mybatis/UsersMapper.xml"/>
+		<mapper resource="com/one/apedia/mybatis/CafeMapper.xml"/>
+		<mapper resource="com/one/apedia/mybatis/CafeCommentMapper.xml"/>
+		<mapper resource="com/one/apedia/mybatis/MovieMapper.xml"/>
+		<mapper resource="com/one/apedia/mybatis/NoticeMapper.xml"/>
+		<mapper resource="com/one/apedia/mybatis/NoticeCommentMapper.xml"/>
+		</mappers>
+</configuration>

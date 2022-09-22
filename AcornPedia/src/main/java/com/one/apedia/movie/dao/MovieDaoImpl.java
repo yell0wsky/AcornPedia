@@ -30,6 +30,12 @@ public class MovieDaoImpl implements MovieDao {
 		return session.selectList("movie.getList", dto);
 	}
 	
+	public List<MovieDto> getList2(MovieDto dto2) {
+		
+		return session.selectList("movie.getList2", dto2);
+	}
+	
+	
 	/*
 	 * Mapper's namespace : movie
 	 * sql's id : getCount
@@ -73,12 +79,19 @@ public class MovieDaoImpl implements MovieDao {
 	}
 
 	@Override
-	public void getStars(int num, int star) {
+	public void addStars(String id, int num, int star) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", id);
 		parameters.put("num", num);
-		parameters.put("star", star);
-		session.update("movie.getStars", parameters);
+		parameters.put("star", star);		
+		session.insert("movie.addStars", parameters);
 	}
 	
+	public int getStars(String id, int num) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", id);
+		parameters.put("num", num);
+		return session.selectOne("movie.getStars", parameters);
+	}
 	
 }

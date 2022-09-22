@@ -7,7 +7,7 @@ body {
 }
 
 #wrap {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,8 +15,8 @@ body {
 
 #container {
     background-color: white;
-    max-width: 70%;
-    border-radius: 8px;
+    max-width: 80%;
+    border-radius: 10px;
     box-shadow: 0 0 20px gainsboro;
 }
 
@@ -24,17 +24,23 @@ body {
     padding: 60px 60px;
     width: 400px;
     display: inline-block;
+    text-align: center;  
+      
 }
+
+
+
 
 form input:not(:last-of-type) {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: 1px solid #E5E9F5;
     background-color: #F6F7FA;
     padding: 20px;
     margin-top: 10px;
     border-radius: 10px;
     width: 100%;
+    text-align: center;
 }
 
 #form-controls {
