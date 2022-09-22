@@ -2209,11 +2209,10 @@ progress {
   cursor: pointer;
 }
 .form-control:focus {
-  color: #212529;
   background-color: #fff;
-  border-color: #86b7fe;
+  border-color: #1a1e21;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(66, 70, 73, 0.5);
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.5em;
