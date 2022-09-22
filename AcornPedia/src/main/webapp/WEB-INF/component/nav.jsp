@@ -1,24 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script src="https://kit.fontawesome.com/2e01103920.js"
-	crossorigin="anonymous"></script>
+
 
 <!-- The Modal -->
 <div class="modal fade" id="loginmodal">
 
 	<div class="modal-dialog modal-sm modal-dialog-centered">
-		<section>
+		<section id="loginmodalsection">
 			<div class="modal-content">
+				<div id="img-logo">
+					<img
+						src="${pageContext.request.contextPath}/resources/images/watcha.png"
+						id="modal-logo">
+				</div>
 
 				<!-- Modal Header -->
 				<header class="header">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/watcha.png"
-						id="logo">
-					<div>
-						<h2 class="modal-title" id="exampleModalLongTitle">로그인</h2>
-					</div>
+
+					<h2 class="modal-title" id="exampleModalLongTitle">로그인</h2>
 
 				</header>
 
@@ -45,10 +45,9 @@
 								class="form-control" type="password" name="pwd" id="pwd"
 								placeholder="비밀번호" /></label>
 						</div>
-						<div class="btn">
+						<div class="btn" id="loginbtn">
 							<button type="submit" class="btn-btn-primary">로그인</button>
 						</div>
-
 						<div>
 							<button class="btn btn-primary" data-bs-target="#signupmodal"
 								data-bs-toggle="modal">회원가입</button>
@@ -68,21 +67,19 @@
 <!-- The Modal -->
 <div class="modal fade" id="signupmodal">
 	<div class="modal-dialog modal-sm modal-dialog-centered">
-		<section>
+		<section id="signupmodalsection">
 			<div class="modal-content">
+				<div id="img-logo">
+					<img
+						src="${pageContext.request.contextPath}/resources/images/watcha.png"
+						id="modal-logo">
+				</div>
 
 				<!-- Modal Header -->
 				<header class="header">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/watcha.png"
-						id="logo">
-					<div>
-						<h2 class="modal-title">회원가입</h2>
-					</div>
 
+					<h2 class="modal-title">회원가입</h2>
 				</header>
-
-
 				<div class="body">
 					<form class="animate__animated_animate__bounceInDown"
 						action="${pageContext.request.contextPath}/users/signup.do"
@@ -128,7 +125,7 @@
 
 
 						</div>
-						<div class="btn">
+						<div class="btn" id="submitbtn">
 							<button class="btn-btn-primary" type="submit">회원가입</button>
 						</div>
 						<a href="${pageContext.request.contextPath}/users/loginform.do"
@@ -182,8 +179,8 @@
 			</c:when>
 			<c:otherwise>
 				<li class="navbar-li css-text css-hidden"><a
-					href="${pageContext.request.contextPath}/users/info.o"
-					cdlass="navbar-atext">${sessionScope.id }</a> <a
+					href="${pageContext.request.contextPath}/users/info.do"
+					class="navbar-atext">${sessionScope.id }</a> <a
 					href="${pageContext.request.contextPath}/users/logout.do"
 					class="navbar-atext navbar-margin navbar-color"> <span>로그아웃</span>
 				</a>
@@ -192,3 +189,6 @@
 		</c:choose>
 	</ul>
 </nav>
+</body>
+<script>
+</script>
