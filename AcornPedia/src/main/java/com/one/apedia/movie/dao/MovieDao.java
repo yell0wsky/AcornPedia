@@ -15,5 +15,7 @@ public interface MovieDao {
 	public MovieDto getData(int num);
 	//num번 게시글을 DB에서 삭제하기
 	public void delete(int num);
+	//영화에 별점 추가하기
+	public void getStars(int num, int star);
 	
 }

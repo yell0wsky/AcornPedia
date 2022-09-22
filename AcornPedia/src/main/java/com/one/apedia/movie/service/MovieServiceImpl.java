@@ -50,4 +50,11 @@ public class MovieServiceImpl implements MovieService {
 		dao.delete(num);
 
 	}
+
+	@Override
+	public void addStars(ModelAndView mView, int num, int star) {
+		dao.getStars(num, star);
+		
+	}
+
 }

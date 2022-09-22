@@ -22,4 +22,9 @@
 		WHERE num = #{num}
 
 	</delete>
+	<update id="getStars" parameterType="map">
+		UPDATE movie
+		SET stars=stars+#{star}
+		WHERE num = #{num}
+	</update>
 </mapper>

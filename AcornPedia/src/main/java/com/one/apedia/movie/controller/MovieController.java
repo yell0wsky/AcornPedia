@@ -51,5 +51,12 @@ public class MovieController {
 		return mView;
 		
 	}
-	
+	@RequestMapping(value = "/movie/getstars", method=RequestMethod.GET)
+	public ModelAndView getStars(ModelAndView mView, HttpServletRequest request, @RequestParam int num, int star) {
+		//get 방식으로 받아온 num에 해당하는 영화에 star만큼의 별점을 올린다.
+		service.addStars(mView, num, star);
+		mView.setViewName("movie/detail");
+		
+		return mView;
+	}
 }

@@ -1,7 +1,10 @@
 package com.one.apedia.movie.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -68,4 +71,14 @@ public class MovieDaoImpl implements MovieDao {
 	public void delete(int num) {
 		session.delete("movie.delete", num);
 	}
+
+	@Override
+	public void getStars(int num, int star) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("num", num);
+		parameters.put("star", star);
+		session.update("movie.getStars", parameters);
+	}
+	
+	
 }
