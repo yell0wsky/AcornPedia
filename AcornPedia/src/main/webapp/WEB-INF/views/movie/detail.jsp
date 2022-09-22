@@ -6,6 +6,33 @@
 <head>
 <meta charset="UTF-8">
 <title>/movie/detail.jsp</title>
+<style>
+
+.container {
+	display: flex;
+	/* display: inline-flex; */
+	
+	flex-direction: row;
+	 justify-content: space-evenly;
+
+	grid-template-columns: 200px 200px 500px;
+	/* grid-template-columns: 1fr 1fr 1fr */
+	/* grid-template-columns: repeat(3, 1fr) */
+	/* grid-template-columns: 200px 1fr */
+	/* grid-template-columns: 100px 200px auto */
+
+	/*grid-template-rows: 200px 200px 500px;*/
+	 grid-template-rows: 1fr 1fr 1fr
+	/* grid-template-rows: repeat(3, 1fr) */
+	/* grid-template-rows: 200px 1fr */
+	/* grid-template-rows: 100px 200px auto */
+}
+.item {
+	align-self: auto;
+}
+
+
+</style>
 <%-- bootstrap --%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
@@ -15,55 +42,20 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
+<div>
+<section>
 <div class="container">
-   <nav>
-      <ul class="breadcrumb">
-         <li class="breadcrumb-item">
-            <a href="${pageContext.request.contextPath }/">Home</a>
-         </li>
-         <li class="breadcrumb-item">
-            <a href="${pageContext.request.contextPath }/movie/list.do">겔러리 목록</a>
-         </li>
-         <li class="breadcrumb-item active">상세보기</li>
-      </ul>
-   </nav>
-   <div class="card mb-3">
-      <img class="card-img-top" src="${pageContext.request.contextPath}${dto.imagePath}"/>
-      <div class="card-body">
-         <p class="card-text">${dto.caption}</p>
-         <p class="card-text">by <strong>${dto.writer}</strong></p>
-         <p><small>${dto.regdate}</small></p>
-      </div>
-   </div>
-   <nav>
-      <ul class="pagination justify-content-center">
-         <c:choose>
-         	<c:when test="${dto.prevNum ne 0 }">
-         		<li class="page-item mr-3">
-               		<a class="page-link" href="${pageContext.request.contextPath}/movie/detail.do?num=${dto.prevNum}">&larr; Prev</a>
-            	</li>
-         	</c:when>
-         	<c:otherwise>
-         		<li class="page-item disabled mr-3">
-               		<a class="page-link" href="javascript:">Prev</a>
-            	</li>
-         	</c:otherwise>
-         </c:choose>
-         <c:choose>
-         	<c:when test="${dto.nextNum ne 0 }">
-         		<li class="page-item">
-               		<a class="page-link" href="${pageContext.request.contextPath}/movie/detail.do?num=${dto.nextNum}">Next &rarr;</a>
-            	</li>
-         	</c:when>
-         	<c:otherwise>
-         		<li class="page-item disabled">
-               		<a class="page-link" href="javascript:">Next</a>
-            	</li>
-         	</c:otherwise>
-         </c:choose>         
-      </ul>
-   </nav>      
+	<div class="item"><p>d</p></div>
+	<div class="item"><p>d</p></div>
 </div>
+</section>
+<section>
+<div class="container">
+	<div class="item"><p>asd</p></div>
+</div>
+</section>
+
+
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>
