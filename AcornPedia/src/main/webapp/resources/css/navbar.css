@@ -271,9 +271,11 @@ li {
    }
 }
 
-.container {
+.container,
+.a172938a {
    padding-top: 100px;
    text-decoration: none;
+   flex: 1 0 auto;
 }
 
 /* footer css */
@@ -314,7 +316,14 @@ li {
 }
 
 @media screen and (max-width: 670px) {
-   .css-footer-3line {
-      flex-direction: column;
-   }
+	.css-footer-3line {
+		flex-direction: column;
+	}
+}
+  .container,
+  .a172938a{
+    z-index: 0;
+}
+   .navbar-box{
+    z-index: 200;
 }

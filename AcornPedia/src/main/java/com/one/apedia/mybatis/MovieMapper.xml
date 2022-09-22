@@ -3,36 +3,42 @@
 <mapper namespace="movie">
 	<select id="getList" parameterType="movieDto" resultType="movieDto">
 		SELECT *
-		FROM	
-			(SELECT result1.*, ROWNUM as rnum
-			FROM
-				(SELECT num, writer, caption, imagePath, regdate
-				FROM board_movie
-				ORDER BY num DESC) result1)
-		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+		FROM
+		(SELECT num, title, genre, poster_path, stars
+		FROM movie
+		ORDER BY stars ASC)
+		WHERE ROWNUM BETWEEN 1 AND 30
 	</select>
-	<select id="getCount" resultType="int">
-		SELECT NVL(MAX(ROWNUM), 0)
-		FROM board_movie
-	</select>
-	<insert id="insert" parameterType="movieDto">
-		INSERT INTO board_movie
-		(num, writer, caption, imagePath, regdate)
-		VALUES(board_movie_seq.NEXTVAL, #{writer}, #{caption}, #{imagePath}, SYSDATE)
-	</insert>
-	<select id="getData" parameterType="int" resultType="movieDto">
+	
+	<select id="getList2" parameterType="movieDto" resultType="movieDto">
 		SELECT *
 		FROM
-			(SELECT num, writer, caption, imagePath, regdate, 
-				LAG(num, 1, 0) OVER (ORDER BY num DESC) AS prevNum,
-				LEAD(num, 1, 0) OVER (ORDER BY num DESC) AS nextNum
-			FROM board_movie
-			ORDER BY num DESC)
+		(SELECT num, title, genre, poster_path, stars
+		FROM movie
+		ORDER BY stars DESC)
+		WHERE ROWNUM BETWEEN 1 AND 30
+	</select>
+
+	<select id="getData" parameterType="int" resultType="movieDto">
+		SELECT *
+		FROM movie
 		WHERE num = #{num}
 	</select>
+	
 	<delete id="delete" parameterType="int">
 		DELETE
-		FROM board_movie
+		FROM movie
 		WHERE num = #{num}
 	</delete>
+	<insert id="addStars" parameterType="map">
+		INSERT INTO STARS
+		(movie_no, user_id, stars)
+		VALUES(#{num},#{id},#{star})
+	</insert>
+	<select id="getStars" parameterType="map" resultType="int">
+		SELECT stars
+		FROM Stars
+		WHERE movie_no=#{num} AND user_id=#{id}
+	</select>
+	
 </mapper>

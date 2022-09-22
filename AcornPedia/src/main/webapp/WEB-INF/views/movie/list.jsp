@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>/movie/list.jsp</title>
-
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -72,11 +71,28 @@
                     <li>
                     	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
 	                        <div class="movie-css-listimg">
-	                            <img src="${pageContext.request.contextPath }${tmp.imagePath}" />
+	                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmp.poster_path }" />
 	                        </div>
 	                        <div class="movie-css-listText">
-	                            <p class="">${tmp.caption}</p>
-	                            <p class="">by <strong>${tmp.writer}</strong></p>
+	                            <p class="">${tmp.title}</p>
+	                            <p class="">by <strong>${tmp.original_title}</strong></p>
+	                        </div>
+                   		</a>
+                    </li>
+            	</c:forEach>
+            </ul>
+        </div>
+        <div class="slide_wrapper">
+            <ul class="slides">
+            	<c:forEach var="tmp" items="${list2 }">
+                    <li>
+                    	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
+	                        <div class="movie-css-listimg">
+	                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmp.poster_path }" />
+	                        </div>
+	                        <div class="movie-css-listText">
+	                            <p class="">${tmp.title}</p>
+	                            <p class="">by <strong>${tmp.original_title}</strong></p>
 	                        </div>
                    		</a>
                     </li>
@@ -119,13 +135,3 @@
 	
     </script>
 </html>
-
-
-
-
-
-
-
-
-
-
