@@ -7,13 +7,15 @@
 <meta charset="UTF-8">
 <title>/views/users/updateform.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/users.css" />
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/updateform.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/users.css" />
 
 <style>
 	/* 프로필 이미지를 작은 원형으로 만든다 */
@@ -60,7 +62,8 @@
 
             <label for="email">Email</label>
             <input type="email" name="email" id="email" style="height:20px;" value="${dto.email }" />
-
+ 		 <br>
+         <br>
         	<button type="submit" class="btn btn-outline-primary">저장</button>
         	<button type="submit" class="btn btn-outline-primary"><a href="${pageContext.request.contextPath}/users/pwd_updateform.do">비밀번호 수정</a></button>
         	</form>

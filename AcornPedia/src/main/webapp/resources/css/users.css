@@ -28,6 +28,7 @@ body {
       
 }
 
+
 form input{
     display: block;
     margin-bottom: 15px;
@@ -45,6 +46,7 @@ form input{
     margin-bottom: 20px;
 }
 
+
 h1 {
     color: black;
     font-size: 130%;
@@ -55,6 +57,7 @@ h1 {
 label{
 	color: black;
 }
+
 
 #form-controls button {
     border: none;
