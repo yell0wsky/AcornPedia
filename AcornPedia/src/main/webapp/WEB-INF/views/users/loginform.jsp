@@ -32,7 +32,7 @@
 		</div>
 		<div>
 			<label class="control-label" for="pwd">비밀번호</label>
-			<input class="form-control" type="password" name="pwd" id="pwd" autoComplete="off"/>
+			<input class="form-control" type="password" name="pwd" id="pwd"/>
 		</div>
 		<button class="btn btn-primary" type="submit">로그인</button>
 	</form>

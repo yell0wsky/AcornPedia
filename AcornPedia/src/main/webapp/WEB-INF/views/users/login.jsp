@@ -9,7 +9,7 @@
 </head>
 <body>
 <script>
-		location.href="${pageContext.request.contextPath}/";
+		location.href="${requestScope.url}";
 </script>
 <div class="container">
 	<h1>알림</h1>	

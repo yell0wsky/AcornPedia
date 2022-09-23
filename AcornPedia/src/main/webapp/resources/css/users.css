@@ -1,0 +1,66 @@
+@charset 'utf-8';
+body {
+    background-color: #F3F4F9;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#wrap {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    background-color: white;
+    max-width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 20px gainsboro;
+}
+
+#top-a{
+    padding: 60px 60px;
+    width: 400px;
+    display: inline-block;
+    text-align: center;  
+      
+}
+
+form input{
+    display: block;
+    margin-bottom: 15px;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+    width: 100%;
+    text-align: center;
+    border: 0px solid black;
+  	outline: none;
+    
+}
+
+#form-controls {
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: black;
+    font-size: 130%;
+    font-weight: 500;
+    text-align: center;
+}
+
+label{
+	color: black;
+}
+
+#form-controls button {
+    border: none;
+    font-size: 120%;
+}
+
+#form-controls button:hover {
+    cursor: pointer;
+}
