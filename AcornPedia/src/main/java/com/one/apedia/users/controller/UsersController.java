@@ -137,7 +137,7 @@ public class UsersController {
 	}
 	//로그인 요청 처리
 	@RequestMapping("/users/login")
-	public String login(ModelAndView mView, UsersDto dto,
+	public ModelAndView login(ModelAndView mView, UsersDto dto, @RequestParam String url,
 			HttpServletRequest request, HttpSession session) {
 		/*
 		 *  서비스에서 비즈니스 로직을 처리할때 필요로  하는 객체를 컨트롤러에서 직접 전달을 해 주어야 한다.
@@ -145,15 +145,13 @@ public class UsersController {
 		 *  등등의 객체 이다. 
 		 */
 		service.loginProcess(dto, session);
-		String url=request.getParameter("url");
-		if (url==null) {
-			String beforeurl=request.getHeader("referer");
-			session.setAttribute(beforeurl, "beforeurl");
-			System.out.println(beforeurl);
-			return "redirect:"+beforeurl;
-		}else {
-			System.out.println(url);
-		}
-		return "redirect:"+url;
+		
+		String encodedUrl=URLEncoder.encode(url);
+		mView.addObject("url", url);
+		mView.addObject("encodedUrl", encodedUrl);
+		
+		mView.setViewName("users/login");
+		return mView;
+		
 	}
 }

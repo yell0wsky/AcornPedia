@@ -1,35 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>/users/login.jsp</title>
-</head>
-<body>
-<script>
-		location.href="${requestScope.url}";
+<script type="text/javascript">
+	let idExist='<%=(String)session.getAttribute("id")%>';
+	if(idExist=='null') {
+		alert("아이디 혹은 비밀번호가 다릅니다.");
+		setTimeout(function(){location.href = "loginform.do?url=${requestScope.encodedUrl }"}, 500)
+		
+	} else {
+		location.href = "${requestScope.url}";
+	}
 </script>
-<div class="container">
-	<h1>알림</h1>	
-	<c:choose>
-		<c:when test="${not empty sessionScope.id }">
-			<p>
-				<strong>${sessionScope.id }</strong>님 로그인 되었습니다.
-				<a href="${requestScope.url }">확인</a>
-			</p>
-		</c:when>
-		<c:otherwise>
-			<p>
-				아이디 혹은 비밀 번호가 틀려요
-				<a href="loginform.do?url=${requestScope.encodedUrl }">다시 시도</a>
-			</p>
-		</c:otherwise>
-	</c:choose>
-</div>
-</body>
-</html>
+
 
 
 
