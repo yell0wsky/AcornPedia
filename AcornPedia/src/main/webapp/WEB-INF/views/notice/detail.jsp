@@ -19,8 +19,8 @@
    
    /* 댓글 프로필 이미지를 작은 원형으로 만든다. */
    .profile-image{
-      width: 50px;
-      height: 50px;
+      width: 30px;
+      height: 30px;
       border: 1px solid #cecece;
       border-radius: 50%;
    }
@@ -100,17 +100,24 @@
          transform: rotate(360deg);
       }
    }
+   
+   .font-color-size{font-size: 16px; color:#C6C6C6}
+   
+   .button{border-radius:0px; padding: 3px 6px;}
+   
+   .fright{float: right;}
+   
 </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
-   <c:if test="${dto.prevNum ne 0 }">
-      <a class="btn btn-outline-danger pull-right" href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }">이전글</a>
-   </c:if>
-   <c:if test="${dto.nextNum ne 0 }">
-      <a class="btn btn-outline-danger pull-right" href="detail.do?num=${dto.nextNum }&keyword=${encodedK }&condition=${condition }">다음글</a>
-   </c:if>
+   <!-- 목록보기를 아이콘으로 바꿈 -->
+   <a  class="btn btn-dark mb-3 btn-sm shadow-none fright" href="list.do">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+       </svg>
+   </a>
    <c:if test="${ not empty keyword }">
       <p>   
          <strong>${condition }</strong> 조건, 
@@ -143,10 +150,26 @@
          </tr>
       <thead>
    </table>
+   <div class="d-flex justify-content-center">
+   <!-- 다음글 이전글 중앙정렬, 아이콘으로 바꿈 -->
+   <c:if test="${dto.prevNum ne 0 }">
+		<a class="btn btn-dark btn-sm shadow-none button" href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+			  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+			</svg>
+		</a>
+   </c:if>
+   <c:if test="${dto.nextNum ne 0 }">
+		<a class="btn btn-dark btn-sm shadow-none button" href="detail.do?num=${dto.nextNum }&keyword=${encodedK }&condition=${condition }">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+			  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+			</svg>
+		</a>
+   </c:if>
+   </div>
    <ul class="pagination">
-      <li><a  class="btn btn-outline-danger pull-right" href="list.do">목록보기</a></li>
       <c:if test="${dto.writer eq id }">
-         <li><a class="btn btn-outline-secondary pull-right" href="updateform.do?num=${dto.num }">수정</a></li>
+         <li><a class="btn btn-outline-secondary pull-right fright" href="updateform.do?num=${dto.num }">수정</a></li>
          <li><a class="btn btn-outline-secondary pull-right"href="delete.do?num=${dto.num }">삭제</a></li>
       </c:if>
    </ul>
@@ -176,7 +199,7 @@
                         <dl>
                            <dt>
                            <%-- 만일 프로필 이미지가 없다면 기본 아이콘 출력 --%>
-                              <c:if test="${ empty tmp.profile }">
+                              <c:if test="${ empty tmp.profile }">  
                                  <svg class="profile-image" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
@@ -191,24 +214,28 @@
                               <c:if test="${tmp.num ne tmp.comment_group }">
                                  @<i>${tmp.target_id }</i>
                               </c:if>
-                              <span>${tmp.regdate }</span>
-                              <%-- 답글 링크를 눌렀을 때 해당 댓글의 글번호를 얻어오기 위해 data-num 속성에 댓글의 번호 넣어두기 --%>
-                              <a class="btn btn-outline-secondary pull-right" data-num="${tmp.num }" href="javascript:" class="reply-link">답글</a>
                               <%-- 만일 로그인을 했고 글 작성자가 로그인 된 사용자와 같다면 수정, 삭제 링클를 출력한다. --%>
                               <c:if test="${ (id ne null) and (tmp.writer eq id) }">
-                                 <a class="btn btn-outline-secondary pull-right" data-num="${tmp.num }" class="update-link" href="javascript:">수정</a>
-                                 <a class="btn btn-outline-secondary pull-right" data-num="${tmp.num }" class="delete-link" href="javascript:">삭제</a>
+                                 <a class="btn btn-outline-secondary btn-sm shadow-none button fright" data-num="${tmp.num }" class="update-link" href="javascript:">수정</a>
+                                 <a class="btn btn-outline-secondary btn-sm shadow-none button fright" data-num="${tmp.num }" class="delete-link" href="javascript:">삭제</a>
                               </c:if>
-                           </dt>
-                           <dd>
+                              <p>
                               <%-- 댓글은 textarea 로 입력받아기 떄문에 tab, 공백, 개행기호도 존재한다.
                                  html 에서 pre 요소는 tab, 공백, 개행 기호를 해석해주는 요소이기 때문에
                                  pre 요소의 innerText 로 댓글의 내용을 출력했다.
-                                 그리고 해당 댓글을 javascript 로 바로 수정할 수 있도록 댓글 번호를 조합해서
-                                 아이디를 부여해 놓았다.
+                                                                        그리고 해당 댓글을 javascript 로 바로 수정할 수 있도록 댓글 번호를 조합해서
+                                                                        아이디를 부여해 놓았다.
                                --%>
-                              <pre id="pre${tmp.num }">${tmp.content }</pre>                  
-                           </dd>
+                              	<pre id="pre${tmp.num }">${tmp.content }</pre>                  
+                              </p>
+                              <p class="font-color-size">
+                              	<span >${tmp.regdate }</span>
+                              </p>
+                              <%-- 답글 링크를 눌렀을 때 해당 댓글의 글번호를 얻어오기 위해 data-num 속성에 댓글의 번호 넣어두기 --%>
+                              <p>
+                              	<a class="btn btn-secondary btn-sm button shadow-none" data-num="${tmp.num }" href="javascript:" class="reply-link">답글</a>
+                              </p>
+                           </dt>
                         </dl>
                         <%--
                            댓글의 댓글 폼은 미리 만들어서 숨겨놓았다가 답글 링크를 누르면 보이도록 한다.
@@ -246,7 +273,7 @@
       위에 css 에서 keyframe 을 활용해서 회전 시키고 있다.   
    --%>
    <div class="loader ">
-   
+   <!-- 목록보기 버튼 -->
       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
@@ -259,14 +286,16 @@
       <input type="hidden" name="ref_group" value="${dto.num }"/>
       <!-- 원글의 작성자가 댓글의 대상자가 된다. -->
       <input type="hidden" name="target_id" value="${dto.writer }"/>
-
-      <textarea name="content">${empty id ? '댓글 작성을 위해 로그인이 필요 합니다.' : '' }</textarea>
-      <button class="btn btn-outline-secondary pull-right" type="submit">등록</button>
+      
+      <div class="form-group">
+      <textarea class="form-control" rows="3" style="height: 97px;" name="content">${empty id ? '댓글 작성을 위해 로그인이 필요 합니다.' : '' }</textarea>
+      </div>
+      
+      <button class="btn btn-outline-dark shadow-none" type="submit">등록</button>
    </form>
 </div>
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
-   
    //클라이언트가 로그인 했는지 여부
    let isLogin=${ not empty id };
    
