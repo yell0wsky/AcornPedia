@@ -30,6 +30,7 @@
    border-radius: 6px;
 }
 
+<<<<<<< HEAD
 #loginmodal, #sighupmodal {
    
 }
@@ -50,6 +51,19 @@
    text-align: center;
    margin: 0px 0px 20px;
    padding: 14px 0px 0px;
+=======
+#loginmodalsection{
+}
+
+#signupmodalsection{
+}
+
+.modal fade {
+	position:fixed;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+>>>>>>> 27e095bf6282fc998eb42c065dc5cb6713725e5d
 }
 
 #loginmodalcontent {
