@@ -8,8 +8,11 @@
 <title>/users/login.jsp</title>
 </head>
 <body>
+<script>
+		location.href="${pageContext.request.contextPath}/";
+</script>
 <div class="container">
-	<h1>알림</h1>
+	<h1>알림</h1>	
 	<c:choose>
 		<c:when test="${not empty sessionScope.id }">
 			<p>
@@ -24,7 +27,7 @@
 			</p>
 		</c:otherwise>
 	</c:choose>
-</div>	
+</div>
 </body>
 </html>
 
