@@ -8,6 +8,11 @@
 <meta charset="UTF-8">
 <title>/views/notice/list.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
 <style>
    .page-ui a{
       text-decoration: none;
@@ -31,9 +36,16 @@
       padding: 0;
    }
    
-   .page-ui ul > li{
-      float: none;
-      padding: -5px;
+   .page-ui ul{
+   	  display:flex;
+   	  justify-content:center;
+      text-align:center;
+      list-style-type: none;
+      padding: 0;
+   }
+   
+   .pagination li a{
+   	  margin: 0px 0.3rem;
    }
    
 </style>
@@ -45,7 +57,7 @@
    <a class="btn btn-default pull-right" href="insertform.do">글쓰기</a>
    </c:if>
    <h1>공지사항</h1>
-   <table class="table table" style="text-align: center;">
+   <table class="table table-hover" style="text-align: center;">
       <thead>
          <tr>
             <th style="background-color: #eeeeee; text-align: center;">글번호</th>
@@ -61,7 +73,7 @@
             <td>${tmp.num }</td>
             <td>${tmp.writer }</td>
             <td>
-               <a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }[]</a>
+               <a style="text-decoration-line: none" class="text-dark " href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}" >${tmp.title }</a>
             </td>
             <td>${tmp.viewCount }</td>
             <td>${tmp.regdate }</td>
@@ -81,7 +93,7 @@
             <li>
                <c:choose>
                   <c:when test="${pageNum eq i }">
-                     <a  class="active "  href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
+                     <a  class="active" href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
                   </c:when>
                   <c:otherwise>
                      <a href="list.do?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
@@ -117,5 +129,6 @@
       </p>
    </c:if>
 </div>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -6,8 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/notice/detail.jsp</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
 <style>
    .content{
       border: 1px dotted gray;
@@ -101,7 +105,8 @@
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
-   <a  class="btn btn-dark mb-3 btn-lg" href="list.do">
+   <!-- 목록보기를 아이콘으로 바꿈 -->
+   <a  class="btn btn-dark mb-3 btn-sm" href="list.do">
        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
             <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
        </svg>
@@ -139,7 +144,7 @@
       <thead>
    </table>
    <div class="d-flex justify-content-center">
-   <!-- 다음글 이전글 중앙정렬 -->
+   <!-- 다음글 이전글 중앙정렬, 아이콘으로 바꿈 -->
    <c:if test="${dto.prevNum ne 0 }">
 		<a class="btn btn-dark btn-sm" href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }">
 			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
@@ -280,7 +285,6 @@
 </div>
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
-   
    //클라이언트가 로그인 했는지 여부
    let isLogin=${ not empty id };
    
@@ -488,5 +492,6 @@
       }
    }
 </script>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>

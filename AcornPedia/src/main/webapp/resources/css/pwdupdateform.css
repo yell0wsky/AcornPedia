@@ -74,22 +74,6 @@ label {
     cursor: pointer;
 }
 
-button[type="submit"] {
-    padding: 16px 75px;
-    background-color: #ED4B5E;
-    border-radius: 10px;
-    color: white;
-}
-
-button[type="submit"]:hover {
-    background-color: #ff6678;
-}
-
-button[type="button"] {
-    padding: 16px 0 16px 35px;
-    background-color: transparent;
-    color: #ED4B5E;
-}
 
 #terms {
     width: 30px;
@@ -129,7 +113,6 @@ label[for="terms"] {
 }
 
 /* responsive display */
-
 @media(max-width:1438px) {
     lottie-player {
         width: 300px!important;

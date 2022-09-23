@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
-<div class="css-footer-box">
-    <div class="css-footer-count"></div>
-    <div class="css-footer-information">
-        <div class="css-footer-text">
+<footer id="footer">
+     <div class="css-footer-box">
+          <div class="css-footer-text">
             <ul class="css-footer-1line">
                 <li class="css-footer-001 css-footer-margin">서비스 이용약관 |</li>
                 <li class="css-footer-002 css-footer-margin">개인정보 처리방침 | </li>
@@ -22,7 +21,6 @@
             <ul class="css-footer-4line">
                 <img src="${pageContext.request.contextPath}/resources/images/awtcha.png"> © 2022 by WATCHA, Inc. All rights reserved
             </ul>
-        </div>
-        <div class="css-footer-icon"></div>
-    </div>
-</div>
+          </div> 
+     </div>
+</footer>
