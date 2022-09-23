@@ -183,7 +183,5 @@
       </c:choose>
    </ul>
 </nav>
-</body>
 <script>
-   
 </script>
