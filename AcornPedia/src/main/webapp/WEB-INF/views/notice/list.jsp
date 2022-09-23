@@ -113,7 +113,7 @@
    
    <form action="list.do" method="get"> 
       <div class="input-group w-50" style="margin:0 auto">
-      <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="condition" id="condition">
+      <select class="form-select form-select-sm shadow-none" aria-label=".form-select-sm example" name="condition" id="condition">
          <option value="title_content" ${condition eq 'title_content' ? 'selected' : '' }>제목+내용</option>
          <option value="title" ${condition eq 'title' ? 'selected' : '' }>제목</option>
          <option value="writer" ${condition eq 'writer' ? 'selected' : '' }>작성자</option>
