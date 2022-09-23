@@ -15,7 +15,7 @@
             </ul>
             <ul class="css-footer-3line">
                 <li class="css-footer-005 css-footer-margin">에이콘 1조 |</li>
-                <li class="css-footer-006 css-footer-margin">황하늘 박종혁 석연호 윤하진 이은숙 이재연 |</li>
+                <li class="css-footer-006 css-footer-margin">황하늘 박종혁 석연호 윤하진 이은숙 이재연 | </li>
                 <li class="css-footer-007">서울특별시 강남구 테헤란로 124 삼원타워 5층</li>
             </ul>
             <ul class="css-footer-4line">

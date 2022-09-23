@@ -131,11 +131,19 @@ input:focus {
 
 html {
    font-family: 'Noto Sans KR', sans-serif;
-   height: auto;
+   line-height: normal;
+   height: 100%
 }
 
 li {
    list-style: none;
+}
+
+body{
+    height: 100%;
+    display: flex;
+      flex-direction: column;
+
 }
 
 .navbar-box {
@@ -185,6 +193,8 @@ li {
    margin-right: 0.8rem;
 }
 
+
+
 .navbar-divicon #fuck {
    position: absolute;
    opacity: .65;
@@ -201,6 +211,12 @@ li {
 
 .navbar-divicon button {
    position: absolute;
+   border: 0px solid black;
+   outline: none;
+}
+
+.navbar-divicon button {
+   position:absolute;
    border: none;
    margin: 8px 0px -30px -15px;
 }
@@ -271,8 +287,7 @@ li {
    }
 }
 
-.container,
-.a172938a {
+.container {
    padding-top: 100px;
    text-decoration: none;
    flex: 1 0 auto;
@@ -282,11 +297,15 @@ li {
 .css-footer-box {
    width: 100%;
    background-color: #222222;
-   height: auto;
    display: flex;
    font-size: 14px;
-   position: absolute;
+   margin-top: 60px;
    bottom: 0;
+}
+
+
+#footer{
+  flex-shrink: 0;
 }
 
 .css-footer-margin {
@@ -302,6 +321,9 @@ li {
    .css-footer-4line {
    display: flex;
 }
+.css-footer-4line {
+   margin-bottom: 0px;
+} 
 
 .css-footer-2line, .css-footer-3line {
    margin-top: 1rem;
@@ -316,14 +338,15 @@ li {
 }
 
 @media screen and (max-width: 670px) {
-	.css-footer-3line {
-		flex-direction: column;
-	}
+   .css-footer-3line {
+      flex-direction: column;
+   }
 }
-  .container,
-  .a172938a{
+
+.container,
+.a172938a{
     z-index: 0;
 }
-   .navbar-box{
+.navbar-box{
     z-index: 200;
 }
