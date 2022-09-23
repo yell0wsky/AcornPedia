@@ -14,4 +14,9 @@ public interface MovieService {
 	public void getDetail(ModelAndView mView, int num);
 	//갤러리에 num에 해당하는 사진 데이터 삭제
 	public void delete(ModelAndView mView, int num);
+	//영화에 별점추가하기
+	public void addStars(String id,int num, int star);
+	//영화 별점 확인하기
+	public int getStars(String id, int num);
+
 }

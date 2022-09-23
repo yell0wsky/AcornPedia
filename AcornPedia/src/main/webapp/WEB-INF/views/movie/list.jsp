@@ -109,7 +109,7 @@
 		</p>
         <div class="slide_wrapper">
             <ul class="slides2">
-            	<c:forEach var="tmp" items="${list }">
+            	<c:forEach var="tmp" items="${list2 }">
                     <li>
                     	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
 	                        <div class="movie-css-listimg">

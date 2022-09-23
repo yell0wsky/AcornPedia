@@ -18,20 +18,21 @@ public class MovieServiceImpl implements MovieService {
 	public void getList(HttpServletRequest request) {
 		
 		MovieDto dto = new MovieDto();
+		MovieDto dto2 = new MovieDto();
 	
 		//MovieDao 객체를 이용해서 회원 목록을 얻어온다.
 		List<MovieDto> list = dao.getList(dto);
+		List<MovieDto> list2 = dao.getList2(dto2);
 	   
 		//request 영역에 담아주기
 		request.setAttribute("list", list);	//movie list
+		request.setAttribute("list2", list2);	//movie list
 		
 	}
 		
 	@Override
 	public void insert(MovieDto dto, HttpServletRequest request) {
-
 		dao.insert(dto);
-		
 	}
 	
 	//갤러리 detail 페이지에 필요한 data를 ModelAndView 에 저장
@@ -50,4 +51,17 @@ public class MovieServiceImpl implements MovieService {
 		dao.delete(num);
 
 	}
+
+	@Override
+	public void addStars(String id, int num, int star) {
+		dao.addStars(id, num, star);
+	}
+
+	@Override
+	public int getStars(String id, int num) {
+		
+		return dao.getStars(id, num);
+		
+	}
+
 }

@@ -2,6 +2,7 @@ package com.one.apedia.movie.controller;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,5 +52,15 @@ public class MovieController {
 		return mView;
 		
 	}
-	
+	@RequestMapping("/movie/getStars")
+	public String getStars(HttpSession session, HttpServletRequest request) {
+		//get 방식으로 받아온 num에 해당하는 영화에 star만큼의 별점을 올린다.
+		
+		String id=(String)session.getAttribute("id");
+		int num=Integer.parseInt(request.getParameter("num"));
+		int star=Integer.parseInt(request.getParameter("rating"));
+		service.addStars(id, num, star);
+		
+		return "movie/detail";
+	}
 }
