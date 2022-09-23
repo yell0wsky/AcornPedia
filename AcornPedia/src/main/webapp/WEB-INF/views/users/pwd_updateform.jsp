@@ -6,7 +6,16 @@
 <meta charset="UTF-8">
 <title>/views/users/pwd_updateform.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/users.css" />
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/pwdupdateform.css" />
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
@@ -28,17 +37,19 @@
 		
 		
 			<label for="newPwd2">새 패스워드 확인</label>
+
 			<input type="password" id="newPwd2" style="height:20px;"/>
 			
 			
 		<br>
 		<button type="submit" class="btn btn-outline-primary">수정</button>
-		
+			
+		</form>
 	</form>
-</form>
+</div>
 	</div>
 	</div>
- </div>
+
 <script>
 	//폼에 submit 이벤트가 일어났을때 실행할 함수를 등록하고 
 	document.querySelector("#myForm").addEventListener("submit", function(e){
@@ -54,5 +65,3 @@
 </body>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </html>
-
-

@@ -19,6 +19,13 @@
 </style>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/users.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
@@ -54,14 +61,15 @@
             <label for="regdate">가입일</label>
             <input type="text" name="regdate" id="regdate" style="height:20px;" value="${dto.regdate }" readonly/ >
 
-            
-            <label for="phone"></label>
-            <input type="hidden" name="name" id="id">
+           
          
+
           <br>
             <button type="submit" class="btn btn-outline-primary"><a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a></button>
             
 			<button type="submit" class="btn btn-outline-primary" onclick="javascript:deleteConfirm()">회원탈퇴</button>
+
+
           </form>
         </div>         
       </div>
