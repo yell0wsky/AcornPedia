@@ -1,35 +1,40 @@
 package com.one.apedia.movie.dto;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class MovieDto {
 	private int num;
-	private String writer;
-	private String caption;
-	private String imagePath;
-	private String regdate;
+	private String title;
+	private String genre;
+	private String original_title;
+	private String overview;
+	private String poster_path;
+	private String release_date;
+	private int runtime;
+	private String backdrop_path;
+	private int stars;
 	private int startRowNum;
 	private int endRowNum;
 	private int prevNum; //이전글의 글번호
 	private int nextNum; //다음글의 글번호
-	private MultipartFile image;	//이미지 파일 업로드 처리를 위한 필드
 	
-	//디폴트 생성자 
 	public MovieDto() {}
 
-	public MovieDto(int num, String writer, String caption, String imagePath, String regdate, int startRowNum,
-			int endRowNum, int prevNum, int nextNum, MultipartFile image) {
+	public MovieDto(int num, String title, String genre, String original_title, String overview, String poster_path, String release_date, int runtime, String backdrop_path, int stars,
+			int startRowNum, int endRowNum, int prevNum, int nextNum) {
 		super();
 		this.num = num;
-		this.writer = writer;
-		this.caption = caption;
-		this.imagePath = imagePath;
-		this.regdate = regdate;
+		this.title = title;
+		this.genre = genre;
+		this.original_title = original_title;
+		this.overview = overview;
+		this.poster_path = poster_path;
+		this.release_date = release_date;
+		this.runtime = runtime;
+		this.backdrop_path = backdrop_path;
+		this.stars = stars;
 		this.startRowNum = startRowNum;
 		this.endRowNum = endRowNum;
 		this.prevNum = prevNum;
 		this.nextNum = nextNum;
-		this.image = image;
 	}
 
 	public int getNum() {
@@ -40,36 +45,76 @@ public class MovieDto {
 		this.num = num;
 	}
 
-	public String getWriter() {
-		return writer;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public String getCaption() {
-		return caption;
+	public String getGenre() {
+		return genre;
 	}
 
-	public void setCaption(String caption) {
-		this.caption = caption;
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 
-	public String getImagePath() {
-		return imagePath;
+	public String getOriginal_title() {
+		return original_title;
 	}
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setOriginal_title(String original_title) {
+		this.original_title = original_title;
 	}
 
-	public String getRegdate() {
-		return regdate;
+	public String getOverview() {
+		return overview;
 	}
 
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
+	public void setOverview(String overview) {
+		this.overview = overview;
+	}
+
+	public String getPoster_path() {
+		return poster_path;
+	}
+
+	public void setPoster_path(String poster_path) {
+		this.poster_path = poster_path;
+	}
+
+	public String getRelease_date() {
+		return release_date;
+	}
+
+	public void setRelease_date(String release_date) {
+		this.release_date = release_date;
+	}
+
+	public int getRuntime() {
+		return runtime;
+	}
+
+	public void setRuntime(int runtime) {
+		this.runtime = runtime;
+	}
+
+	public String getBackdrop_path() {
+		return backdrop_path;
+	}
+
+	public void setBackdrop_path(String backdrop_path) {
+		this.backdrop_path = backdrop_path;
+	}
+
+	public int getStars() {
+		return stars;
+	}
+
+	public void setStars(int stars) {
+		this.stars = stars;
 	}
 
 	public int getStartRowNum() {
@@ -103,13 +148,5 @@ public class MovieDto {
 	public void setNextNum(int nextNum) {
 		this.nextNum = nextNum;
 	}
-
-	public MultipartFile getImage() {
-		return image;
-	}
-
-	public void setImage(MultipartFile image) {
-		this.image = image;
-	}
-	
+		
 }

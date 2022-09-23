@@ -64,8 +64,6 @@ public class UsersServiceImpl implements UsersService{
 		if(isValid) {//만일 유효한 정보이면 
 			//로그인 처리를 한다.
 			session.setAttribute("id", dto.getId());
-		}else {
-			session.setAttribute("auth", false);
 		}
 	}
 

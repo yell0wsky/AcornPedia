@@ -5,6 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/cafe/insert.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
@@ -12,6 +18,7 @@
 		alert("새글이 추가 되었습니다.");
 		location.href="${pageContext.request.contextPath}/cafe/list.do";
 	</script>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>
 
