@@ -63,6 +63,9 @@
 		.a172938a2{
 			margin: 0 30px;
 		}
+		.movie-css-listText{
+			margin-top: 10px
+		}
 		
 		.movie-css-listText p{
 			width: 220px;
@@ -72,13 +75,17 @@
 			text-decoration-line:none;
 		}
 		
+		.i9h72v{
+			font-size: 1.3rem
+		}
+	
 		
     </style>
 </head>
 <body>
     <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
     <div class="a172938a">
-	    <h1 class="i9h72v">영화목록</h1>
+	    <h1 class="i9h72v">평균 평점이 높은 순위</h1>
 		<p class="controls">
 			<span class="prev"><</span>
 			<span class="next">></span>
@@ -102,14 +109,14 @@
         </div>
     </div>
     <div class="a172938a2">
-	    <h1 class="i9h72v">2번째 영화목록</h1>
+	    <h1 class="i9h72v">이런 영화는 어떤가요</h1>
 		<p class="controls">
 			<span class="prev2"><</span>
 			<span class="next2">></span>
 		</p>
         <div class="slide_wrapper">
             <ul class="slides2">
-            	<c:forEach var="tmp" items="${list }">
+            	<c:forEach var="tmp" items="${list2 }">
                     <li>
                     	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
 	                        <div class="movie-css-listimg">
@@ -118,23 +125,6 @@
 	                        <div class="movie-css-listText">
 	                            <p class="8277n1m" >${tmp.title}</p>
 	                            <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
-	                        </div>
-                   		</a>
-                    </li>
-            	</c:forEach>
-            </ul>
-        </div>
-        <div class="slide_wrapper">
-            <ul class="slides">
-            	<c:forEach var="tmp" items="${list2 }">
-                    <li>
-                    	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
-	                        <div class="movie-css-listimg">
-	                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmp.poster_path }" />
-	                        </div>
-	                        <div class="movie-css-listText">
-	                            <p class="">${tmp.title}</p>
-	                            <p class="">by <strong>${tmp.original_title}</strong></p>
 	                        </div>
                    		</a>
                     </li>
