@@ -1,118 +1,116 @@
 @charset "UTF-8";
 
 input:focus {
-	
+   
 }
 
 .label {
-	padding: 0px 20px;
-	margin:15px 0px;
-	overflow: hidden;
-	display: block;
+   padding: 0px 20px;
+   margin:15px 0px;
+   overflow: hidden;
+   display: block;
 }
 
 .control-label {
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	background: rgb(245, 245, 245);
-	box-sizing: border-box;
-	width: 100%;
-	height: 44px;
-	padding: 0px 12px;
-	border-radius: 6px;
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+   background: rgb(245, 245, 245);
+   box-sizing: border-box;
+   width: 100%;
+   height: 44px;
+   padding: 0px 12px;
+   border-radius: 6px;
 }
 
 #loginmodalsection{
-	width:300px;
-	height:400px;
 }
 
 #signupmodalsection{
-	width:400px;
-	height:550px;
 }
 
 .modal fade {
-	width: 400px;
-	height: 550px;
+   position:fixed;
+   top:50%;
+   left:50%;
+   transform:translate(-50%, -50%);
 }
 #img-logo{
-	display:flex;
-	justify-content: center;
-	align-items: center;
-	text-align:center;
-	margin: 0px 0px 20px;
-	padding: 20px 0px 0px;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   text-align:center;
+   margin: 0px 0px 20px;
+   padding: 20px 0px 0px;
 }
 #modal-logo {
-	display:flex;
-	justify-content: center;
-	align-items: center;
-	padding:10px 0px 0px 10px;
-	text-align:center;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   padding:10px 0px 0px 10px;
+   text-align:center;
 }
 
 .animate__animated_animate__bounceInDown {
-	width: 100%;
-	height: 550px;
+   width: 100%;
+   height: 550px;
 }
 
 .form-control {
-	border: none;
-	outline: 0;
-	background: rgb(245, 245, 245);
+   border: none;
+   outline: 0;
+   background: rgb(245, 245, 245);
 }
 
 #loginbtn, #submitbtn {
-	display: flex;
-	justify-content: center;
-	padding: 35px 20px;
-	align-items: center;
+   display: flex;
+   justify-content: center;
+   padding: 35px 20px;
+   align-items: center;
 }
 
 .btn-btn-primary {
-	padding: 0px 20px;
-	background: rgb(255, 47, 110);
-	color: rgb(255, 255, 255);
-	text-align: center;
-	font-size: 15px;
-	font-weight: 400;
-	box-sizing: border-box;
-	width: 100%;
-	height: 50px;
-	border-radius: 6px;
-	border: 0;
-	outline: 0;
+   padding: 0px 20px;
+   background: rgb(255, 47, 110);
+   color: rgb(255, 255, 255);
+   text-align: center;
+   font-size: 15px;
+   font-weight: 400;
+   box-sizing: border-box;
+   width: 100%;
+   height: 50px;
+   border-radius: 6px;
+   border: 0;
+   outline: 0;
 }
 .modal-title {
-	font-size: 17px;
-	letter-spacing: -0.5px;
-	line-height: 22px;
-	font-weight: 700;
-	text-align: center;
+   font-size: 17px;
+   letter-spacing: -0.5px;
+   line-height: 22px;
+   font-weight: 700;
+   text-align: center;
 }
 
 .header {
-	width: 400px;
-	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin:0px 0px 15px;
+   width: 400px;
+   height: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin:0px 0px 15px;
 }
 
 .body {
-	width: 400px;
-	height: 550px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+   width: 400px;
+   height: 550px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .modal-content {
-	width: 400px;
-	height: 600px;
+   width: 400px;
+   height: 600px;
 }
 
 @font-face {
@@ -145,6 +143,7 @@ body{
     height: 100%;
     display: flex;
       flex-direction: column;
+
 }
 
 .navbar-box {
@@ -153,6 +152,7 @@ body{
    width: 100%;
    padding-top: 0.5rem;
    background-color: white;
+   font-weight: 200;
 }
 
 .navbar-ul {
@@ -207,6 +207,11 @@ body{
    width: 17rem;
    padding: 4px 1rem 4px 2rem;
    background-color: rgb(243, 243, 243);
+   border: 0px solid;
+}
+
+.navbar-divicon button {
+   position: absolute;
    border: 0px solid black;
    outline: none;
 }

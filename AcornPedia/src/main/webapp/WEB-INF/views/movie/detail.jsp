@@ -16,6 +16,8 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
+<div>
+<section>
 <div class="container">
 <form name="myform" id="myform" method="post" action="${pageContext.request.contextPath}/movie/getStars.do">
     <fieldset>
@@ -34,6 +36,14 @@
 <img loading="lazy" src="https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${dto.backdrop_path}" />
 </div>
 </div>
+</section>
+<section>
+<div class="container">
+	<div class="item"><p>asd</p></div>
+</div>
+</section>
+
+
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>

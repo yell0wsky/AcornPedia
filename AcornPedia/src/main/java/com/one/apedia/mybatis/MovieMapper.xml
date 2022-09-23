@@ -13,9 +13,9 @@
 	<select id="getList2" parameterType="movieDto" resultType="movieDto">
 		SELECT *
 		FROM
-		(SELECT num, title, genre, poster_path, stars
-		FROM movie
-		ORDER BY stars DESC)
+			(SELECT num, title, genre, poster_path, stars
+			FROM movie
+			ORDER BY stars DESC)
 		WHERE ROWNUM BETWEEN 1 AND 30
 	</select>
 

@@ -63,6 +63,9 @@
 		.a172938a2{
 			margin: 0 30px;
 		}
+		.movie-css-listText{
+			margin-top: 10px
+		}
 		
 		.movie-css-listText p{
 			width: 220px;
@@ -72,13 +75,17 @@
 			text-decoration-line:none;
 		}
 		
+		.i9h72v{
+			font-size: 1.3rem
+		}
+	
 		
     </style>
 </head>
 <body>
     <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
     <div class="a172938a">
-	    <h1 class="i9h72v">영화목록</h1>
+	    <h1 class="i9h72v">평균 평점이 높은 순위</h1>
 		<p class="controls">
 			<span class="prev"><</span>
 			<span class="next">></span>
@@ -102,7 +109,7 @@
         </div>
     </div>
     <div class="a172938a2">
-	    <h1 class="i9h72v">2번째 영화목록</h1>
+	    <h1 class="i9h72v">이런 영화는 어떤가요</h1>
 		<p class="controls">
 			<span class="prev2"><</span>
 			<span class="next2">></span>
