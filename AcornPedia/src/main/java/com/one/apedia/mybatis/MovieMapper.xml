@@ -4,19 +4,19 @@
 	<select id="getList" parameterType="movieDto" resultType="movieDto">
 		SELECT *
 		FROM
-		(SELECT num, title, genre, poster_path, stars
-		FROM movie
-		ORDER BY stars ASC)
-		WHERE ROWNUM BETWEEN 1 AND 30
+			(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path
+			FROM movie
+			ORDER BY stars ASC)
+		WHERE ROWNUM BETWEEN 1 AND 20
 	</select>
 	
 	<select id="getList2" parameterType="movieDto" resultType="movieDto">
 		SELECT *
 		FROM
-			(SELECT num, title, genre, poster_path, stars
+			(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path
 			FROM movie
-			ORDER BY stars DESC)
-		WHERE ROWNUM BETWEEN 1 AND 30
+			ORDER BY release_date DESC)
+		WHERE ROWNUM BETWEEN 1 AND 20
 	</select>
 
 	<select id="getData" parameterType="int" resultType="movieDto">
@@ -30,11 +30,19 @@
 		FROM movie
 		WHERE num = #{num}
 	</delete>
+	
 	<insert id="addStars" parameterType="map">
 		INSERT INTO STARS
 		(movie_no, user_id, stars)
 		VALUES(#{num},#{id},#{star})
 	</insert>
+	
+	<update id="updateStars" parameterType="map">
+		UPDATE stars
+		SET stars=#{star}
+		WHERE movie_no=#{num} AND user_id=#{id}
+	</update>
+	
 	<select id="getStars" parameterType="map" resultType="int">
 		SELECT stars
 		FROM Stars

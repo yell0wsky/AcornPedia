@@ -33,21 +33,28 @@
 			</div>
 		</section>
 		<section>
-			<div class="container">
-				<form name="myform" id="myform" method="post"
-					action="${pageContext.request.contextPath}/movie/getStars.do">
-					<fieldset>
-						<legend>별점</legend>
-						<input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
-						<input type="radio" name="rating" value="4"	id="rate2"><label for="rate2">⭐</label>
-						<input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
-						<input type="radio" name="rating" value="2" id="rate4"><label for="rate4">⭐</label>
-						<input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
-						<input type="hidden" name="num" id="num" value="${dto.num}" />
-					</fieldset>
-					<button class="btn-btn-primary" type="submit">별점 등록</button>
-				</form>
-				<li>${dto.title}</li>
+			<div class="container" style=padding-top:15px;>
+				<div style=display:flex;>
+					<div class="movieposter">
+						<img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${dto.poster_path}"/>
+					</div>
+					<div>
+						<p>${dto.title}</p>
+						<form name="myform" id="myform" method="post"
+						action="${pageContext.request.contextPath}/movie/getStars.do">
+						<fieldset>
+							<legend>별점</legend>
+							<input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
+							<input type="radio" name="rating" value="4"	id="rate2"><label for="rate2">⭐</label>
+							<input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
+							<input type="radio" name="rating" value="2" id="rate4"><label for="rate4">⭐</label>
+							<input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
+							<input type="hidden" name="num" id="num" value="${dto.num}" />
+						</fieldset>
+						<button class="btn-btn-primary" type="submit">별점 등록</button>
+						</form>				
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>

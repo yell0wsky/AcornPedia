@@ -17,8 +17,8 @@
         .slide_wrapper {
             position: relative;
             margin: 0 auto;
-            height: 400px;
-            width: 1720px;  
+            height: 500px;
+            width: 1300px;  
             overflow: hidden;
         }
 
@@ -44,7 +44,7 @@
 			margin-right: 30px
 		} 
 		.i9h72v {
-			margin-left: 50px;
+			margin-left: 0px;
 		}
 		
 		.controls{
@@ -58,7 +58,7 @@
 		
 		.a172938a{
 			margin: 0 30px;
-			padding-top: 100px
+			padding-top: 0px
 		}
 		.a172938a2{
 			margin: 0 30px;
@@ -70,30 +70,30 @@
 		.movie-css-listText p{
 			width: 220px;
 			color: black;
+			margin-bottom:0px;
 		}
 		.slide_wrapper a{
 			text-decoration-line:none;
 		}
 		
 		.i9h72v{
-			font-size: 1.3rem
+			font-size: 1.3rem;
 		}
-	
-		
+
     </style>
 </head>
 <body>
     <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
     <div class="container">
     <div class="a172938a">
-	    <h1 class="i9h72v">평균 평점이 높은 순위</h1>
 		<p class="controls">
 			<span class="prev"><</span>
 			<span class="next">></span>
 		</p>
+		<h1 class="i9h72v">평균 평점이 높은 순위</h1>
         <div class="slide_wrapper">
-            <ul class="slides">
-            	<c:forEach var="tmp" items="${list }">
+        	<ul class="slides">
+               	<c:forEach var="tmp" items="${list }">
                     <li>
                     	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
 	                        <div class="movie-css-listimg">
@@ -101,6 +101,8 @@
 	                        </div>
 	                        <div class="movie-css-listText">
 	                            <p class="8277n1m" >${tmp.title}</p>
+	                            <p style=font-size:small>${tmp.release_date}</p>
+	                            <p style=font-size:small>${tmp.genre }</p>
 	                            <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
 	                        </div>
                    		</a>
@@ -110,11 +112,12 @@
         </div>
     </div>
     <div class="a172938a2">
-	    <h1 class="i9h72v">이런 영화는 어떤가요</h1>
+
 		<p class="controls">
 			<span class="prev2"><</span>
 			<span class="next2">></span>
 		</p>
+		<h1 class="i9h72v">이런 영화는 어떤가요</h1>
         <div class="slide_wrapper">
             <ul class="slides2">
             	<c:forEach var="tmp" items="${list2 }">
@@ -125,6 +128,8 @@
 	                        </div>
 	                        <div class="movie-css-listText">
 	                            <p class="8277n1m" >${tmp.title}</p>
+	                            <p style=font-size:small>${tmp.release_date}</p>
+	                            <p style=font-size:small>${tmp.genre }</p>
 	                            <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
 	                        </div>
                    		</a>

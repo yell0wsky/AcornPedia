@@ -63,5 +63,10 @@ public class MovieServiceImpl implements MovieService {
 		return dao.getStars(id, num);
 		
 	}
+	@Override
+	public void updateStars(String id, int num, int star) {
+		dao.updateStars(id, num, star);
+		
+	}
 
 }

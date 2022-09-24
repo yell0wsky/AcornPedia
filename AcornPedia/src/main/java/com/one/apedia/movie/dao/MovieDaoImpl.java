@@ -87,11 +87,21 @@ public class MovieDaoImpl implements MovieDao {
 		session.insert("movie.addStars", parameters);
 	}
 	
+	@Override
 	public int getStars(String id, int num) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("id", id);
 		parameters.put("num", num);
 		return session.selectOne("movie.getStars", parameters);
+	}
+
+	@Override
+	public void updateStars(String id, int num, int star) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", id);
+		parameters.put("num", num);
+		parameters.put("star", star);	
+		session.update("movie.updateStars", parameters);
 	}
 	
 }
