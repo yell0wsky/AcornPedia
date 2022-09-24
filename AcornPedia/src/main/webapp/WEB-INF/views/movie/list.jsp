@@ -84,6 +84,7 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
+    <div class="container">
     <div class="a172938a">
 	    <h1 class="i9h72v">평균 평점이 높은 순위</h1>
 		<p class="controls">
@@ -132,6 +133,7 @@
             </ul>
         </div>
     </div>
+</div>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
    <script>
