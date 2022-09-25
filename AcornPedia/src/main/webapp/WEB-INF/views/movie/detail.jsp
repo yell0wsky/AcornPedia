@@ -31,6 +31,7 @@
 				<img
 					src="https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${dto.backdrop_path}" />
 			</div>
+			<div class="backcolor"></div>
 		</section>
 		<section>
 			<div class="container" style=padding-top:15px;>
@@ -51,8 +52,13 @@
 							<input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
 							<input type="hidden" name="num" id="num" value="${dto.num}" />
 						</fieldset>
-						<button class="btn-btn-primary" type="submit">별점 등록</button>
-						</form>				
+						<button class="btn btn-primary" type="submit">별점 등록</button>
+						</form>
+						<c:choose>
+								<c:when test="${not empty stars}">
+								<p>평가함 ⭐${stars}</p>
+								</c:when>
+						</c:choose>
 					</div>
 				</div>
 			</div>
@@ -60,5 +66,20 @@
 	</div>
 	<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
+<script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
+<script type="text/javascript">
+let idExist='<%=(String)session.getAttribute("id")%>';
+
+document.querySelector("#myform").addEventListener("submit", function(e){
+	if(idExist=="null"){
+		e.preventDefault();
+		alert("로그인을 해주세요");		
+		document.querySelector("#login").click();
+	} else{
+		alert("별점이 등록되었습니다.")
+	}
+});
+</script>
 </html>
+
 

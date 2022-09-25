@@ -30,10 +30,6 @@
    border-radius: 6px;
 }
 
-#loginmodal, #sighupmodal {
-   
-}
-
 #login-img-logo {
    display: flex;
    justify-content: center;
@@ -123,7 +119,7 @@ form#signForm {
    align-items: center;
 }
 
-.btn-btn-primary {
+.modal-button {
    background: rgb(255, 47, 110);
    color: rgb(255, 255, 255);
    text-align: center;

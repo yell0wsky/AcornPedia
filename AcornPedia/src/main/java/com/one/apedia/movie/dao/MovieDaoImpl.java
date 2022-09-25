@@ -88,7 +88,7 @@ public class MovieDaoImpl implements MovieDao {
 	}
 	
 	@Override
-	public int getStars(String id, int num) {
+	public Integer getStars(String id, int num) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("id", id);
 		parameters.put("num", num);

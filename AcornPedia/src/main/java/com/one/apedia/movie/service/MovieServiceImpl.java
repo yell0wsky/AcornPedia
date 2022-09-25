@@ -35,14 +35,15 @@ public class MovieServiceImpl implements MovieService {
 		dao.insert(dto);
 	}
 	
+	
 	//갤러리 detail 페이지에 필요한 data를 ModelAndView 에 저장
 	@Override
 	public void getDetail(ModelAndView mView, int num) {
 		//dao 로 해당 게시글 num 에 해당하는 데이터(dto)를 가져온다.
+		
 		MovieDto dto = dao.getData(num);
-		//ModelAndView 에 가져온 MovieDto 를 담는다.
 		mView.addObject("dto", dto);
-
+		
 	}
 	
 	//갤러리의 num에 해당하는 번호 사진게시글 삭제
@@ -58,8 +59,7 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public int getStars(String id, int num) {
-		
+	public Integer getStars(String id, int num) {
 		return dao.getStars(id, num);
 		
 	}

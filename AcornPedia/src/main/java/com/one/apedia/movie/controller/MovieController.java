@@ -33,9 +33,17 @@ public class MovieController {
 	//movie 게시글의 num이 parameter get 방식으로 넘어온다.
 	//detail 페이지
 	@RequestMapping(value = "/movie/detail", method = RequestMethod.GET)
-	public ModelAndView detail(ModelAndView mView, @RequestParam int num) {
+	public ModelAndView detail(ModelAndView mView, HttpSession session, @RequestParam int num) {
 		//갤러리 detail 페이지에 필요한 data를 num 으로 가져와, ModelAndView 에 저장
+		String id=(String)session.getAttribute("id");
+				
 		service.getDetail(mView, num);
+				
+		if (id!=null) {
+			int stars=service.getStars(id, num);
+			mView.addObject("stars", stars);
+		}
+	
 		mView.setViewName("movie/detail");
 		
 		return mView;
@@ -58,13 +66,19 @@ public class MovieController {
 		
 		String id=(String)session.getAttribute("id");
 		int num=Integer.parseInt(request.getParameter("num"));
-		int star=Integer.parseInt(request.getParameter("rating"));
-		if(service.getStars(id, num)==0) {
+		int star=0;
+		
+		if(request.getParameter("rating")==null) {
+			star=0;
+		}else{
+			star=Integer.parseInt(request.getParameter("rating"));
+		}
+		
+		if(service.getStars(id, num)==null) {
 			service.addStars(id, num, star);
 		}else {
 			service.updateStars(id, num, star);
 		}
-		
 		
 		return new ModelAndView("redirect:/movie/detail.do?num="+num);
 	}

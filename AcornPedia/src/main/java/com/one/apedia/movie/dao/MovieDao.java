@@ -19,7 +19,7 @@ public interface MovieDao {
 	//영화에 별점 추가하기
 	public void addStars(String id, int num, int star);
 	//영화 별점 확인
-	public int getStars(String id, int num);
+	public Integer getStars(String id, int num);
 	//영화 별점 변경
 	public void updateStars(String id, int num, int star);
 	

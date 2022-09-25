@@ -43,7 +43,7 @@
 		WHERE movie_no=#{num} AND user_id=#{id}
 	</update>
 	
-	<select id="getStars" parameterType="map" resultType="int">
+	<select id="getStars" parameterType="map" resultType="Integer">
 		SELECT stars
 		FROM Stars
 		WHERE movie_no=#{num} AND user_id=#{id}

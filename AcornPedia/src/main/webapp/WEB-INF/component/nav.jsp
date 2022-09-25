@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!-- login Modal -->
 <div class="modal fade" id="loginmodal">
 	<div class="modal-dialog modal-sm modal-dialog-centered">
@@ -21,15 +22,8 @@
 					<form class="animate__animated_animate__bounceInDown"
 						action="${pageContext.request.contextPath}/users/login.do"
 						method="post" id="loginForm">
-						<c:choose>
-							<c:when test="${ empty param.url }">
-								<input type="hidden" name="url"
-									value="${pageContext.request.contextPath}/" />
-							</c:when>
-							<c:otherwise>
-								<input type="hidden" name="url" value="${param.url }" />
-							</c:otherwise>
-						</c:choose>
+						<input type="hidden" name="url"
+									value=""/>
 						<div class="login-label">
 							<label class="control-label" for="id"><input
 								class="form-control" type="text" name="id" id="signid"
@@ -41,7 +35,7 @@
 								placeholder="비밀번호" /></label>
 						</div>
 						<div class="btn" id="loginbtn">
-							<button type="submit" class="btn-btn-primary">로그인</button>
+							<button class="modal-button" type="submit" class="btn-btn-primary">로그인</button>
 						</div>
 					</form>
 				</div>
@@ -103,7 +97,7 @@
 							<div class="invalid-feedback">이메일 형식을 확인 하세요.</div>
 						</div>
 						<div class="button" id="submitbtn">
-							<button class="btn-btn-primary" type="submit">회원가입</button>
+							<button class="modal-button" type="submit">회원가입</button>
 						</div>
 					</form>
 				</div>
@@ -186,7 +180,7 @@
 		</li>
 		<c:choose>
 			<c:when test="${ empty sessionScope.id}">
-				<li class="navbar-li css-text css-hidden"><a
+				<li class="navbar-li css-text css-hidden"><a id="login"
 					href="${pageContext.request.contextPath}/users/loginform.do"
 					class="navbar-atext" data-toggle="modal" data-target="#loginmodal">로그인</a>
 					<a href="${pageContext.request.contextPath}/users/signup_form.do"
@@ -314,7 +308,12 @@
 			//폼 전송 막기 
 			e.preventDefault();
 			alert("양식에 맞게 입력해주세요");
-		}	
+		}
 	});
+	
+	//login.do로 보낼 form에 현재페이지의 파라미터값까지 포함한 url값 담기
+	var link=document.location.href;
+	$('input[name=url]').attr('value',link)
+
 </script>
 <!-- Navi Bar End -->

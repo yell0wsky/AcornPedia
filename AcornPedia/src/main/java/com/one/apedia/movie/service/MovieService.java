@@ -17,7 +17,7 @@ public interface MovieService {
 	//영화에 별점추가하기
 	public void addStars(String id,int num, int star);
 	//영화 별점 확인하기
-	public int getStars(String id, int num);
+	public Integer getStars(String id, int num);
 	//영화 별점 변경하기
 	public void updateStars(String id, int num, int star);
 
