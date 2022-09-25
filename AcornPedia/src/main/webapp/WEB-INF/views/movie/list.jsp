@@ -143,7 +143,7 @@
 		                        <div class="movie-css-listText">
 		                            <p class="8277n1m" >${tmp.title}</p>
 		                            <p style=font-size:small>${tmp.release_date}</p>
-	                            	<p style=font-size:small>${tmp.genre }</p>
+		                            <p style=font-size:small>평균⭐ ${tmp.stars}   💗</p>
 		                            <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
 		                        </div>
 	                   		</a>
@@ -169,7 +169,7 @@
 		                        <div class="movie-css-listText">
 		                            <p class="8277n1m" >${tmp.title}</p>
 		                            <p style=font-size:small>${tmp.release_date}</p>
-	                            	<p style=font-size:small>${tmp.genre }</p>
+		                            <p style=font-size:small>평균⭐ ${tmp.stars}   💗</p>
 		                            <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
 		                        </div>
 	                   		</a>

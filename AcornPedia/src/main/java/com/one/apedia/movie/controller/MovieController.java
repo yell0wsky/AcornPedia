@@ -66,17 +66,19 @@ public class MovieController {
 		
 		String id=(String)session.getAttribute("id");
 		int num=Integer.parseInt(request.getParameter("num"));
-		int star=0;
+		int star;
 		if(request.getParameter("rating")!=null) {
 			star=Integer.parseInt(request.getParameter("rating"));
-		}
-
-		if(service.getStars(id, num)==null) {
-			service.addStars(id, num, star);
 		}else {
-			service.updateStars(id, num, star);
+			star=0;
 		}
 		
+		if(service.getStars(id, num)!=null) {
+			service.updateStars(id, num, star);
+		}else {
+			service.addStars(id, num, star);
+		}	
+
 		return new ModelAndView("redirect:/movie/detail.do?num="+num);
 	}
 }

@@ -10,16 +10,17 @@ public class MovieDto {
 	private String release_date;
 	private int runtime;
 	private String backdrop_path;
-	private int stars;
+	private String stars;
 	private int startRowNum;
 	private int endRowNum;
 	private int prevNum; //이전글의 글번호
 	private int nextNum; //다음글의 글번호
+	private int count;
 	
 	public MovieDto() {}
 
-	public MovieDto(int num, String title, String genre, String original_title, String overview, String poster_path, String release_date, int runtime, String backdrop_path, int stars,
-			int startRowNum, int endRowNum, int prevNum, int nextNum) {
+	public MovieDto(int num, String title, String genre, String original_title, String overview, String poster_path, String release_date, int runtime, String backdrop_path, String stars,
+			int startRowNum, int endRowNum, int prevNum, int nextNum, int count) {
 		super();
 		this.num = num;
 		this.title = title;
@@ -109,11 +110,11 @@ public class MovieDto {
 		this.backdrop_path = backdrop_path;
 	}
 
-	public int getStars() {
+	public String getStars() {
 		return stars;
 	}
 
-	public void setStars(int stars) {
+	public void setStars(String stars) {
 		this.stars = stars;
 	}
 
@@ -147,6 +148,14 @@ public class MovieDto {
 
 	public void setNextNum(int nextNum) {
 		this.nextNum = nextNum;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 		
 }

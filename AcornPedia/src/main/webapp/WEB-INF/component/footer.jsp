@@ -19,7 +19,7 @@
                 <li class="css-footer-007">서울특별시 강남구 테헤란로 124 삼원타워 5층</li>
             </ul>
             <ul class="css-footer-4line">
-                <img src="${pageContext.request.contextPath}/resources/images/awtcha.png"> © 2022 by WATCHA, Inc. All rights reserved
+                <img src="${pageContext.request.contextPath}/resources/images/acorn_black.png"> © 2022 by ACORN, Inc. All rights reserved
             </ul>
           </div> 
      </div>

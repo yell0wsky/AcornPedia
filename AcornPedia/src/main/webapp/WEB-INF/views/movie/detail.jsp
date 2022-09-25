@@ -28,23 +28,26 @@
 	<div id='moviewrapper'>
 		<section>
 			<div id="bgBlur">
+			<div id="backcolor"></div>
 				<img
 					src="https://www.themoviedb.org/t/p/w1066_and_h600_bestv2${dto.backdrop_path}" />
 			</div>
-			<div class="backcolor"></div>
+			
 		</section>
 		<section>
 			<div class="container" style=padding-top:15px;>
-				<div style=display:flex;>
+				<div id="movieinfo" style=display:flex;>
 					<div class="movieposter">
 						<img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${dto.poster_path}"/>
 					</div>
 					<div>
-						<p>${dto.title}</p>
+						<h3 id="movietitle">${dto.title}</h3>
+						<div>${dto.release_date }, ${dto.genre}</div>
+						<div>평균 ⭐${dto.stars} (${dto.count}명)</div>
 						<form name="myform" id="myform" method="post"
 						action="${pageContext.request.contextPath}/movie/runStars.do">
 						<fieldset>
-							<legend>별점</legend>
+							<legend class="starinput">평가하기</legend>
 							<input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
 							<input type="radio" name="rating" value="4"	id="rate2"><label for="rate2">⭐</label>
 							<input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>

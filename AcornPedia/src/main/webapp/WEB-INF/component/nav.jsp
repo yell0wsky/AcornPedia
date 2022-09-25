@@ -9,7 +9,7 @@
 			<div class="modal-content" id=loginmodalcontent>
 				<div id="login-img-logo">
 					<img
-						src="${pageContext.request.contextPath}/resources/images/watcha.png"
+						src="${pageContext.request.contextPath}/resources/images/acorn.png"
 						id="modal-logo">
 				</div>
 
@@ -51,7 +51,7 @@
 			<div class="modal-content">
 				<div id="img-logo">
 					<img
-						src="${pageContext.request.contextPath}/resources/images/watcha.png"
+						src="${pageContext.request.contextPath}/resources/images/acorn.png"
 						id="modal-logo">
 				</div>
 
@@ -111,7 +111,7 @@
 	<ul class="navbar-ul">
 		<li class="navbar-li css-logo"><a
 			href="${pageContext.request.contextPath}/home.do"> <img
-				src="${pageContext.request.contextPath}/resources/images/watcha.png"
+				src="${pageContext.request.contextPath}/resources/images/acorn.png"
 				id="logo">
 		</a></li>
 		<li class="navbar-li css-text navbar-li-remove"><a
@@ -157,7 +157,7 @@
 	<ul class="navbar-ul">
 		<li class="navbar-li css-logo"><a
 			href="${pageContext.request.contextPath}/home.do"> <img
-				src="${pageContext.request.contextPath}/resources/images/watcha.png"
+				src="${pageContext.request.contextPath}/resources/images/acorn.png"
 				id="logo">
 		</a></li>
 		<li class="navbar-li css-text navbar-li-remove"><a
