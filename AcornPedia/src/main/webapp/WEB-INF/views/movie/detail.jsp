@@ -42,7 +42,7 @@
 					<div>
 						<p>${dto.title}</p>
 						<form name="myform" id="myform" method="post"
-						action="${pageContext.request.contextPath}/movie/getStars.do">
+						action="${pageContext.request.contextPath}/movie/runStars.do">
 						<fieldset>
 							<legend>별점</legend>
 							<input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
@@ -55,7 +55,7 @@
 						<button class="btn btn-primary" type="submit">별점 등록</button>
 						</form>
 						<c:choose>
-								<c:when test="${not empty stars}">
+								<c:when test="${stars!=0}">
 								<p>평가함 ⭐${stars}</p>
 								</c:when>
 						</c:choose>
