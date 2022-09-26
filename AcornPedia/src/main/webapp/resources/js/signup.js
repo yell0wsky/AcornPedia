@@ -79,7 +79,8 @@
 		//1. 입력한 이메일을 읽어와서
 		const inputEmail=this.value;
 		//2. 이메일을 검증할 정규 표현식 객체를 만들어서
-		const reg_email=/@/;
+		const reg_email = /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/i;
+		
 		//3. 정규표현식 매칭 여부에 따라 분기하기
 		if(reg_email.test(inputEmail)){//만일 매칭된다면
 			isEmailValid=true;
