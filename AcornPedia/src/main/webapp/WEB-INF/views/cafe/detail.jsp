@@ -274,7 +274,7 @@
 </div>
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
-   
+
    //클라이언트가 로그인 했는지 여부
    let isLogin=${ not empty id };
    
@@ -285,9 +285,11 @@
          if(!isLogin){
             //폼 전송을 막고 
             e.preventDefault();
+    		alert("로그인이 필요합니다");		
+    		document.querySelector("#login").click();
             //로그인 폼으로 이동 시킨다.
             //로그인 성공후 다시 해당글 자세히 보기 페이지로 돌아올 수 있도록 url 정보를 같이 전달한다.
-            location.href="${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/cafe/detail.do?num=${dto.num}";
+            
          }
       });
    
@@ -412,9 +414,9 @@
          replyLinks[i].addEventListener("click", function(){
             
             if(!isLogin){
-               const isMove=confirm("로그인이 필요 합니다. 로그인 페이지로 이동 하시겠습니까?");
+               const isMove=confirm("로그인이 필요 합니다.);
                if(isMove){
-                  location.href="${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/cafe/detail.do?num=${dto.num}";
+           		document.querySelector("#login").click();
                }
                return;
             }

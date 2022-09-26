@@ -54,7 +54,7 @@
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container" >
    <c:if test="${id=='admin' }">
-   <a class="btn btn-default pull-right" href="insertform.do">글쓰기</a>
+   <button class="btn btn-default pull-right" id="noticeinsert">글쓰기</button>
    </c:if>
    <h1>공지사항</h1>
    <table class="table table-hover " style="text-align: center; ">
@@ -129,6 +129,20 @@
       </p>
    </c:if>
 </div>
+<script type="text/javascript">
+	let isLogin=${ not empty id };
+	
+	document.querySelector("#noticeinsert").addEventListener("click", function(e){
+		if(!isLogin){
+			e.preventDefault();
+			alert("로그인이 필요합니다.");		
+			document.querySelector("#login").click();
+		}else{
+		location.href="${pageContext.request.contextPath}/notice/insertform.do"
+		}
+		
+	})
+	</script>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>

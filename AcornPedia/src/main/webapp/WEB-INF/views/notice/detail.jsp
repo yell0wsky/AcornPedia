@@ -287,8 +287,8 @@
 				e.preventDefault();
 				//로그인 폼으로 이동 시킨다.
 				//로그인 성공후 다시 해당글 자세히 보기 페이지로 돌아올수 있도록 url 정보를 같이 전달한다.
-				location.href=
-					"${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/cafe/detail.do?num=${dto.num}";
+				alert("로그인을 해주세요");		
+				document.querySelector("#login").click();
 			}
 		});
 	
@@ -413,8 +413,7 @@
 				if(!isLogin){
 					const isMove=confirm("로그인이 필요 합니다. 로그인 페이지로 이동 하시겠습니까?");
 					if(isMove){
-						location.href=
-							"${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/cafe/detail.do?num=${dto.num}";
+						document.querySelector("#login").click();
 					}
 					return;
 				}
