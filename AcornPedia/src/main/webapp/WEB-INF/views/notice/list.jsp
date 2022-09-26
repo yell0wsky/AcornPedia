@@ -57,14 +57,14 @@
    <a class="btn btn-default pull-right" href="insertform.do">글쓰기</a>
    </c:if>
    <h1>공지사항</h1>
-   <table class="table table-hover" style="text-align: center;">
-      <thead>
+   <table class="table table-hover " style="text-align: center; ">
+      <thead class="table-light">
          <tr>
-            <th style="background-color: #eeeeee; text-align: center;">글번호</th>
-            <th style="background-color: #eeeeee; text-align: center;">작성자</th>
-            <th style="background-color: #eeeeee; text-align: center;">제목</th>
-            <th style="background-color: #eeeeee; text-align: center;">조회수</th>
-            <th style="background-color: #eeeeee; text-align: center;">등록일</th>
+            <th style="background-color: #; text-align: center; large; color: #808080">글번호</th>
+            <th style="background-color: #; text-align: center; large; color: #808080">작성자</th>
+            <th style="background-color: #; text-align: center; large; color: #808080">제목</th>
+            <th style="background-color: #; text-align: center; large; color: #808080">조회수</th>
+            <th style="background-color: #; text-align: center; large; color: #808080">등록일</th>
          </tr>
       </thead>
       <tbody>

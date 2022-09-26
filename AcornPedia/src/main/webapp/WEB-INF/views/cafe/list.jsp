@@ -13,8 +13,6 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
-
-
 <style>
 	 .page-ui a{
       text-decoration: none;
@@ -55,10 +53,10 @@
 <div class="container">
 	
 	<h1>목록</h1>
-	<table class="table table" style="text-align: center;">
-		<thead>
+	<table class="table table-hover " style="text-align: center;">
+		<thead class="table-light">
 			<tr>
-				<th style="background-color: ; text-align: center; font-size: large; color: #808080 ">글번호</th>
+				<th style="background-color: ; text-align: center; font-size: large; color: #808080">글번호</th>
 				<th style="background-color: ; text-align: center; font-size: large; color: #808080">작성자</th>
 				<th style="background-color: ; text-align: center; font-size: large; color: #808080">제목</th>
 				<th style="background-color: ; text-align: center; font-size: large; color: #808080">조회수</th>
