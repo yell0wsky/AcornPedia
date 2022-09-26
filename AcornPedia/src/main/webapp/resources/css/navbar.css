@@ -357,7 +357,7 @@ body{
 }
 
 footer{
-	position: relative; (absolute -> relative)
+	position: relative;
 	transform: traslatY(-100%);
 }
 

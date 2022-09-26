@@ -47,29 +47,18 @@
 			</a>
 			<br />
 	
-          <form>
+          <form action="${pageContext.request.contextPath}/users/delete.do">
             <label for="name">이름</label>
             <input type="text" name="name" id="name" style="height:20px;" value="${dto.name }" readonly/>
-            
             <label for="id">아이디</label>
             <input type="text" name="id" id="id" style="height:20px;" value="${id }" readonly/>
-
             <label for="email">Email</label>
             <input type="email" name="email" id="email" style="height:20px;" value="${dto.email }" readonly/>
-            
             <label for="regdate">가입일</label>
             <input type="text" name="regdate" id="regdate" style="height:20px;" value="${dto.regdate }" readonly/ >
-
-           
-         
-
-          <br>
-            <button type="submit" class="btn btn-outline-primary"><a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a></button>
-            
+            <button class="btn btn-outline-primary"><a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a></button>       
 			<button type="submit" class="btn btn-outline-primary" onclick="javascript:deleteConfirm()">회원탈퇴</button>
-
-
-          </form>
+         </form>
         </div>         
       </div>
 </div>	

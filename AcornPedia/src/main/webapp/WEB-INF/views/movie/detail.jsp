@@ -12,8 +12,6 @@
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/navbar.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/stars.css" />
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
@@ -44,7 +42,7 @@
 						<h3 id="movietitle">${dto.title}</h3>
 						<div>${dto.release_date }, ${dto.genre}</div>
 						<div>평균 ⭐${dto.stars} (${dto.count}명)</div>
-						<form name="myform" id="myform" method="post"
+						<form name="starform" id="starform" method="post"
 						action="${pageContext.request.contextPath}/movie/runStars.do">
 						<fieldset>
 							<legend class="starinput">평가하기</legend>
@@ -73,7 +71,7 @@
 <script type="text/javascript">
 let idExist='<%=(String)session.getAttribute("id")%>';
 
-document.querySelector("#myform").addEventListener("submit", function(e){
+document.querySelector("#starform").addEventListener("submit", function(e){
 	if(idExist=="null"){
 		e.preventDefault();
 		alert("로그인을 해주세요");		

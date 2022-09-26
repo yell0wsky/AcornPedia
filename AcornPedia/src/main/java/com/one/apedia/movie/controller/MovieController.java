@@ -14,12 +14,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.one.apedia.movie.dto.MovieDto;
 import com.one.apedia.movie.service.MovieService;
+import com.one.apedia.users.service.UsersService;
 
 @Controller
 public class MovieController {
 	
 	@Autowired
 	private MovieService service;
+	
+	@Autowired
+	private UsersService uservice;
 	
 	//movie list 페이지로 이동
 	@RequestMapping(value = "/movie/list")
@@ -48,18 +52,7 @@ public class MovieController {
 		
 		return mView;
 	}
-	
-	//movie 게시글의 num이 parameter get 방식으로 넘어온다.
-	//delete 페이지
-	@RequestMapping(value = "/movie/delete", method = RequestMethod.GET)
-	public ModelAndView authDelete(ModelAndView mView, @RequestParam int num) {
-		//get방식으로 받아온 num에 해당하는 갤러리 게시글을 삭제한다.
-		service.delete(mView, num);
-		mView.setViewName("movie/delete");
 		
-		return mView;
-		
-	}
 	@RequestMapping("/movie/runStars")
 	public ModelAndView runStars(HttpSession session, HttpServletRequest request) {
 		//get 방식으로 받아온 num에 해당하는 영화에 star만큼의 별점을 올린다.
@@ -77,6 +70,7 @@ public class MovieController {
 			service.updateStars(id, num, star);
 		}else {
 			service.addStars(id, num, star);
+			uservice.addpoint(id);
 		}	
 
 		return new ModelAndView("redirect:/movie/detail.do?num="+num);

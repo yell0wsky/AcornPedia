@@ -25,7 +25,7 @@ public class UsersController {
 	
 	//회원 탈퇴 요청 처리
 	@RequestMapping("/users/delete")
-	public ModelAndView authDelete(HttpSession session, ModelAndView mView,
+	public ModelAndView Delete(HttpSession session, ModelAndView mView,
 			 HttpServletRequest request) {
 		
 		service.deleteUser(session, mView);
@@ -103,12 +103,6 @@ public class UsersController {
 		//세션에서 id 라는 키값으로 저장된 값 삭제 
 		session.removeAttribute("id");
 		return "users/logout";
-	}
-	
-	@RequestMapping(value = "/users/signup_form", method = RequestMethod.GET)
-	public String signupForm() {
-		
-		return "users/signup_form";
 	}
 	
 	//아이디 중복 확인을 해서 json 문자열을 리턴해주는 메소드 
