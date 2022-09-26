@@ -128,7 +128,9 @@
 				<div class="navbar-divicon">
 					<i class="fas fa-search" id="fuck"></i> <input type="text"
 						placeholder="콘텐츠, 인물, 컬렉션를 검색해보세요."> <i
-						class="fas fa-search" id="haha"></i>
+						class="fas fa-search" id="haha" style="
+    margin-top: 0px;
+"></i>
 				</div>
 			</form>
 		</li>

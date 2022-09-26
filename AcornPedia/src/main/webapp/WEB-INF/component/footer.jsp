@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <footer id="footer">
+	 <div id="movieStar" style="height: 55px; background-color: black;">
+	 </div>
      <div class="css-footer-box">
           <div class="css-footer-text">
             <ul class="css-footer-1line">
