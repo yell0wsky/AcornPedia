@@ -327,10 +327,10 @@ body {
 }
 
 #haha {
-	display: none;
-	color: black;
-	opacity: 0.65;
-	margin-top: 5px;
+   display: none;
+   color: black;
+   opacity: 0.65;
+   margin-top: 0px;
 }
 
 @media screen and (max-width: 930px) {
@@ -377,12 +377,12 @@ body {
 
 /* footer css */
 .css-footer-box {
-	width: 100%;
-	background-color: #292b2e;
-	display: flex;
-	font-size: 14px;
-	margin-top: 60px;
-	bottom: 0;
+   width: 100%;
+   background-color: #292b2e;
+   display: flex;
+   font-size: 14px;
+   margin-top: 0px;
+   bottom: 0;
 }
 
 
