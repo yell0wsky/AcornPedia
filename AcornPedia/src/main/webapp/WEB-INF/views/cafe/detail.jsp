@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/cafe/detail.jsp</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -100,6 +101,13 @@
          transform: rotate(360deg);
       }
    }
+   
+   .font-color-size{font-size: 16px; color:#C6C6C6}
+   
+   .button{border-radius:0px; padding: 3px 6px;}
+   
+   .fright{float: right;}
+   
 </style>
 </head>
 <body>
@@ -118,22 +126,22 @@
       </p>
    </c:if>
    
-   <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-      <thead>
+   <table class="table table-striped " style="text-align: center; border: 1px solid #dddddd">
+      <thead class="table-hover">
          <tr>
-            <th style="background-color: #eeeeee; text-align: center;">글번호</th>
+            <th style="background-color: #e9ecef; text-align: center; large; color: #">글번호</th>
             <td>${dto.num }</td>
          
-            <th style="background-color: #eeeeee; text-align: center;">작성자</th>
+            <th style="background-color: #e9ecef; text-align: center; large; color: #">작성자</th>
             <td>${dto.writer }</td>
          
-            <th style="background-color: #eeeeee; text-align: center;">제목</th>
+            <th style="background-color: #e9ecef; text-align: center; large; color: #">제목</th>
             <td>${dto.title }</td>
          
-            <th style="background-color: #eeeeee; text-align: center;">조회수</th>
+            <th style="background-color: #e9ecef; text-align: center; large; color: #">조회수</th>
             <td>${dto.viewCount }</td>
          
-            <th style="background-color: #eeeeee; text-align: center;">등록일</th>
+            <th style="background-color: #e9ecef; text-align: center; large; color: #">등록일</th>
             <td>${dto.regdate }</td>
          </tr>
          <tr>
@@ -147,7 +155,7 @@
       <li><a  class="btn btn-outline-danger pull-right" href="list.do">목록보기</a></li>
       <c:if test="${dto.writer eq id }">
          <li><a class="btn btn-outline-secondary pull-right" href="updateform.do?num=${dto.num }">수정</a></li>
-         <li><a class="btn btn-outline-secondary pull-right"href="delete.do?num=${dto.num }">삭제</a></li>
+         <li><a class="btn btn-outline-secondary pull-right" href="delete.do?num=${dto.num }">삭제</a></li>
       </c:if>
    </ul>
    <!-- 댓글 목록 -->
@@ -193,11 +201,11 @@
                               </c:if>
                               <span>${tmp.regdate }</span>
                               <%-- 답글 링크를 눌렀을 때 해당 댓글의 글번호를 얻어오기 위해 data-num 속성에 댓글의 번호 넣어두기 --%>
-                              <a class="btn btn-outline-secondary pull-right" data-num="${tmp.num }" href="javascript:" class="reply-link">답글</a>
+                              <a data-num="${tmp.num }" class="reply-link btn btn-outline-secondary pull-right " href="javascript:" >답글</a>
                               <%-- 만일 로그인을 했고 글 작성자가 로그인 된 사용자와 같다면 수정, 삭제 링클를 출력한다. --%>
                               <c:if test="${ (id ne null) and (tmp.writer eq id) }">
-                                 <a class="btn btn-outline-secondary pull-right" data-num="${tmp.num }" class="update-link" href="javascript:">수정</a>
-                                 <a class="btn btn-outline-secondary pull-right" data-num="${tmp.num }" class="delete-link" href="javascript:">삭제</a>
+                                 <a data-num="${tmp.num }" class="btn btn-outline-secondary pull-right update-link" href="javascript:">수정</a>
+                                 <a data-num="${tmp.num }" class="btn btn-outline-secondary pull-right delete-link" href="javascript:">삭제</a>  
                               </c:if>
                            </dt>
                            <dd>
