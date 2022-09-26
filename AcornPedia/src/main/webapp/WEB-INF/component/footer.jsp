@@ -2,13 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 
-<div class="container">
-<span>
-지금까지 <em>${sessionScope.count }</em> 쌓였어요.
-</span>
-</div>
-
 <footer id="footer">
+	 <div id="movieStar" style="height: 55px; background-color: black;">
+	 	<span class="center" style="Color:#fff;">
+			지금까지 <em>${sessionScope.count }</em> 쌓였어요.
+		</span>
+	 </div>
      <div class="css-footer-box">
           <div class="css-footer-text">
             <ul class="css-footer-1line">
@@ -26,7 +25,7 @@
                 <li class="css-footer-007">서울특별시 강남구 테헤란로 124 삼원타워 5층</li>
             </ul>
             <ul class="css-footer-4line">
-                <img src="${pageContext.request.contextPath}/resources/images/ACORN FOOTER.png" id="f logo"> © 2022 by ACORN, Inc. All rights reserved
+                <img src="${pageContext.request.contextPath}/resources/images/acorn_black.png"> © 2022 by ACORN, Inc. All rights reserved
             </ul>
           </div> 
      </div>
