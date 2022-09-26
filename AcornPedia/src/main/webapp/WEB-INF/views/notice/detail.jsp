@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>/views/notice/detail.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@alphardex/aqua.css/dist/aqua.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <style>
    .content{
@@ -96,17 +97,27 @@
          transform: rotate(360deg);
       }
    }
+   
+   .gbutton {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+    }
 </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
-   <c:if test="${dto.prevNum ne 0 }">
-      <a class="btn btn-outline-danger pull-right" href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }">이전글</a>
-   </c:if>
-   <c:if test="${dto.nextNum ne 0 }">
-      <a class="btn btn-outline-danger pull-right" href="detail.do?num=${dto.nextNum }&keyword=${encodedK }&condition=${condition }">다음글</a>
-   </c:if>
+   <a  class="btn btn-dark btn-sm" href="list.do">
+   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+</svg>
+   </a>
    <c:if test="${ not empty keyword }">
       <p>   
          <strong>${condition }</strong> 조건, 
@@ -139,8 +150,25 @@
          </tr>
       <thead>
    </table>
+   <div class="d-flex justify-content-center">
+   <!-- 다음글 이전글 중앙정렬 -->
+     <c:if test="${dto.prevNum ne 0 }">
+        <a class="btn btn-dark btn-sm" href="detail.do?num=${dto.prevNum }&keyword=${encodedK }&condition=${condition }">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+</svg>
+        </a>
+     </c:if>
+     <c:if test="${dto.nextNum ne 0 }">
+        <a class="btn btn-dark btn-sm" href="detail.do?num=${dto.nextNum }&keyword=${encodedK }&condition=${condition }">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+</svg>
+        </a>
+     </c:if>
+   </div>
    <ul class="pagination">
-      <li><a  class="btn btn-outline-danger pull-right" href="list.do">목록보기</a></li>
+   <!-- ??목록보기있던자리 -->
       <c:if test="${dto.writer eq id }">
          <li><a class="btn btn-outline-secondary pull-right" href="updateform.do?num=${dto.num }">수정</a></li>
          <li><a class="btn btn-outline-secondary pull-right"href="delete.do?num=${dto.num }">삭제</a></li>
