@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+
+<div class="container">
+<span>
+지금까지 <em>${sessionScope.count }</em> 쌓였어요.
+</span>
+</div>
+
 <footer id="footer">
      <div class="css-footer-box">
           <div class="css-footer-text">
