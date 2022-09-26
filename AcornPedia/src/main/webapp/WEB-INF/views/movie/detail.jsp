@@ -118,7 +118,6 @@
 							</fieldset>		
 							</form>
 							</div>
-=
 							
 						<c:choose>
 								<c:when test="${stars!=0}">

@@ -25,8 +25,8 @@
 	align-items: center;
 	background: rgb(245, 245, 245);
 	box-sizing: border-box;
-	width: 230px;
 	height: 32px;
+	padding: 8px 12px;
 	border-radius: 6px;
 	margin-bottom: 10px;
 }
@@ -61,9 +61,8 @@ img#f\ logo {
 }
 
 #loginmodalcontent {
-	width: 299px;
-	height: 349px;
-	padding: 5px;
+	width: 360px;
+	height: 362px;
 }
 
 .login-label {
@@ -100,16 +99,16 @@ form#loginForm {
 	width: 160px;
 	height: 33px;
 }
+
 #modal-logo {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   padding: 10px 0px 0px 10px;
-   text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0px 0px 10px;
+	text-align: center;
 }
 
-
-.sign1-control-label{
+.sign1-control-label {
 	border-color: black;
 	display: flex;
 	-webkit-box-align: center;
@@ -121,8 +120,9 @@ form#loginForm {
 	border-radius: 6px;
 	margin-bottom: 7px;
 }
- .sign2-control-label {
- border-color: black;
+
+.sign2-control-label {
+	border-color: black;
 	display: flex;
 	-webkit-box-align: center;
 	align-items: center;
@@ -131,7 +131,7 @@ form#loginForm {
 	width: 100%;
 	height: 32px;
 	border-radius: 6px;
- }
+}
 
 form#signForm {
 	width: 100%;
@@ -141,14 +141,14 @@ form#signForm {
 #loginbtn {
 	display: flex;
 	justify-content: center;
-	padding: 15px 32px;
+	padding: 7px 44px;
 	align-items: center;
 }
 
 #submitbtn {
 	display: flex;
 	justify-content: center;
-	padding: 25px 20px;
+	padding: 8px 20px;
 	align-items: center;
 }
 
@@ -194,7 +194,7 @@ form#signForm {
 
 .modal-content {
 	width: 360px;
-	height: 555px;
+	height: 557px;
 }
 
 @font-face {
@@ -261,6 +261,21 @@ body {
 	text-decoration: none;
 }
 
+#login-modal-move {
+	text-decoration: none;
+	color: rgb(255, 47, 110);
+	opacity: 0.8;
+	font-size: 16px;
+	border: 0;
+	display: contents;
+}
+.modal-text {
+    padding: 15px 66px;
+}
+
+.sign-modal-text {
+    padding: 5px 91px;
+}
 .navbar-atext {
 	text-decoration: none;
 	color: black;
@@ -327,10 +342,10 @@ body {
 }
 
 #haha {
-   display: none;
-   color: black;
-   opacity: 0.65;
-   margin-top: 0px;
+	display: none;
+	color: black;
+	opacity: 0.65;
+	margin-top: 0px;
 }
 
 @media screen and (max-width: 930px) {
@@ -377,16 +392,37 @@ body {
 
 /* footer css */
 .css-footer-box {
-   width: 100%;
-   background-color: #292b2e;
-   display: flex;
-   font-size: 14px;
-   margin-top: 0px;
-   bottom: 0;
+	width: 100%;
+	background-color: #1c1d1f;
+	display: flex;
+	font-size: 14px;
+	margin-top: 0px;
+	bottom: 0;
 }
 
+#movieStar {
+	background-color: #101113;
+	line-height: 62px;
+	text-align: center;
+	width: 100%;
+	height: 62px;
+}
 
-footer{
+span#star\ footer {
+	color: rgb(209, 209, 210);
+	font-size: 19px;
+	font-weight: 500;
+	letter-spacing: -0.3px;
+	line-height: 22px;
+	text-align: center;
+	font-style: normal;
+}
+
+em {
+	font-style: normal;
+}
+
+footer {
 	position: relative;
 	transform: traslatY(-100%);
 }
