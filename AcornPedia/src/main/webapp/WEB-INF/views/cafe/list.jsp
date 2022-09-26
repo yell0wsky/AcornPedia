@@ -54,20 +54,20 @@
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
 	
-	<h1>글 목록 입니다.</h1>
+	<h1>목록</h1>
 	<table class="table table" style="text-align: center;">
 		<thead>
 			<tr>
-				<th style="background-color: #eeeeee; text-align: center;">글번호</th>
-				<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-				<th style="background-color: #eeeeee; text-align: center;">제목</th>
-				<th style="background-color: #eeeeee; text-align: center;">조회수</th>
-				<th style="background-color: #eeeeee; text-align: center;">등록일</th>
+				<th style="background-color: ; text-align: center; font-size: large; color: #808080 ">글번호</th>
+				<th style="background-color: ; text-align: center; font-size: large; color: #808080">작성자</th>
+				<th style="background-color: ; text-align: center; font-size: large; color: #808080">제목</th>
+				<th style="background-color: ; text-align: center; font-size: large; color: #808080">조회수</th>
+				<th style="background-color: ; text-align: center; font-size: large; color: #808080">등록일</th>
 			</tr>
 		</thead>
 		<tbody>
 		<c:forEach var="tmp" items="${list }">
-			<tr class="move-tr" onclick="move('detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}')">
+			<tr class="move-tr " onclick="move('detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}')">
 				<td>${tmp.num }</td>
 				<td>${tmp.writer }</td>
 				<td>
@@ -84,7 +84,7 @@
 		</script>
 		</tbody>
 	</table>
-	<a class="btn btn-outline-danger pull-right" href="insertform.do">글쓰기</a>
+	<a class="btn btn-outline-danger pull-right "  href="insertform.do">글쓰기</a>
 	<div class="page-ui clearfix">
 		<ul class="pagination">
 			<c:if test="${startPageNum ne 1 }">
