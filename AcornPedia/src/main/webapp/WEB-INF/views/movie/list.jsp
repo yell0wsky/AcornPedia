@@ -17,11 +17,34 @@
         .slide_wrapper {
             position: relative;
             margin: 0 auto;
-            height: 500px;
-            width: 1300px;  
+            height: 400px;
+            width: 1236px;  
             overflow: hidden;
+            z-index: 140;
         }
-
+		.controls{
+			display: flex;
+			justify-content:space-between;
+			width:1236px;
+			position: absolute;
+			z-index: 150;
+			top: 281px;
+			
+		}
+		.controls2{
+			display: flex;
+			justify-content:space-between;
+			width:1236px;
+			position: absolute;
+			z-index: 150;
+			top: 180px;
+			margin-left: 10px;
+		}
+		.controls span,
+		.controls2 span{
+			font-size: 2rem;
+			color: #ff2f6e;
+		}
         .slides,
         .slides2 {
         	position:absolute;
@@ -30,8 +53,8 @@
             padding: 0px;
             transition: left 0.5s ease-out;
             display: flex;       
+            margin-left: 27.5px
         }
-
         .movie-css-listimg img {
             height: 330px;
             width: 220px;
@@ -41,26 +64,21 @@
 		.slides li,
 		.slides2 li {
 			float: left;
-			margin-right: 30px
+			margin-right: 20px
 		} 
 		.i9h72v {
-			margin-left: 0px;
-		}
-		
-		.controls{
-			display: flex;
-			justify-content: space-between;
-		}
-		.controls span{
-			padding: 10px 20px;
-			margin: 0px 10px;
+			margin:0 0 10px 30px ;
+			font-size: 1.3rem
 		}
 		
 		.a172938a{
 			margin: 0 30px;
-			padding-top: 0px
+			padding-top: 100px;
+			position: relative;
+			padding-bottom: 40px;
 		}
 		.a172938a2{
+			position: relative;
 			margin: 0 30px;
 		}
 		.movie-css-listText{
@@ -76,69 +94,91 @@
 			text-decoration-line:none;
 		}
 		
-		.i9h72v{
-			font-size: 1.3rem;
+		.movie-listbox
+		{
+		  --bs-gutter-x: 1.5rem;
+		  --bs-gutter-y: 0;
+		  width: 100%;
+		  padding-right: calc(var(--bs-gutter-x) * 0.5);
+		  padding-left: calc(var(--bs-gutter-x) * 0.5);
+		  margin-right: auto;
+		  margin-left: auto;
+		}
+
+		@media (min-width: 768px) {
+		  .movie-listbox {
+		    max-width: 720px;
+		  }
+		}
+		@media (min-width: 992px) {
+		  .movie-listbox {
+		    max-width: 960px;
+		  }
+		}
+		@media (min-width: 1400px) {
+		  .movie-listbox {
+		    max-width: 1320px;
+		  }
 		}
 
     </style>
 </head>
 <body>
     <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
-    <div class="container">
-    <div class="a172938a">
-		<p class="controls">
-			<span class="prev"><</span>
-			<span class="next">></span>
-		</p>
-		<h1 class="i9h72v">평균 평점이 높은 순위</h1>
-        <div class="slide_wrapper">
-        	<ul class="slides">
-               	<c:forEach var="tmp" items="${list }">
-                    <li>
-                    	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
-	                        <div class="movie-css-listimg">
-	                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmp.poster_path }" />
-	                        </div>
-	                        <div class="movie-css-listText">
-	                            <p class="8277n1m" >${tmp.title}</p>
-	                            <p style=font-size:small>${tmp.release_date}</p>
-	                            <p style=font-size:small>${tmp.genre }</p>
-	                            <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
-	                        </div>
-                   		</a>
-                    </li>
-            	</c:forEach>
-            </ul>
-        </div>
-    </div>
-    <div class="a172938a2">
-
-		<p class="controls">
-			<span class="prev2"><</span>
-			<span class="next2">></span>
-		</p>
-		<h1 class="i9h72v">이런 영화는 어떤가요</h1>
-        <div class="slide_wrapper">
-            <ul class="slides2">
-            	<c:forEach var="tmp" items="${list2 }">
-                    <li>
-                    	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
-	                        <div class="movie-css-listimg">
-	                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmp.poster_path }" />
-	                        </div>
-	                        <div class="movie-css-listText">
-	                            <p class="8277n1m" >${tmp.title}</p>
-	                            <p style=font-size:small>${tmp.release_date}</p>
-	                            <p style=font-size:small>${tmp.genre }</p>
-	                            <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
-	                        </div>
-                   		</a>
-                    </li>
-            	</c:forEach>
-            </ul>
-        </div>
-    </div>
-</div>
+    <main class="movie-listbox">
+	    <div class="a172938a">
+		    <h1 class="i9h72v">평균 평점이 높은 순위</h1>
+			<p class="controls">
+				<span class="prev"><i class="fas fa-chevron-circle-left"></i></span>
+				<span class="next"><i class="fas fa-chevron-circle-right"></i></span>
+			</p>
+	        <div class="slide_wrapper">
+	            <ul class="slides">
+	            	<c:forEach var="tmp" items="${list }">
+	                    <li>
+	                    	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
+		                        <div class="movie-css-listimg">
+		                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmp.poster_path }" />
+		                        </div>
+		                        <div class="movie-css-listText">
+		                            <p class="8277n1m" >${tmp.title}</p>
+		                            <p style=font-size:small>${tmp.release_date}</p>
+		                            <p style=font-size:small>평균⭐ ${tmp.stars}   💗</p>
+		                            <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
+		                        </div>
+	                   		</a>
+	                    </li>
+	            	</c:forEach>
+	            </ul>
+	        </div>
+	    </div>
+	    <div class="a172938a2">
+		    <h1 class="i9h72v">이런 영화는 어떤가요</h1>
+			<p class="controls2">
+				<span class="prev2"><i class="fas fa-chevron-circle-left"></i></span>
+				<span class="next2"><i class="fas fa-chevron-circle-right"></i></span>
+			</p>
+	        <div class="slide_wrapper">
+	            <ul class="slides2">
+	            	<c:forEach var="tmp" items="${list2 }">
+	                    <li>
+	                    	<a href="${pageContext.request.contextPath}/movie/detail.do?num=${tmp.num}">
+		                        <div class="movie-css-listimg">
+		                            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${tmp.poster_path }" />
+		                        </div>
+		                        <div class="movie-css-listText">
+		                            <p class="8277n1m" >${tmp.title}</p>
+		                            <p style=font-size:small>${tmp.release_date}</p>
+		                            <p style=font-size:small>평균⭐ ${tmp.stars}   💗</p>
+		                            <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
+		                        </div>
+	                   		</a>
+	                    </li>
+	            	</c:forEach>
+	            </ul>
+	        </div>
+	    </div>
+    </main>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
    <script>
@@ -148,17 +188,16 @@
 	    slideCount=slide.length,
 	    prevBtn=document.querySelector(".prev"),
 	    slideWidth =220,
-	    slideMargin =30,
+	    slideMargin =20,
 	    nextBtn=document.querySelector(".next");
 	
 	slides.style.width=(slideWidth+slideMargin)*slideCount-slideMargin+"px";
-
 	function moveSlide(num){
-	    slides.style.left=-num * 250 +"px";
+	    slides.style.left=-num * 240 +"px";
 	    currentIdx=num;
 	}
 	nextBtn.addEventListener("click",function(){
-	    if(currentIdx<slideCount -7){
+	    if(currentIdx<slideCount -5){
 	        moveSlide(currentIdx+1);
 	    }else{
 	        moveSlide(0)
@@ -168,7 +207,7 @@
 	    if(currentIdx> 0){
 	        moveSlide(currentIdx -1);
 	    }else{
-	        moveSlide(slideCount -7);
+	        moveSlide(slideCount -5);
 	    }
 	})
 	
@@ -178,17 +217,16 @@
 	    slideCount2=slide2.length,
 	    prevBtn2=document.querySelector(".prev2"),
 	    slideWidth =220,
-	    slideMargin =30,
+	    slideMargin =20,
 	    nextBtn2=document.querySelector(".next2");
 	
 	slides2.style.width=(slideWidth+slideMargin)*slideCount-slideMargin+"px";
-
 	function moveSlide2(num){
-		slides2.style.left=-num * 250 +"px";
+		slides2.style.left=-num * 240 +"px";
 		currentIdx2=num;
 	}
 	nextBtn2.addEventListener("click",function(){
-	    if(currentIdx2<slideCount2 -7){
+	    if(currentIdx2<slideCount2 -5){
 	    	moveSlide2(currentIdx2+1);
 	    }else{
 	    	moveSlide2(0)
@@ -198,7 +236,7 @@
 	    if(currentIdx2> 0){
 	    	moveSlide2(currentIdx2 -1);
 	    }else{
-	    	moveSlide2(slideCount2 -7);
+	    	moveSlide2(slideCount2 -5);
 	    }
 	})
 	

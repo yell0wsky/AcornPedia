@@ -1,15 +1,20 @@
 @charset "UTF-8";
 #bgBlur{
     height:300px;
-    
+    object-fit:cover;
     overflow:hidden;
     margin:0 auto;
+    width: 100%;
+	text-align: center;
+	background-blend-mode: darken;
 }
  
 #bgBlur > img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
+
+}
+
+.container{
+	max-width: 960px:
 }
 
 #moviewrapper{
@@ -24,4 +29,22 @@
 	width:200px;
 	height:300px;
 	
+}
+.movieposter img{
+	max-width: 200px;
+	max-height: 300px;
+	padding-bottom: 50px;
+}
+
+#movietitle{
+	margin-left: 20px;
+}
+
+#backcolor{
+	width:100%;
+	background-blend-mode: darken;
+}
+
+legend{
+	font-size:10px;
 }

@@ -4,24 +4,27 @@
 	<select id="getList" parameterType="movieDto" resultType="movieDto">
 		SELECT *
 		FROM
-			(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path
+			(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path, stars
 			FROM movie
-			ORDER BY stars ASC)
+			left outer join (SELECT movie_no, ROUND(AVG(stars),1) as stars FROM stars GROUP BY movie_no) ms on movie.num=ms.movie_no
+			ORDER BY stars desc nulls last)
 		WHERE ROWNUM BETWEEN 1 AND 20
 	</select>
 	
 	<select id="getList2" parameterType="movieDto" resultType="movieDto">
 		SELECT *
 		FROM
-			(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path
+			(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path, stars
 			FROM movie
-			ORDER BY release_date DESC)
+			left outer join (SELECT movie_no, ROUND(AVG(stars),1) as stars FROM stars GROUP BY movie_no) ms on movie.num=ms.movie_no
+			ORDER BY release_date desc)
 		WHERE ROWNUM BETWEEN 1 AND 20
 	</select>
 
 	<select id="getData" parameterType="int" resultType="movieDto">
 		SELECT *
 		FROM movie
+		left outer join (SELECT movie_no, ROUND(AVG(stars),1) as stars, count(stars) as count FROM stars GROUP BY movie_no) ms on movie.num=ms.movie_no
 		WHERE num = #{num}
 	</select>
 	
@@ -47,6 +50,12 @@
 		SELECT stars
 		FROM Stars
 		WHERE movie_no=#{num} AND user_id=#{id}
+	</select>
+	
+	<select id="avgStar" parameterType="int" resultType="Integer">
+		SELECT AVG(stars) as stars
+		FROM stars
+		where movie_no=#{num}
 	</select>
 	
 </mapper>

@@ -34,16 +34,16 @@ public class MovieController {
 	//detail 페이지
 	@RequestMapping(value = "/movie/detail", method = RequestMethod.GET)
 	public ModelAndView detail(ModelAndView mView, HttpSession session, @RequestParam int num) {
-		//갤러리 detail 페이지에 필요한 data를 num 으로 가져와, ModelAndView 에 저장
 		String id=(String)session.getAttribute("id");
-				
+		//갤러리 detail 페이지에 필요한 data를 num 으로 가져와, ModelAndView 에 저장
 		service.getDetail(mView, num);
-				
+		int stars=0;
 		if (id!=null) {
-			int stars=service.getStars(id, num);
-			mView.addObject("stars", stars);
+			if(service.getStars(id, num)!=null){
+				stars=service.getStars(id, num);
+			} 
 		}
-	
+		mView.addObject("stars", stars);
 		mView.setViewName("movie/detail");
 		
 		return mView;
@@ -60,26 +60,25 @@ public class MovieController {
 		return mView;
 		
 	}
-	@RequestMapping("/movie/getStars")
-	public ModelAndView getStars(HttpSession session, HttpServletRequest request) {
+	@RequestMapping("/movie/runStars")
+	public ModelAndView runStars(HttpSession session, HttpServletRequest request) {
 		//get 방식으로 받아온 num에 해당하는 영화에 star만큼의 별점을 올린다.
 		
 		String id=(String)session.getAttribute("id");
 		int num=Integer.parseInt(request.getParameter("num"));
-		int star=0;
-		
-		if(request.getParameter("rating")==null) {
-			star=0;
-		}else{
+		int star;
+		if(request.getParameter("rating")!=null) {
 			star=Integer.parseInt(request.getParameter("rating"));
-		}
-		
-		if(service.getStars(id, num)==null) {
-			service.addStars(id, num, star);
 		}else {
-			service.updateStars(id, num, star);
+			star=0;
 		}
 		
+		if(service.getStars(id, num)!=null) {
+			service.updateStars(id, num, star);
+		}else {
+			service.addStars(id, num, star);
+		}	
+
 		return new ModelAndView("redirect:/movie/detail.do?num="+num);
 	}
 }
