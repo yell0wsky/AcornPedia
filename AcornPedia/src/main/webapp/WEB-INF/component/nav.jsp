@@ -65,13 +65,13 @@
 						action="${pageContext.request.contextPath}/users/signup.do"
 						method="post" id="signForm">
 						<div class="label">
-							<label class="signid-control-label" for="name">
+							<label class="sign1-control-label" for="name">
 							<input class="form-control" type="text" name="name" id="name"
 							placeholder="이름"
 							/></label>
 						</div>
 						<div class="label">
-							<label class="signid-control-label" for="id"><input
+							<label class="sign2-control-label" for="id"><input
 								class="form-control" type="text" name="id" id="id"
 								placeholder="아이디" /></label>
 							<small class="form-text-text-muted">영문자 소문자로 시작하고 5글자~10글자 이내로 입력하세요.</small>
@@ -79,19 +79,19 @@
 						</div>
 
 						<div class="label">
-							<label class="signpwd-control-label" for="pwd"><input
+							<label class="sign2-control-label" for="pwd"><input
 								class="form-control" type="password" name="pwd" id="pwd"
 								placeholder="비밀번호" /></label>
 							<small class="form-text-text-muted">5글자~10글자 이내로 입력하세요.</small>
 							<div class="invalid-feedback">비밀번호를 확인 하세요.</div>
 						</div>
 						<div class="label">
-							<label class="control-label" for="pwd2"><input
+							<label class="sign1-control-label" for="pwd2"><input
 								class="form-control" type="password" name="pwd2" id="pwd2"
 								placeholder="비밀번호 확인" /></label>
 						</div>
 						<div class="label">
-							<label class="control-label" for="email"><input
+							<label class="sign1-control-label" for="email"><input
 								class="form-control" type="text" name="email" id="email"
 								placeholder="이메일" /></label>
 							<div class="invalid-feedback">이메일 형식을 확인 하세요.</div>
