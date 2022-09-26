@@ -47,7 +47,7 @@
 			</a>
 			<br />
 	
-          <form action="${pageContext.request.contextPath}/users/delete.do">
+          <form>
             <label for="name">이름</label>
             <input type="text" name="name" id="name" style="height:20px;" value="${dto.name }" readonly/>
             <label for="id">아이디</label>
