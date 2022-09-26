@@ -37,7 +37,7 @@ form input{
     border-radius: 20px;
     width: 100%;
     text-align: center;
-    border: 0px solid black;
+    border: 1px solid black;
   	outline: none;
     
 }
@@ -67,3 +67,4 @@ label{
 #form-controls button:hover {
     cursor: pointer;
 }
+

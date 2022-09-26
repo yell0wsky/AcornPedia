@@ -15,7 +15,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/updateform.css" />
+
 
 <style>
 	/* 프로필 이미지를 작은 원형으로 만든다 */
@@ -61,11 +61,10 @@
             <input type="text" name="id" id="id" style="height:20px;" value="${id }" disabled/>
 
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" style="height:20px;" value="${dto.email }" />
- 		 <br>
+            <input type="email" name="email"  id="email" style="height:20px;" value="${dto.email }" />
          <br>
-        	<button type="submit" class="btn btn-outline-primary">저장</button>
-        	<button type="submit" class="btn btn-outline-primary"><a href="${pageContext.request.contextPath}/users/pwd_updateform.do">비밀번호 수정</a></button>
+        	<button class="btn btn-primary" type="submit">저장</button>
+        	<a class="btn btn-primary" href="${pageContext.request.contextPath}/users/pwd_updateform.do">비밀번호 수정</a>
         	</form>
         
           	<form action="${pageContext.request.contextPath}/users/ajax_profile_upload.do" method="post" 
