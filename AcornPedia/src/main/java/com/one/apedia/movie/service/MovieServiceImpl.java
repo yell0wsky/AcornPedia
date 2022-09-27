@@ -67,6 +67,8 @@ public class MovieServiceImpl implements MovieService {
 	public void updateStars(String id, int num, int star) {
 		dao.updateStars(id, num, star);
 		
+	
+		
 	}
 
 }

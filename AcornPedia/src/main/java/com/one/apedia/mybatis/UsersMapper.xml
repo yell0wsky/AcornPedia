@@ -54,4 +54,9 @@
 		WHERE user_id=#{id}
 	</delete>
 	
+	<select id="count" resultType="int">
+		SELECT count(user_id) as count
+		FROM stars
+	</select>
+	
 </mapper>

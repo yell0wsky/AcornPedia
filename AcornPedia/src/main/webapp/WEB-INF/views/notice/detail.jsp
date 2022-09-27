@@ -201,7 +201,7 @@
                               </c:if>
                               <span>${tmp.regdate }</span>
                               <%-- 답글 링크를 눌렀을 때 해당 댓글의 글번호를 얻어오기 위해 data-num 속성에 댓글의 번호 넣어두기 --%>
-                              <a  data-num="${tmp.num }" href="javascript:" class="btn btn-outline-secondary pull-right reply-link">답글</a>
+                              <a data-num="${tmp.num }" class="reply-link btn btn-outline-secondary pull-right" href="javascript:">답글</a>
                               <%-- 만일 로그인을 했고 글 작성자가 로그인 된 사용자와 같다면 수정, 삭제 링클를 출력한다. --%>
                               <c:if test="${ (id ne null) and (tmp.writer eq id) }">
                                  <a data-num="${tmp.num }" class="btn btn-outline-secondary pull-right update-link" href="javascript:">수정</a>

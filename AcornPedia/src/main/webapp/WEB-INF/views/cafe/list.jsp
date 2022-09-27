@@ -51,7 +51,6 @@
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
-	
 	<h1>목록</h1>
 	<table class="table table-hover " style="text-align: center;">
 		<thead class="table-light">
