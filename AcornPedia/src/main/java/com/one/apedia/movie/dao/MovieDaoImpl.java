@@ -128,5 +128,7 @@ public class MovieDaoImpl implements MovieDao {
 		parameters.put("heart", heart);	
 		session.update("movie.updateHeart", parameters);
 	}
-	
+	public List<MovieDto> getSearch(MovieDto dto) {
+		return session.selectList("movie.search", dto);
+	}
 }

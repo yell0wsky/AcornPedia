@@ -27,4 +27,5 @@ public interface MovieService {
 	//영화 하트 변경
 	public void updateHeart(String id, int num, String heart);
 
+	public void getSearch(MovieDto dto, HttpServletRequest request);
 }

@@ -28,5 +28,7 @@ public interface MovieDao {
 	public Integer getHeart(String id, int num);
 	//영화 하트 변경
 	public void updateHeart(String id, int num, String heart);
+	
+	public List<MovieDto> getSearch(MovieDto dto);
 
 }

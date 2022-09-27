@@ -36,6 +36,16 @@ public class MovieController {
 		
 		return mView;
 	}
+		@RequestMapping(value = "/movie/getSearch")
+		public ModelAndView getSearch(ModelAndView mView, HttpSession session, HttpServletRequest request) {
+			//view 페이지에 사용될 데이터는 request 영역에 담는다.
+			service.getList(request);
+			int count=uservice.count();
+			session.setAttribute("count", count);
+			mView.setViewName("movie/list");
+			
+			return mView;
+	}
 	
 	//movie 게시글의 num이 parameter get 방식으로 넘어온다.
 	//detail 페이지

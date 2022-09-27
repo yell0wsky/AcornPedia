@@ -1,75 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="movie">
-	<select id="getList" parameterType="movieDto" resultType="movieDto">
+
+	<select id="getSearch" parameterType="movieDto" resultType="movieDto">
+	select * from
+	movie 
+	WHERE title LIKE '%'||#{title}||'%'
+				or genre LIKE '%'||#{genre}||'%'
+				or original_title LIKE '%'||#{original_title}||'%'
+	</select>
+
+
+
+
+	<select id="getList" parameterType="movieDto"
+		resultType="movieDto">
 		SELECT *
 		FROM
-			(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path, stars
-			FROM movie
-			left outer join (SELECT movie_no, ROUND(AVG(stars),1) as stars FROM stars GROUP BY movie_no) ms on movie.num=ms.movie_no
-			ORDER BY stars desc nulls last)
+		(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'),
+		'YYYY') as release_date, poster_path, stars
+		FROM movie
+		left outer join (SELECT movie_no, ROUND(AVG(stars),1) as stars FROM stars
+		GROUP BY movie_no) ms on movie.num=ms.movie_no
+		ORDER BY stars desc nulls last)
 		WHERE ROWNUM BETWEEN 1 AND 20
 	</select>
-	
-	<select id="getList2" parameterType="movieDto" resultType="movieDto">
+
+	<select id="getList2" parameterType="movieDto"
+		resultType="movieDto">
 		SELECT *
 		FROM
-			(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path, stars
-			FROM movie
-			left outer join (SELECT movie_no, ROUND(AVG(stars),1) as stars FROM stars GROUP BY movie_no) ms on movie.num=ms.movie_no
-			ORDER BY dbms_random.value)
+		(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'),
+		'YYYY') as release_date, poster_path, stars
+		FROM movie
+		left outer join (SELECT movie_no, ROUND(AVG(stars),1) as stars FROM stars
+		GROUP BY movie_no) ms on movie.num=ms.movie_no
+		ORDER BY dbms_random.value)
 		WHERE ROWNUM BETWEEN 1 AND 20
 	</select>
 
 	<select id="getData" parameterType="int" resultType="movieDto">
 		SELECT *
 		FROM movie
-		left outer join (SELECT movie_no, ROUND(AVG(stars),1) as stars, count(stars) as count FROM stars GROUP BY movie_no) ms on movie.num=ms.movie_no
+		left outer join (SELECT movie_no, ROUND(AVG(stars),1) as
+		stars, count(stars) as count FROM stars GROUP BY movie_no) ms on
+		movie.num=ms.movie_no
 		WHERE num = #{num}
 	</select>
-	
+
 	<delete id="delete" parameterType="int">
 		DELETE
 		FROM movie
-		WHERE num = #{num}
+		WHERE num =
+		#{num}
 	</delete>
-	
+
 	<insert id="addStars" parameterType="map">
 		INSERT INTO STARS
-		(movie_no, user_id, stars)
+		(movie_no,
+		user_id, stars)
 		VALUES(#{num},#{id},#{star})
 	</insert>
-	
+
 	<update id="updateStars" parameterType="map">
 		UPDATE stars
-		SET stars=#{star}
+		SET
+		stars=#{star}
 		WHERE movie_no=#{num} AND user_id=#{id}
 	</update>
-	
+
 	<select id="getStars" parameterType="map" resultType="Integer">
-		SELECT stars
+		SELECT
+		stars
 		FROM Stars
 		WHERE movie_no=#{num} AND user_id=#{id}
 	</select>
-	
+
 	<insert id="addhHeart" parameterType="map">
 		INSERT INTO HEART
 		(movie_no, user_id, heart)
 		VALUES(#{num},#{id},#{heart})
 	</insert>
-	
+
 	<update id="updateHeart" parameterType="map">
 		UPDATE heart
-		SET heart=#{heart}
+		SET
+		heart=#{heart}
 		WHERE movie_no=#{num} AND user_id=#{id}
 	</update>
-	
+
 	<select id="getHeart" parameterType="map" resultType="String">
-		SELECT heart
+		SELECT
+		heart
 		FROM Heart
 		WHERE movie_no=#{num} AND user_id=#{id}
 	</select>
-		
-	
-	
+
+
+
 </mapper>

@@ -121,53 +121,6 @@
 	</div>
 </div>
 
-
-<nav class="navbar-box">
-	<ul class="navbar-ul">
-		<li class="navbar-li css-logo"><a
-			href="${pageContext.request.contextPath}/home.do"> <img
-				src="${pageContext.request.contextPath}/resources/images/ACORN LOGO.jpg"
-				id="logo">
-		</a></li>
-		<li class="navbar-li css-text navbar-li-remove"><a
-			href="${pageContext.request.contextPath}/notice/list.do"
-			class="navbar-atext">공지</a></li>
-		<li class="navbar-li css-text navbar-li-remove"><a
-			href="${pageContext.request.contextPath}/movie/list.do"
-			class="navbar-atext">영화</a></li>
-		<li class="navbar-li css-text navbar-li-remove"><a
-			href="${pageContext.request.contextPath}/cafe/list.do"
-			class="navbar-atext">자유</a></li>
-		<li class="navbar-li css-text css-search">
-			<form action="#">
-				<div class="navbar-divicon">
-					<i class="fas fa-search" id="fuck"></i> <input type="text"
-						placeholder="콘텐츠, 인물, 컬렉션를 검색해보세요."> <i
-						class="fas fa-search" id="haha" style="margin-top: 0px;"></i>
-				</div>
-			</form>
-		</li>
-		<c:choose>
-			<c:when test="${ empty sessionScope.id}">
-				<li class="navbar-li css-text css-hidden"><a
-					href="${pageContext.request.contextPath}/users/loginform.do"
-					class="navbar-atext" data-toggle="modal" data-target="#loginmodal">로그인</a>
-					<a href="${pageContext.request.contextPath}/users/signup_form.do"
-					class="navbar-atext navbar-margin navbar-color" data-toggle="modal"
-					data-target="#signupmodal"><span>회원가입</span></a></li>
-			</c:when>
-			<c:otherwise>
-				<li class="navbar-li css-text css-hidden"><a
-					href="${pageContext.request.contextPath}/users/info.do"
-					class="navbar-atext">${sessionScope.id }</a> <a
-					href="${pageContext.request.contextPath}/users/logout.do"
-					class="navbar-atext navbar-margin navbar-color"> <span>로그아웃</span>
-				</a>
-				<li>
-			</c:otherwise>
-		</c:choose>
-	</ul>
-</nav>
 <nav class="navbar-box">
 	<ul class="navbar-ul">
 		<li class="navbar-li css-logo"><a
@@ -188,7 +141,7 @@
 			<form action="#">
 				<div class="navbar-divicon">
 					<i class="fas fa-search" id="fuck"></i> <input class="form-control"
-						type="text" id="search" name="search" value="${search }"
+						type="text" id="search" name="search" value="${keyword }"
 						placeholder="콘텐츠, 인물, 컬렉션를 검색해보세요."> <i
 						class="fas fa-search" id="haha"></i>
 				</div>

@@ -16,6 +16,13 @@
 #imageForm{
 		display: none;
 	}
+a{
+text-decoration:none;
+}
+.btn-outline-primary:hover{
+background-color:none;
+}
+
 </style>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/users.css" />
@@ -56,8 +63,8 @@
             <input type="email" name="email" id="email" style="height:20px;" value="${dto.email }" readonly/>
             <label for="regdate">가입일</label>
             <input type="text" name="regdate" id="regdate" style="height:20px;" value="${dto.regdate }" readonly/ >
-            <button class="btn btn-outline-primary"><a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a></button>       
-			<button type="submit" class="btn btn-outline-primary" onclick="javascript:deleteConfirm()">회원탈퇴</button>
+            <a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a>      
+			<button type="submit" class="" onclick="javascript:deleteConfirm()">회원탈퇴</button>
          </form>
         </div>         
       </div>

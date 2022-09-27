@@ -56,7 +56,7 @@ public class CafeServiceImpl implements CafeService{
 			//클라이언트 웹브라우저에 출력할때 "null" 을 출력되지 않게 하기 위해서  
 			keyword="";
 			condition=""; 
-		}
+		}	
 
 		//특수기호를 인코딩한 키워드를 미리 준비한다. 
 		String encodedK=URLEncoder.encode(keyword);
