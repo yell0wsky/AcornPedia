@@ -118,7 +118,14 @@
 							</fieldset>		
 							</form>
 							</div>
-							
+							<form name="heartform" id="heartform" method="post" 
+							action="{${pageContext.request.contextPath}/movie/runHeart.do">
+							<fieldset>
+								<input type="hidden" name="heart" value="heart" id="heart">
+								<input type="hidden" name="num" id="num" value="${dto.num }" />
+							</fieldset>
+							<button type="submit">좋아요</button>
+							</form>
 						<c:choose>
 								<c:when test="${stars!=0}">
 								<p>평가함 ⭐${stars}</p>

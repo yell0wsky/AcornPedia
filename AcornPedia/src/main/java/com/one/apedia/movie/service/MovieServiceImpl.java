@@ -76,7 +76,7 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public Integer getHeart(String id, int num) {
+	public String getHeart(String id, int num) {
 		return dao.getHeart(id, num);
 	}
 

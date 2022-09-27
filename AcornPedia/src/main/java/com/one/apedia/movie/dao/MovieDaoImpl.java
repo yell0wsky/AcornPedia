@@ -113,7 +113,7 @@ public class MovieDaoImpl implements MovieDao {
 		session.insert("movie.addHeart", parameters);
 	}
 	@Override
-	public Integer getHeart(String id, int num) {
+	public String getHeart(String id, int num) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("id", id);
 		parameters.put("num", num);

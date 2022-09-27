@@ -414,9 +414,9 @@ document.querySelector(".insert-form")
          replyLinks[i].addEventListener("click", function(){
             
             if(!isLogin){
-               const isMove=confirm("로그인이 필요 합니다. 로그인 페이지로 이동 하시겠습니까?");
+               const isMove=confirm("로그인이 필요 합니다.");
                if(isMove){
-                  location.href="${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/cafe/detail.do?num=${dto.num}";
+            	   document.querySelector("#login").click();
                }
                return;
             }

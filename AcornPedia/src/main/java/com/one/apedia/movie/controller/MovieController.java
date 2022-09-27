@@ -78,6 +78,18 @@ public class MovieController {
 
 		return new ModelAndView("redirect:/movie/detail.do?num="+num);
 	}
+	@RequestMapping("/movie/runHeart")
+	public ModelAndView runHeart(HttpSession session, HttpServletRequest request) {
+		//get 방식으로 받아온 num에 해당하는 영화에 star만큼의 별점을 올린다.
+		
+		String id=(String)session.getAttribute("id");
+		int num=Integer.parseInt(request.getParameter("num"));
+		String heart=request.getParameter("heart");
+		
+		service.addHeart(id, num, heart);
+		
+		return new ModelAndView("redirect:/movie/detail.do?num="+num);
+	}
 		
 
 }

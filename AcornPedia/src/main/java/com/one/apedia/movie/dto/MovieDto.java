@@ -55,6 +55,10 @@ public class MovieDto {
 	}
 
 	public String getGenre() {
+		genre = genre.replaceAll("\\[", ""); //괄호를 지운다(역슬래시 특수문자 지정)
+		genre = genre.replaceAll("\\]", ""); //괄호를 지운다(역슬래시 특수문자 지정)
+		genre = genre.replaceAll("\\,", "·"); //괄호를 지운다(역슬래시 특수문자 지정)
+		genre = genre.replaceAll(" ", ""); //공백을 지운다
 		return genre;
 	}
 
