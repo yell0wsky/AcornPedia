@@ -35,7 +35,7 @@
         margin-left: auto;
         margin-top: 70px;
       }
-	  @media (min-width: 1px) {
+	  @media (min-width: 2px) {
         #movieinfo {
           max-width: 1400px;
         }

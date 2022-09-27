@@ -17,7 +17,7 @@
 			</ul>
 			<ul class="css-footer-2line">
 				<li class="css-footer-003 css-footer-margin">고객센터 |</li>
-				<li class="css-footer-004 css-footer-margin">cs@acorn.co.kr</li>
+				<li class="css-footer-004 css-footer-margin">aco@acorn.co.kr</li>
 			</ul>
 			<ul class="css-footer-3line">
 				<li class="css-footer-005 css-footer-margin">에이콘 1조 |</li>
