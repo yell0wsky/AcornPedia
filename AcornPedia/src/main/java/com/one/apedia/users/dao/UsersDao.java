@@ -19,5 +19,6 @@ public interface UsersDao {
 	public void pointup(String id);
 	//회원 포인트를 내리는 메소드
 	public void pointdown(String id);
-	
+	// 별의 갯수
+	public int count();
 }

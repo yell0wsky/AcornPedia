@@ -109,6 +109,10 @@
    
    .fright{float: right;}
    
+   .container{    
+      border-bottom-width: 100px;
+      margin-bottom: 100px;
+   }
 </style>
 </head>
 <body>
@@ -159,7 +163,7 @@
          <li><a class="btn btn-outline-secondary pull-right"href="delete.do?num=${dto.num }">삭제</a></li>
       </c:if>
    </ul>
-   <p>코멘트 ${totalRow }</p>
+   <p style="color:#ff2e6d;">코멘트 ${totalRow }</p>
    <!-- 댓글 목록 -->
    <div class="comments ">
       <ul>
@@ -213,15 +217,14 @@
                                                           그리고 해당 댓글을 javascript 로 바로 수정할 수 있도록 댓글 번호를 조합해서
                                                           아이디를 부여해 놓았다.
                                --%>
-                               <pre id="pre${tmp.num }">${tmp.content }</pre>
+                                  <pre id="pre${tmp.num }">${tmp.content }</pre>
                               </p>
-                              <p class="font-color-size">
-                                <span>${tmp.regdate }</span>
-                              </p>
-                              <p>
-	                            <%-- 답글 링크를 눌렀을 때 해당 댓글의 글번호를 얻어오기 위해 data-num 속성에 댓글의 번호 넣어두기 --%>
-	                            <a  data-num="${tmp.num }" href="javascript:" class="btn btn-secondary btn-sm button shadow-none reply-link">답글</a>
-                              </p>    
+                              <p class="font-color-size" style="margin: 0px 0px 5px 0px;">
+                                  <span>${tmp.regdate }</span>
+						      </p>
+						      <p style="margin: 5px 0px 5px 0px;">
+						          <a  data-num="${tmp.num }" href="javascript:" class="btn btn-secondary btn-sm button shadow-none reply-link">답글</a>
+						      </p>    
                            </dt>                                      
                         </dl>
                         <%--
@@ -279,7 +282,7 @@
    </form>
 </div>
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
-<script>
+<script type="text/javascript">
 	
 	//클라이언트가 로그인 했는지 여부
 	let isLogin=${ not empty id };
@@ -293,7 +296,9 @@
 				e.preventDefault();
 				//로그인 폼으로 이동 시킨다.
 				//로그인 성공후 다시 해당글 자세히 보기 페이지로 돌아올수 있도록 url 정보를 같이 전달한다.
-				alert("로그인을 해주세요");		
+
+				alert("로그인이 필요합니다.");		
+
 				document.querySelector("#login").click();
 			}
 		});
@@ -417,7 +422,7 @@
 			replyLinks[i].addEventListener("click", function(){
 				
 				if(!isLogin){
-					const isMove=confirm("로그인이 필요 합니다. 로그인 페이지로 이동 하시겠습니까?");
+					const isMove=confirm("로그인이 필요 합니다.");
 					if(isMove){
 						document.querySelector("#login").click();
 					}

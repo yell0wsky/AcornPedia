@@ -56,8 +56,8 @@
             <input type="email" name="email" id="email" style="height:20px;" value="${dto.email }" readonly/>
             <label for="regdate">가입일</label>
             <input type="text" name="regdate" id="regdate" style="height:20px;" value="${dto.regdate }" readonly/ >
-            <button class="btn btn-outline-primary"><a href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a></button>       
-			<button type="submit" class="btn btn-outline-primary" onclick="javascript:deleteConfirm()">회원탈퇴</button>
+            <a class="btn btn-primary" href="${pageContext.request.contextPath}/users/updateform.do">개인정보 수정</a>       
+			<button class="btn btn-primary" type="submit" onclick="javascript:deleteConfirm()">회원탈퇴</button>
          </form>
         </div>         
       </div>

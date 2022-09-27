@@ -27,11 +27,14 @@ public class MovieController {
 	
 	//movie list 페이지로 이동
 	@RequestMapping(value = "/movie/list")
-	public String getList(HttpServletRequest request) {
+	public ModelAndView getList(ModelAndView mView, HttpSession session, HttpServletRequest request) {
 		//view 페이지에 사용될 데이터는 request 영역에 담는다.
 		service.getList(request);
+		int count=uservice.count();
+		session.setAttribute("allcount", count);
+		mView.setViewName("movie/list");
 		
-		return "movie/list";
+		return mView;
 	}
 	
 	//movie 게시글의 num이 parameter get 방식으로 넘어온다.
@@ -75,4 +78,18 @@ public class MovieController {
 
 		return new ModelAndView("redirect:/movie/detail.do?num="+num);
 	}
+	@RequestMapping("/movie/runHeart")
+	public ModelAndView runHeart(HttpSession session, HttpServletRequest request) {
+		//get 방식으로 받아온 num에 해당하는 영화에 star만큼의 별점을 올린다.
+		
+		String id=(String)session.getAttribute("id");
+		int num=Integer.parseInt(request.getParameter("num"));
+		String heart=request.getParameter("heart");
+		
+		service.addHeart(id, num, heart);
+		
+		return new ModelAndView("redirect:/movie/detail.do?num="+num);
+	}
+		
+
 }

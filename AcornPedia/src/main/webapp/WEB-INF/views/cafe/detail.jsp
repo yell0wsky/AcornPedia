@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/notice/detail.jsp</title>
-
+<title>/views/cafe/detail.jsp</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
@@ -109,6 +108,10 @@
    
    .fright{float: right;}
    
+   .container{    
+      border-bottom-width: 100px;
+      margin-bottom: 100px;
+   }
 </style>
 </head>
 <body>
@@ -159,7 +162,7 @@
          <li><a class="btn btn-outline-secondary pull-right"href="delete.do?num=${dto.num }">삭제</a></li>
       </c:if>
    </ul>
-   <p>코멘트 ${totalRow }</p>
+   <p style="color:#ff2e6d;">코멘트 ${totalRow }</p>
    <!-- 댓글 목록 -->
    <div class="comments ">
       <ul>
@@ -215,10 +218,10 @@
                                --%>
                                <pre id="pre${tmp.num }">${tmp.content }</pre>
                               </p>
-                              <p class="font-color-size">
+                              <p class="font-color-size" style="margin: 5px 0px 5px 0px;">
                                 <span>${tmp.regdate }</span>
                               </p>
-                              <p>
+                              <p style="margin: 5px 0px 5px 0px;">
 	                            <%-- 답글 링크를 눌렀을 때 해당 댓글의 글번호를 얻어오기 위해 data-num 속성에 댓글의 번호 넣어두기 --%>
 	                            <a  data-num="${tmp.num }" href="javascript:" class="btn btn-secondary btn-sm button shadow-none reply-link">답글</a>
                               </p>    
@@ -293,7 +296,7 @@
 				e.preventDefault();
 				//로그인 폼으로 이동 시킨다.
 				//로그인 성공후 다시 해당글 자세히 보기 페이지로 돌아올수 있도록 url 정보를 같이 전달한다.
-				alert("로그인을 해주세요");		
+				alert("로그인이 필요합니다.");		
 				document.querySelector("#login").click();
 			}
 		});

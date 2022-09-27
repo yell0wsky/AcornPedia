@@ -59,5 +59,9 @@ public class UsersDaoImpl implements UsersDao{
 	public void pointdown(String id) {
 		session.update("users.pointdown", id);
 	}
+	@Override
+	public int count() {
+		return session.selectOne("users.count");
+	}
 	
 }

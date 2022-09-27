@@ -41,7 +41,7 @@
 			
 			
 		<br>
-		<button type="submit" class="btn btn-outline-primary">수정</button>
+		<button class="btn btn-primary" type="submit">수정</button>
 			
 		</form>
 	</form>

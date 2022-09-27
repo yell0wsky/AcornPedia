@@ -69,4 +69,20 @@ public class MovieServiceImpl implements MovieService {
 		
 	}
 
+	@Override
+	public void addHeart(String id, int num, String heart) {
+		dao.addHeart(id, num, heart);
+		
+	}
+
+	@Override
+	public String getHeart(String id, int num) {
+		return dao.getHeart(id, num);
+	}
+
+	@Override
+	public void updateHeart(String id, int num, String heart) {
+		dao.updateHeart(id, num, heart);
+	}
+
 }
