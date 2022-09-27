@@ -120,7 +120,7 @@
       <a class="btn btn-outline-danger pull-right" href="detail.do?num=${dto.nextNum }&keyword=${encodedK }&condition=${condition }">다음글</a>
    </c:if>
    <c:if test="${ not empty keyword }">
-      <p>   
+      <p>
          <strong>${condition }</strong> 조건, 
          <strong>${keyword }</strong> 검색어로 검색된 내용 자세히 보기 
       </p>
