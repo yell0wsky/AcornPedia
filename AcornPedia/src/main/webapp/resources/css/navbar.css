@@ -26,7 +26,6 @@
 	background: rgb(245, 245, 245);
 	box-sizing: border-box;
 	height: 32px;
-	padding: 8px 12px;
 	border-radius: 6px;
 	margin-bottom: 10px;
 }
@@ -66,7 +65,7 @@ img#f\ logo {
 }
 
 .login-label {
-	padding: 8px 32px;
+	padding: 8px 44px;
 	overflow: hidden;
 	display: block;
 }
