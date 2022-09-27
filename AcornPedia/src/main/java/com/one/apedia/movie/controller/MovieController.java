@@ -33,7 +33,7 @@ public class MovieController {
 		//view 페이지에 사용될 데이터는 request 영역에 담는다.
 		service.getList(request);
 		int count=uservice.count();
-		session.setAttribute("count", count);
+		session.setAttribute("allcount", count);
 		mView.setViewName("movie/list");
 		
 		return mView;
@@ -124,7 +124,18 @@ public class MovieController {
 
 		return new ModelAndView("redirect:/movie/detail.do?num="+num);
 	}
-	
+	@RequestMapping("/movie/runHeart")
+	public ModelAndView runHeart(HttpSession session, HttpServletRequest request) {
+		//get 방식으로 받아온 num에 해당하는 영화에 star만큼의 별점을 올린다.
+		
+		String id=(String)session.getAttribute("id");
+		int num=Integer.parseInt(request.getParameter("num"));
+		String heart=request.getParameter("heart");
+		
+		service.addHeart(id, num, heart);
+		
+		return new ModelAndView("redirect:/movie/detail.do?num="+num);
+	}
 		
 
 }

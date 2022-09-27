@@ -12,6 +12,8 @@
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/stars.css" />
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
@@ -22,7 +24,7 @@
 	crossorigin="anonymous"></script>
 </head>
 <style>
-	 .movie-detall
+	 #movieinfo
       {
         --bs-gutter-x: 1.5rem;
         --bs-gutter-y: 0;
@@ -31,8 +33,13 @@
         padding-left: calc(var(--bs-gutter-x) * 0.5);
         margin-right: auto;
         margin-left: auto;
+        margin-top: 70px;
       }
-
+	  @media (min-width: 1px) {
+        #movieinfo {
+          max-width: 1400px;
+        }
+      }
     
 	 
       #moviewrapper{
@@ -45,7 +52,6 @@
 		 margin-top: 50px;
       }
      
-      
       #moviewrapper:after{
       	width: 100%;
 	 	height: 100%;
@@ -77,14 +83,38 @@
       }
       #iwjsuy12{
       	display: flex;
+      	margin: 40px 0px 0px 25px;
+      	width: 700px;
+      	height: 410px;
       }
-      #starform label {
-    	font-size: 1.8em;
-      }
-      .movie-detailtext,
-      .movie-detailtexts{
+      
+      .movie-detailtext{
       	text-align: left;
       	margin-bottom: 10px;
+      }
+      
+      #starform{
+      	text-align: left;
+      	top:0px;
+      }
+      #starform label{
+      	font-size: 1.6em;
+      }
+      .movieDetailDate{
+      	color: #afafaf;
+      	font-size: 1.7rem;
+      }
+      .movieGrade{      
+      	margin-top:50px;
+      	display: flex;
+      	flex-direction: column;
+      	text-align: left;
+      }
+      .91jhijhi{
+      	height: 410px;
+      }
+      .movieGrade div{
+      	margin-bottom: 5px;
       }
 </style>
 <body>
@@ -98,32 +128,39 @@
 					</div>
 					<div id="iwjsuy12">
 						<div>
-							<h3 id="movietitle">${dto.title}</h3>
-							<div class="movie-detailtext">${dto.release_date }  ${dto.genre}</div>
-							<div class="movie-detailtexts">평균 ⭐${dto.stars} (${dto.count}명)</div>
-							<div>${dto.runtime }</div>
+							<h3 id="movietitle">
+								<span>${dto.title}</span>
+								<span class="movieDetailDate">(${dto.release_date })</span>
+							</h3>
+							<div class="movie-detailtext">${dto.genre}</div>
+							<h4>줄거리</h4>
+							<p class="movieSummary">${dto.overview }</p>
 							
-							<p>${dto.overview }</p>
-							
-							<form name="starform" id="starform" method="post"
-							action="${pageContext.request.contextPath}/movie/runStars.do">
-							<fieldset>
-								<button class="btn btn-primary" type="submit">평가하기</button>
-								<input type="radio" name="rating" value="5" id="rate1"><label for="rate1" >⭐</label>
-								<input type="radio" name="rating" value="4"	id="rate2"><label for="rate2" >⭐</label>
-								<input type="radio" name="rating" value="3" id="rate3"><label for="rate3" >⭐</label>
-								<input type="radio" name="rating" value="2" id="rate4"><label for="rate4" >⭐</label>
-								<input type="radio" name="rating" value="1" id="rate5"><label for="rate5" >⭐</label>
-								<input type="hidden" name="num" id="num" value="${dto.num}" />
-							</fieldset>		
-							</form>
+							<div class="movieGrade">
+								<div>
+									<div class="movie-detailtexts">평균 ⭐${dto.stars} (${dto.count}명)</div>
+									<form name="starform" id="starform" method="post"
+									action="${pageContext.request.contextPath}/movie/runStars.do">
+									<fieldset>
+										<button class="btn btn-primary" type="submit">평가하기</button>
+										<input type="radio" name="rating" value="5" id="rate1"><label for="rate1" >⭐</label>
+										<input type="radio" name="rating" value="4"	id="rate2"><label for="rate2" >⭐</label>
+										<input type="radio" name="rating" value="3" id="rate3"><label for="rate3" >⭐</label>
+										<input type="radio" name="rating" value="2" id="rate4"><label for="rate4" >⭐</label>
+										<input type="radio" name="rating" value="1" id="rate5"><label for="rate5" >⭐</label>
+										<input type="hidden" name="num" id="num" value="${dto.num}" />
+									</fieldset>
+								</div>
+								<div>
+									<c:choose>
+										<c:when test="${stars!=0}">
+										<p>${sessionScope.id } 님의 평가점수는 ⭐${stars} 이군요!</p>
+										</c:when>
+									</c:choose>
+								</div>
 							</div>
-							
-						<c:choose>
-								<c:when test="${stars!=0}">
-								<p>평가함 ⭐${stars}</p>
-								</c:when>
-						</c:choose>
+						</div>						
+						</form>
 					</div>
 				</div>
 			</div>
@@ -134,11 +171,10 @@
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script type="text/javascript">
 let idExist='<%=(String)session.getAttribute("id")%>';
-
 document.querySelector("#starform").addEventListener("submit", function(e){
 	if(idExist=="null"){
 		e.preventDefault();
-		alert("로그인이 필요합니다.")
+		alert("로그인을 해주세요");		
 		document.querySelector("#login").click();
 	} else{
 		alert("별점이 등록되었습니다.")
@@ -146,5 +182,3 @@ document.querySelector("#starform").addEventListener("submit", function(e){
 });
 </script>
 </html>
-
-

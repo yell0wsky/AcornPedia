@@ -22,19 +22,15 @@ public interface MovieService {
 	public Integer getStars(String id, int num);
 	//영화 별점 변경하기
 	public void updateStars(String id, int num, int star);
-	//영화에 하트 추가
+	//영화 하트 추가
 	public void addHeart(String id, int num, String heart);
-	//영화 하트 확인
+	//영화 하트 여부체크
 	public String getHeart(String id, int num);
 	//영화 하트 변경
 	public void updateHeart(String id, int num, String heart);
-	//댓글 저장 
-	public void saveComment(HttpServletRequest request);
-	//댓글 삭제
-	public void deleteComment(HttpServletRequest request);
-	//댓글 수정
-	public void updateComment(MovieCommentDto dto);
-	//댓글 추가 응답
-	public void moreCommentList(HttpServletRequest request);
-	
+	void saveComment(HttpServletRequest request);
+	void deleteComment(HttpServletRequest request);
+	void updateComment(MovieCommentDto dto);
+	void moreCommentList(HttpServletRequest request);
+
 }
