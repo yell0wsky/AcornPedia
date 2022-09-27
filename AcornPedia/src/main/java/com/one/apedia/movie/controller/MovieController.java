@@ -31,7 +31,7 @@ public class MovieController {
 		//view 페이지에 사용될 데이터는 request 영역에 담는다.
 		service.getList(request);
 		int count=uservice.count();
-		session.setAttribute("count", count);
+		session.setAttribute("allcount", count);
 		mView.setViewName("movie/list");
 		
 		return mView;

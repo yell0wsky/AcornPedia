@@ -4,7 +4,7 @@
 <footer id="footer">
 	<div id="movieStar">
 		<span class="center" id="star footer"> 지금까지 <em>★
-				${sessionScope.count }</em> 쌓였어요.
+				${sessionScope.allcount }</em> 쌓였어요.
 		</span>
 
 	</div>

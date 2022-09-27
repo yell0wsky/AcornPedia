@@ -22,7 +22,7 @@
 	</select>
 
 	<select id="getData" parameterType="int" resultType="movieDto">
-		SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, overview, poster_path, backdrop_path, runtime, stars
+		SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, overview, poster_path, backdrop_path, runtime, stars, count
 		FROM movie
 		left outer join (SELECT movie_no, ROUND(AVG(stars),1) as stars, count(stars) as count FROM stars GROUP BY movie_no) ms on movie.num=ms.movie_no
 		WHERE num = #{num}
