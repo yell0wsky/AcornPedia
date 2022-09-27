@@ -22,7 +22,14 @@
 					<form class="animate__animated_animate__bounceInDown"
 						action="${pageContext.request.contextPath}/users/login.do"
 						method="post" id="loginForm">
-						<input type="hidden" name="url" value="" />
+							<c:choose>
+								<c:when test="${ empty param.url }">
+									<input type="hidden" name="url" value="${pageContext.request.contextPath}/"/>
+								</c:when>
+								<c:otherwise>
+									<input type="hidden" name="url" value="${param.url }"/>
+								</c:otherwise>
+							</c:choose>
 						<div class="login-label">
 							<label class="control-label" for="id"><input
 								class="form-control" type="text" name="id" id="signid"

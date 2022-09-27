@@ -136,7 +136,7 @@
 	document.querySelector("#cafeinsert").addEventListener("click", function(e){
 		if(!isLogin){
 			e.preventDefault();
-			alert("로그인이 필요합니다");		
+			alert("로그인이 필요합니다.");		
 			document.querySelector("#login").click();
 		}else{
 			location.href="${pageContext.request.contextPath}/cafe/insertform.do"

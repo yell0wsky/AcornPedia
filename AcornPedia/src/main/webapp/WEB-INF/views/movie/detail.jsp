@@ -138,7 +138,7 @@ let idExist='<%=(String)session.getAttribute("id")%>';
 document.querySelector("#starform").addEventListener("submit", function(e){
 	if(idExist=="null"){
 		e.preventDefault();
-		alert("로그인을 해주세요");		
+		alert("로그인이 필요합니다.")
 		document.querySelector("#login").click();
 	} else{
 		alert("별점이 등록되었습니다.")

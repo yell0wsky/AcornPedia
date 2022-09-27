@@ -287,7 +287,7 @@
 				e.preventDefault();
 				//로그인 폼으로 이동 시킨다.
 				//로그인 성공후 다시 해당글 자세히 보기 페이지로 돌아올수 있도록 url 정보를 같이 전달한다.
-				alert("로그인을 해주세요");		
+				alert("로그인이 필요합니다.");		
 				document.querySelector("#login").click();
 			}
 		});
@@ -411,7 +411,7 @@
 			replyLinks[i].addEventListener("click", function(){
 				
 				if(!isLogin){
-					const isMove=confirm("로그인이 필요 합니다. 로그인 페이지로 이동 하시겠습니까?");
+					const isMove=confirm("로그인이 필요 합니다.");
 					if(isMove){
 						document.querySelector("#login").click();
 					}
