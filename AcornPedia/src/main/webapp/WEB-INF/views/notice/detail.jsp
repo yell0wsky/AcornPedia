@@ -273,7 +273,7 @@
    </form>
 </div>
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
-<script>
+<script type="text/javascript">
 	
 	//클라이언트가 로그인 했는지 여부
 	let isLogin=${ not empty id };
