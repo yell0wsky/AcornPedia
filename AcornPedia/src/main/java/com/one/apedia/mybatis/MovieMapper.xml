@@ -52,4 +52,24 @@
 		WHERE movie_no=#{num} AND user_id=#{id}
 	</select>
 	
+	<insert id="addhHeart" parameterType="map">
+		INSERT INTO HEART
+		(movie_no, user_id, heart)
+		VALUES(#{num},#{id},#{heart})
+	</insert>
+	
+	<update id="updateHeart" parameterType="map">
+		UPDATE heart
+		SET heart=#{heart}
+		WHERE movie_no=#{num} AND user_id=#{id}
+	</update>
+	
+	<select id="getHeart" parameterType="map" resultType="Integer">
+		SELECT heart
+		FROM Heart
+		WHERE movie_no=#{num} AND user_id=#{id}
+	</select>
+		
+	
+	
 </mapper>
