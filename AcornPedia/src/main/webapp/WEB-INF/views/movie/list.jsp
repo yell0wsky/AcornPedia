@@ -85,6 +85,9 @@
       .movie-css-listText{
          margin-top: 10px
       }
+      .movie-css-listText2{
+      	color: #afafaf;
+      }
       
       .movie-css-listText p{
          width: 220px;
@@ -183,7 +186,7 @@
                               </div>
                               <div class="movie-css-listText">
                                   <p class="8277n1m" >${tmp.title}</p>
-                                  <p style=font-size:small>${tmp.release_date}</p>
+                                  <p style=font-size:small cla>${tmp.release_date}</p>
                                   <p style=font-size:small>평균⭐ ${tmp.stars}   💗</p>
                                   <!-- <p class="" >by <strong>${tmp.original_title}</strong></p>  -->
                               </div>

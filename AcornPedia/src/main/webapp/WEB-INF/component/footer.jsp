@@ -3,8 +3,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <footer id="footer">
 	<div id="movieStar">
-		<span class="center" id="star footer"> 지금까지 <em>★
-				${sessionScope.allcount }</em> 쌓였어요.
+		<span class="center" id="star footer"> 지금까지 
+			<em style="color: #ff0558;">★ ${sessionScope.allcount } 개의 평가가 </em>쌓였어요.
 		</span>
 
 	</div>
