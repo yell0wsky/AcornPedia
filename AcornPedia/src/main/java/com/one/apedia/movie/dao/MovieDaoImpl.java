@@ -105,11 +105,10 @@ public class MovieDaoImpl implements MovieDao {
 	}
 	
 	@Override
-	public void addHeart(String id, int num, String heart) {
+	public void addHeart(String id, int num) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("id", id);
 		parameters.put("num", num);
-		parameters.put("heart", heart);
 		session.insert("movie.addHeart", parameters);
 	}
 	@Override
@@ -121,12 +120,11 @@ public class MovieDaoImpl implements MovieDao {
 	}
 	
 	@Override
-	public void updateHeart(String id, int num, String heart) {
+	public void deleteHeart(String id, int num) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("id", id);
 		parameters.put("num", num);
-		parameters.put("heart", heart);	
-		session.update("movie.updateHeart", parameters);
+		session.update("movie.deleteHeart", parameters);
 	}
 	
 }

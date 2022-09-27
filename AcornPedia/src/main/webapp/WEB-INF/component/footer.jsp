@@ -4,7 +4,7 @@
 <footer id="footer">
 	<div id="movieStar">
 		<span class="center" id="star footer"> 지금까지 <em>★
-				${sessionScope.allcount }</em> 쌓였어요.
+				${sessionScope.allcount }</em> 개의 평가가 쌓였어요.
 		</span>
 
 	</div>

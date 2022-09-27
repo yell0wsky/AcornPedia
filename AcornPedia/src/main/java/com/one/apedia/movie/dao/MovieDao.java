@@ -23,10 +23,10 @@ public interface MovieDao {
 	//영화 별점 변경
 	public void updateStars(String id, int num, int star);
 	//영화 하트 추가
-	public void addHeart(String id, int num, String heart);
+	public void addHeart(String id, int num);
 	//영화 하트 확인
 	public String getHeart(String id, int num);
 	//영화 하트 변경
-	public void updateHeart(String id, int num, String heart);
+	public void deleteHeart(String id, int num);
 
 }

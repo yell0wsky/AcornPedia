@@ -75,8 +75,8 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public void addHeart(String id, int num, String heart) {
-		dao.addHeart(id, num, heart);
+	public void addHeart(String id, int num) {
+		dao.addHeart(id, num);
 
 	}
 
@@ -86,8 +86,8 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public void updateHeart(String id, int num, String heart) {
-		dao.updateHeart(id, num, heart);
+	public void deleteHeart(String id, int num) {
+		dao.deleteHeart(id, num);
 	}
 
 	@Override

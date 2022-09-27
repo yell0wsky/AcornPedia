@@ -157,10 +157,22 @@
 										<p>${sessionScope.id } 님의 평가점수는 ⭐${stars} 이군요!</p>
 										</c:when>
 									</c:choose>
+									</form>
+									<form action="${pageContext.request.contextPath}/movie/runHeart.do">
+									<button class="feed-icon-btn">
+								    <svg class="feed-icon like-default" viewBox="0 0 48 48">
+								        <path d="M34.6 6..."></path>
+								    </svg>
+								  	</button>
+									<c:choose>
+										<c:when test="${heart eq 'yes'}">
+										<p>이 영화를 좋아합니다.</p>
+										</c:when>
+									</c:choose>
+									</form>
 								</div>
 							</div>
-						</div>						
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -180,5 +192,32 @@ document.querySelector("#starform").addEventListener("submit", function(e){
 		alert("별점이 등록되었습니다.")
 	}
 });
+document.querySelector("#heartform").addEventListener("submit", function(e){
+	if(idExist=="null"){
+		e.preventDefault();
+		alert("로그인을 해주세요");		
+		document.querySelector("#login").click();
+	} else{
+		//좋아요 value값이 바뀌도록
+	}
+})
+
+//FEED HEART COLOR CHANGING
+const heartSvg = document.querySelector('.feed-icon.like-default');
+const heartPath = document.querySelector('.feed-icon.like-default path');
+
+heartSvg.addEventListener('click', () => changeClass(heartSvg, heartPath));
+function fillHeartRed(heartSvg, heartPath){
+	if(heartSvg.classList.contains("like-default")){
+		heartSvg.classList.remove("like-default");
+		heartSvg.classList.add("like-fill");
+		heartPath.setAttribute('d','M34.6 3....')
+	}
+	else{
+	 	heartSvg.classList.remove("like-fill");
+	 	heartSvg.classList.add("like-default");
+	 	heartPath.setAttribute('d','M34.6 6....')
+	 }
+}
 </script>
 </html>

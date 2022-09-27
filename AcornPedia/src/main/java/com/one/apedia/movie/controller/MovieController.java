@@ -52,6 +52,9 @@ public class MovieController {
 				stars=service.getStars(id, num);
 			} 
 		}
+		String heart=service.getHeart(id, num);
+	
+		mView.addObject("heart", heart);
 		mView.addObject("stars", stars);
 		mView.setViewName("movie/detail");
 		
@@ -132,7 +135,11 @@ public class MovieController {
 		int num=Integer.parseInt(request.getParameter("num"));
 		String heart=request.getParameter("heart");
 		
-		service.addHeart(id, num, heart);
+		if(heart!="yes") {
+			service.addHeart(id, num);
+		}else {
+			service.deleteHeart(id, num);
+		}
 		
 		return new ModelAndView("redirect:/movie/detail.do?num="+num);
 	}

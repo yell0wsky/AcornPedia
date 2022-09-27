@@ -58,11 +58,11 @@
 		VALUES(#{num},#{id})
 	</insert>
 	
-	<update id="updateHeart" parameterType="map">
-		UPDATE heart
-		SET heart=#{heart}
+	<delete id="deleteHeart" parameterType="map">
+		DELETE
+		FROM HEART
 		WHERE movie_no=#{num} AND user_id=#{id}
-	</update>
+	</delete>
 	
 	<select id="getHeart" parameterType="map" resultType="String">
 		SELECT heart
