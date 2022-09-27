@@ -9,14 +9,20 @@
 		<typeAlias type="com.one.apedia.cafe.dto.CafeDto" alias="cafeDto"/>
 		<typeAlias type="com.one.apedia.cafe.dto.CafeCommentDto" alias="cafeCommentDto"/>
 		<typeAlias type="com.one.apedia.movie.dto.MovieDto" alias="movieDto"/>
+		<typeAlias type="com.one.apedia.movie.dto.MovieCommentDto" alias="movieCommentDto"/>
+		<typeAlias type="com.one.apedia.movie.dto.MovieDto" alias="movieDto"/>
 		<typeAlias type="com.one.apedia.notice.dto.NoticeDto" alias="noticeDto"/>
 		<typeAlias type="com.one.apedia.notice.dto.NoticeCommentDto" alias="noticeCommentDto"/>
+		<typeAlias type="com.one.apedia.notice.dto.NoticeDto" alias="noticeDto"/>
+		<typeAlias type="com.one.apedia.notice.dto.NoticeCommentDto" alias="noticeCommentDto"/>
+	
 	</typeAliases>
 	<!-- 필요한 Mapper xml 등록하기  -->
 	<mappers>
 		<mapper resource="com/one/apedia/mybatis/UsersMapper.xml"/>
 		<mapper resource="com/one/apedia/mybatis/CafeMapper.xml"/>
 		<mapper resource="com/one/apedia/mybatis/CafeCommentMapper.xml"/>
+		<mapper resource="com/one/apedia/mybatis/MovieCommentMapper.xml"/>
 		<mapper resource="com/one/apedia/mybatis/MovieMapper.xml"/>
 		<mapper resource="com/one/apedia/mybatis/NoticeMapper.xml"/>
 		<mapper resource="com/one/apedia/mybatis/NoticeCommentMapper.xml"/>

@@ -1,5 +1,6 @@
 package com.one.apedia.movie.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.one.apedia.movie.dto.MovieDto;
+import com.one.apedia.movie.dto.MovieCommentDto;
+
 import com.one.apedia.movie.service.MovieService;
 import com.one.apedia.users.service.UsersService;
 
@@ -55,6 +57,50 @@ public class MovieController {
 		
 		return mView;
 	}
+		//새로운 댓글 저장 요청 처리
+		@RequestMapping("/movie/comment_insert")
+		public ModelAndView authCommentInsert(HttpServletRequest request, HttpSession session,
+				@RequestParam int ref_group) {
+			String id=(String)session.getAttribute("id");
+			service.saveComment(request);
+			uservice.addpoint(id);
+		
+			return new ModelAndView("redirect:/movie/detail.do?num="+ref_group);
+	}
+		//댓글 더보기 요청 처리
+		@RequestMapping("/movie/ajax_comment_list")
+		public String ajaxCommentList(HttpServletRequest request) {
+			service.moreCommentList(request);
+			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return "movie/ajax_comment_list";
+		}
+		//댓글 삭제 요청 처리
+		@RequestMapping("/movie/comment_delete")
+		@ResponseBody
+		public Map<String, Object> authCommentDelete(HttpServletRequest request) {
+			service.deleteComment(request);
+			Map<String, Object> map=new HashMap<String, Object>();
+			map.put("isSuccess", true);
+			// {"isSuccess":true} 형식의 JSON 문자열이 응답되도록 한다. 
+			return map;
+		}
+		//댓글 수정 요청처리 (JSON 을 응답하도록 한다)
+		@RequestMapping("/movie/comment_update")
+		@ResponseBody
+		public Map<String, Object> authCommentUpdate(MovieCommentDto dto, HttpServletRequest request){
+			service.updateComment(dto);
+			Map<String, Object> map=new HashMap<String, Object>();
+			map.put("isSuccess", true);
+			// {"isSuccess":true} 형식의 JSON 문자열이 응답되도록 한다. 
+			return map;
+		}
 		
 	@RequestMapping("/movie/runStars")
 	public ModelAndView runStars(HttpSession session, HttpServletRequest request) {

@@ -3,6 +3,8 @@ package com.one.apedia.movie.service;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.one.apedia.movie.dto.MovieCommentDto;
 import com.one.apedia.movie.dto.MovieDto;
 
 public interface MovieService {
@@ -26,5 +28,9 @@ public interface MovieService {
 	public String getHeart(String id, int num);
 	//영화 하트 변경
 	public void updateHeart(String id, int num, String heart);
+	void saveComment(HttpServletRequest request);
+	void deleteComment(HttpServletRequest request);
+	void updateComment(MovieCommentDto dto);
+	void moreCommentList(HttpServletRequest request);
 
 }
