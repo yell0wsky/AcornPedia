@@ -1,7 +1,6 @@
 package com.one.apedia.cafe.controller;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashMap;import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,15 +16,18 @@ import org.springframework.web.servlet.ModelAndView;
 import com.one.apedia.cafe.dto.CafeCommentDto;
 import com.one.apedia.cafe.dto.CafeDto;
 import com.one.apedia.cafe.service.CafeService;
+import com.one.apedia.users.service.UsersService;
 
 @Controller
 public class CafeController {
 	@Autowired
 	private CafeService service;
 	
+	@Autowired
+	private UsersService uservice;
+	
 	@RequestMapping("/cafe/list")
 	public String getList(HttpServletRequest request) {
-		
 		service.getList(request);
 		
 		return "cafe/list";
@@ -44,6 +46,7 @@ public class CafeController {
 		//CafeDto 객체에 글 작성자도 담기
 		dto.setWriter(id);
 		service.saveContent(dto);
+		uservice.addpoint(id);
 		
 		return new ModelAndView("cafe/insert");
 	}
@@ -55,17 +58,17 @@ public class CafeController {
 	}
 	//새로운 댓글 저장 요청 처리
 	@RequestMapping("/cafe/comment_insert")
-	public ModelAndView authCommentInsert(HttpServletRequest request, 
+	public ModelAndView authCommentInsert(HttpServletRequest request, HttpSession session,
 			@RequestParam int ref_group) {
-		
+		String id=(String)session.getAttribute("id");
 		service.saveComment(request);
+		uservice.addpoint(id);
 	
 		return new ModelAndView("redirect:/cafe/detail.do?num="+ref_group);
 	}
 	//댓글 더보기 요청 처리
 	@RequestMapping("/cafe/ajax_comment_list")
 	public String ajaxCommentList(HttpServletRequest request) {
-		
 		service.moreCommentList(request);
 		
 		try {
@@ -99,18 +102,17 @@ public class CafeController {
 	}
 	//카페글 삭제 요청 처리 
 	@RequestMapping("/cafe/delete")
-	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
-		
+	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request, HttpSession session) {
+		String id=(String)session.getAttribute("id");
 		service.deleteContent(num, request);
+		uservice.minuspoint(id);
 		
 		return new ModelAndView("redirect:/cafe/list.do");
 	}
 	
 	@RequestMapping("/cafe/updateform")
 	public ModelAndView authUpdateForm(HttpServletRequest request) {
-		
 		service.getData(request);
-		
 		return new ModelAndView("cafe/updateform");
 	}
 	//카페글 수정 요청 처리 
@@ -120,14 +122,3 @@ public class CafeController {
 		return new ModelAndView("cafe/update");
 	}
 }
-
-
-
-
-
-
-
-
-
-
-

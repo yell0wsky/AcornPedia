@@ -163,5 +163,17 @@ public class UsersServiceImpl implements UsersService{
 		//ModelAndView 객체에 탈퇴한 회원의 아이디를 담아준다.
 		mView.addObject("id", id);
 	}
+	@Override
+	public void addpoint(String id) {
+		//로그인된 아이디를 얻어와서
+		dao.pointup(id);
+		
+	}
+	@Override
+	public void minuspoint(String id) {
+		//로그인된 아이디를 얻어와서
+		dao.pointdown(id);
+		
+	}
 	
 }

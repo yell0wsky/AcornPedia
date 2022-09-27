@@ -13,7 +13,7 @@
 				ON board_notice_comment.writer=users.id
 				WHERE ref_group=#{ref_group}
 				ORDER BY comment_group ASC, num ASC) result1)
-		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}	
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
 	</select>
 	<update id="delete" parameterType="int">
 		UPDATE board_notice_comment
@@ -43,6 +43,6 @@
 	<select id="getCount" parameterType="int" resultType="int">
 		SELECT NVL(MAX(ROWNUM), 0)
 		FROM board_notice_comment
-		WHERE ref_group=#{ref_group}
+		WHERE ref_group=#{ref_group} and deleted='no'
 	</select>	
 </mapper>

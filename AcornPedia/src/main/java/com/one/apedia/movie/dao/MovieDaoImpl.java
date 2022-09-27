@@ -1,7 +1,10 @@
 package com.one.apedia.movie.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -26,6 +29,12 @@ public class MovieDaoImpl implements MovieDao {
 		
 		return session.selectList("movie.getList", dto);
 	}
+	
+	public List<MovieDto> getList2(MovieDto dto2) {
+		
+		return session.selectList("movie.getList2", dto2);
+	}
+	
 	
 	/*
 	 * Mapper's namespace : movie
@@ -68,4 +77,31 @@ public class MovieDaoImpl implements MovieDao {
 	public void delete(int num) {
 		session.delete("movie.delete", num);
 	}
+
+	@Override
+	public void addStars(String id, int num, int star) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", id);
+		parameters.put("num", num);
+		parameters.put("star", star);		
+		session.insert("movie.addStars", parameters);
+	}
+	
+	@Override
+	public Integer getStars(String id, int num) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", id);
+		parameters.put("num", num);
+		return session.selectOne("movie.getStars", parameters);
+	}
+
+	@Override
+	public void updateStars(String id, int num, int star) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", id);
+		parameters.put("num", num);
+		parameters.put("star", star);	
+		session.update("movie.updateStars", parameters);
+	}
+	
 }

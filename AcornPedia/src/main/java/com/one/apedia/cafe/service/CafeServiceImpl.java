@@ -187,6 +187,8 @@ public class CafeServiceImpl implements CafeService{
 		request.setAttribute("condition", condition);
 		request.setAttribute("keyword", keyword);
 		request.setAttribute("encodedK", encodedK);
+		//totalRow 라는 키값으로 전체 댓들의 갯수가 request 영역에 담겨 있으니
+		//detail.jsp 페이지에서는 ${totalRow} 하면 출력이 될텐데 안된다는 건가요? 
 		request.setAttribute("totalRow", totalRow);
 		request.setAttribute("totalPageCount", totalPageCount);
 		

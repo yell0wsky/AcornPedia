@@ -6,11 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>/users/loginform.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
+
 <body>
 <div class="container">
+
 	<h1>로그인 폼 입니다.</h1>
-	<form action="${pageContext.request.contextPath}/users/login.do" method="post">
+	<form class="animate__animated animate__bounceInDown" action="${pageContext.request.contextPath}/users/login.do" method="post">
 		<c:choose>
 			<c:when test="${ empty param.url }">
 				<input type="hidden" name="url" value="${pageContext.request.contextPath}/"/>
@@ -20,14 +27,14 @@
 			</c:otherwise>
 		</c:choose>
 		<div>
-			<label for="id">아이디</label>
-			<input type="text" name="id" id="id"/>
+			<label class="control-label" for="id">아이디</label>
+			<input class="form-control" type="text" name="id" id="id"/>
 		</div>
 		<div>
-			<label for="pwd">비밀번호</label>
-			<input type="password" name="pwd" id="pwd"/>
+			<label class="control-label" for="pwd">비밀번호</label>
+			<input class="form-control" type="password" name="pwd" id="pwd"/>
 		</div>
-		<button type="submit">로그인</button>
+		<button class="btn btn-primary" type="submit">로그인</button>
 	</form>
 </div>
 </body>

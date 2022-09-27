@@ -1,0 +1,436 @@
+@charset "UTF-8";
+
+.form-control {
+	background: rgb(245, 245, 245);
+	font-size: 0.9rem;
+}
+
+.form-control:focus {
+	border-color: #28a745;
+	box-shadow: none;
+	background: rgb(245, 245, 245);
+}
+
+.label {
+	padding: 11px 26px 7px;
+	margin: 4px 0px;
+	overflow: hidden;
+	display: block;
+}
+
+.control-label {
+	border-color: black;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	background: rgb(245, 245, 245);
+	box-sizing: border-box;
+	width: 230px;
+	height: 32px;
+	border-radius: 6px;
+	margin-bottom: 10px;
+}
+
+#login-img-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 0px 0px 23px;
+	padding: 18px 0px 0px;
+}
+
+#img-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 0px 0px 5px;
+	padding: 14px 0px 0px;
+}
+
+#modal-logo {
+	width: 170px;
+	height: 43px;
+}
+
+img#f\ logo {
+	width: 82px;
+	height: 18px;
+	padding: 0px 4px 2px 0px;
+}
+
+#loginmodalcontent {
+	width: 299px;
+	height: 349px;
+	padding: 5px;
+}
+
+.login-label {
+	padding: 8px 32px;
+	overflow: hidden;
+	display: block;
+}
+
+.login-body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 325px;
+	padding: 22px 0px 0px;
+}
+
+.login-header {
+	height: 68px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+form#loginForm {
+	width: 100%;
+	height: 238px;
+}
+
+#logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 160px;
+	height: 33px;
+}
+#modal-logo {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 10px 0px 0px 10px;
+   text-align: center;
+}
+
+
+.sign1-control-label{
+	border-color: black;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	background: rgb(245, 245, 245);
+	box-sizing: border-box;
+	width: 100%;
+	height: 32px;
+	border-radius: 6px;
+	margin-bottom: 7px;
+}
+ .sign2-control-label {
+ border-color: black;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	background: rgb(245, 245, 245);
+	box-sizing: border-box;
+	width: 100%;
+	height: 32px;
+	border-radius: 6px;
+ }
+
+form#signForm {
+	width: 100%;
+	height: 420px;
+}
+
+#loginbtn {
+	display: flex;
+	justify-content: center;
+	padding: 15px 32px;
+	align-items: center;
+}
+
+#submitbtn {
+	display: flex;
+	justify-content: center;
+	padding: 25px 20px;
+	align-items: center;
+}
+
+.modal-button {
+	background: rgb(255, 47, 110);
+	color: rgb(255, 255, 255);
+	text-align: center;
+	font-size: 15px;
+	font-weight: 400;
+	box-sizing: border-box;
+	width: 308px;
+	height: 40px;
+	border-radius: 6px;
+	border: 0;
+	outline: 0;
+}
+
+.modal-title {
+	font-size: 17px;
+	letter-spacing: -0.5px;
+	line-height: 22px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.form-text-text-muted {
+	font-size: 11.7px;
+}
+
+.header {
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.body {
+	width: 360px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal-content {
+	width: 360px;
+	height: 555px;
+}
+
+@font-face {
+	font-family: 'MICEGothic Bold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2')
+		format('woff2');
+	font-weight: 700;
+	font-style: normal;
+}
+
+* {
+	font-family: 'MICEGothic Bold';
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Noto Sans KR', sans-serif;
+	line-height: normal;
+	height: 100%
+}
+
+li {
+	list-style: none;
+}
+
+body {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.navbar-box {
+	border-bottom: solid 0.8px black;
+	position: fixed;
+	width: 100%;
+	padding-top: 0.5rem;
+	background-color: white;
+	font-weight: 200;
+}
+
+.navbar-ul {
+	display: flex;
+	margin: 0px 50px 15px 50px;
+	padding-left: 0px;
+}
+
+.css-logo {
+	width: 10rem;
+	height: 2.0625rem;
+}
+
+#logo {
+	margin-top: 8px;
+}
+
+.css-text {
+	display: flex;
+	align-items: center;
+	height: 3rem;
+	margin-left: 1.5rem;
+	text-decoration: none;
+}
+
+.navbar-atext {
+	text-decoration: none;
+	color: black;
+	opacity: 0.8;
+	border: 0;
+}
+
+.navbar-atext span {
+	display: flex;
+	align-items: center;
+}
+
+.css-textweb {
+	margin-right: 0.8rem;
+}
+
+.navbar-divicon #fuck {
+	position: absolute;
+	opacity: .65;
+	margin: 8px 0px 0px 7px;
+}
+
+.navbar-divicon input {
+	height: 2rem;
+	width: 17rem;
+	padding: 4px 1rem 4px 2rem;
+	background-color: rgb(243, 243, 243);
+	border: 0px solid;
+}
+
+.navbar-divicon button {
+	position: absolute;
+	border: 0px solid black;
+	outline: none;
+}
+
+.navbar-divicon button {
+	position: absolute;
+	border: none;
+	margin: 8px 0px -30px -15px;
+}
+
+.css-search {
+	margin: 0 0 0 auto;
+}
+
+.navbar-divicon a {
+	text-decoration: none;
+}
+
+.navbar-margin {
+	margin-left: 0.5rem;
+}
+
+.navbar-color {
+	border: 1px solid black;
+	font-weight: 700;
+	border-radius: 5px;
+	font-size: 0.9rem;
+	display: flex;
+	justify-content: center;
+	height: 2rem;
+	width: 80px;
+}
+
+#haha {
+	display: none;
+	color: black;
+	opacity: 0.65;
+	margin-top: 5px;
+}
+
+@media screen and (max-width: 930px) {
+	.navbar-divicon input {
+		display: none;
+	}
+	#fuck {
+		display: none;
+	}
+	#haha {
+		display: block;
+	}
+	.button-delete {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 670px) {
+	.navbar-ul {
+		display: flex;
+		justify-content: center;
+	}
+	.navbar-atext {
+		display: none;
+		width: 100%;
+		justify-content: center;
+		text-align: center;
+		height: 3rem;
+		align-items: center;
+	}
+	.css-hidden {
+		display: none;
+	}
+	#haha {
+		display: none;
+	}
+}
+
+.container {
+	padding-top: 100px;
+	text-decoration: none;
+	flex: 1 0 auto;
+}
+
+/* footer css */
+.css-footer-box {
+	width: 100%;
+	background-color: #292b2e;
+	display: flex;
+	font-size: 14px;
+	margin-top: 60px;
+	bottom: 0;
+}
+
+
+footer{
+	position: relative;
+	transform: traslatY(-100%);
+}
+
+.css-footer-margin {
+	margin-right: 0.4rem;
+}
+
+.css-footer-text {
+	flex-direction: column;
+	margin: 2rem 0px 2rem 3.125rem;
+}
+
+.css-footer-1line, .css-footer-2line, .css-footer-3line,
+	.css-footer-4line {
+	display: flex;
+}
+
+.css-footer-4line {
+	margin-bottom: 0px;
+}
+
+.css-footer-2line, .css-footer-3line {
+	margin-top: 1rem;
+}
+
+.css-footer-1line, .css-footer-2line {
+	color: #a5a5a7;
+}
+
+.css-footer-3line, .css-footer-4line {
+	color: #858585;
+}
+
+@media screen and (max-width: 670px) {
+	.css-footer-3line {
+		flex-direction: column;
+	}
+}
+
+.container, .a172938a {
+	z-index: 0;
+}
+
+.navbar-box {
+	z-index: 200;
+}

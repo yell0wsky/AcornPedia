@@ -5,8 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/cafe/insertform.jsp</title>
-<link rel="stylesheet" 
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
+	
 <style>
 	#content{
 		height: 500px;
@@ -14,19 +19,22 @@
 </style>
 </head>
 <body>
+<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
 	<h1>새글 작성 폼</h1>
 	<form action="insert.do" method="post" id="insertForm">
+	<button class="btn btn-outline-secondary pull-right" type="submit" style="float:right;">저장</button>
+	<br>
 		<div class="mb-3">
-			<label class="form-label" for="title">제목</label>
+			<label class="form-label" for="title" style="font-size:25px;">제목</label>
 			<input class="form-control" type="text" name="title" id="title"/>
 			<small class="form-tect text-muted">제목을 5글자 이상 입력하세요</small>
 		</div>
 		<div class="mb-3">
-			<label class="form-label" for="content">내용</label>
+			<label class="form-label" for="content" style="font-size:20px;">내용</label>
 			<textarea class="form-control"  name="content" id="content"></textarea>
 		</div>
-		<button class="btn btn-primary" type="submit">저장</button>
+		
 	</form>
 </div>
 <%--
@@ -105,6 +113,7 @@
 			
 		});
 </script>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>
 

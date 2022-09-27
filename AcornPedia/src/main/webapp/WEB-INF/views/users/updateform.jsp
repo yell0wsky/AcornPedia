@@ -6,13 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/users/updateform.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/users.css" />
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/updateform.css" />
+
 <style>
 	/* 프로필 이미지를 작은 원형으로 만든다 */
 	#profileImage{
-		width: 50px;
-		height: 50px;
-		border: 1px solid #cecece;
-		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+		border: 0px solid #cecece;
+		border-radius: 70%;
 	}
 	#imageForm{
 		display: none;
@@ -20,39 +31,52 @@
 </style>
 </head>
 <body>
-<div class="container">
-	<h1>회원정보 수정</h1>
-	<a id="profileLink" href="javascript:"></a>
+<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
+
+  <div id="wrap">
+      <div id="container">
+        <div id="top-a">
+         <a id="profileLink" href="javascript:">
+		<c:choose>
+			<c:when test="${empty dto.profile }">
+				<svg id="profileImage" xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+					  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+					  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+				</svg>
+			</c:when>
+			<c:otherwise>
+				<img id="profileImage" 
+					src="${pageContext.request.contextPath}${dto.profile}" />
+			</c:otherwise>
+		</c:choose>
+	</a>
 	<form action="${pageContext.request.contextPath}/users/update.do" method="post">
 		<input type="hidden" name="profile" 
 			value="${ empty dto.profile ? '' : dto.profile}"/>
-		<div>
-			<label for="id">아이디</label>
-			<input type="text" id="id" value="${id }" disabled/>
-		</div>
-		<div>
-			<label for="email">이메일</label>
-			<input type="text" name="email" id="email" value="${dto.email }"/>
-		</div>
-		<div>
-			<label for="pwd">비밀번호</label>
-			<td><a href="${pageContext.request.contextPath}/users/pwd_updateform.do">수정하기</a></td>
-		</div>
-		<button type="submit">수정반영</button>
-	</form>
-	<h2>본인 확인</h2>
-		<div>
-			<label for="phone">연락처</label>
-			<input type="text" name="phone" id="phone" value="???"/>
-		</div>
-		</table>
-	
-	<form action="${pageContext.request.contextPath}/users/ajax_profile_upload.do" method="post" 
+          
+            <label for="name">이름</label>
+            <input type="text" name="name" id="name" style="height:20px;" value="${dto.name }" />
+            
+            <label for="id">아이디</label>
+            <input type="text" name="id" id="id" style="height:20px;" value="${id }" disabled/>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" style="height:20px;" value="${dto.email }" />
+ 		 <br>
+         <br>
+        	<button type="submit" class="btn btn-outline-primary">저장</button>
+        	<button type="submit" class="btn btn-outline-primary"><a href="${pageContext.request.contextPath}/users/pwd_updateform.do">비밀번호 수정</a></button>
+        	</form>
+        
+          	<form action="${pageContext.request.contextPath}/users/ajax_profile_upload.do" method="post" 
 				id="imageForm" enctype="multipart/form-data">
-		<input type="file" name="image" id="image" 
+			<input type="file" name="image" id="image"
 			accept=".jpg, .jpeg, .png, .JPG, .JPEG, .gif"/>
-	</form>
-</div>
+			</form>
+			 </div>
+         </div>
+       </div> 
+        
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
 	//프로필 이미지 링크를 클릭하면 
@@ -76,7 +100,7 @@
 			let img=`<img id="profileImage" src="${pageContext.request.contextPath}\${data.imagePath}"/>`;
 			document.querySelector("#profileLink").innerHTML=img;
 			// input name="profile" 요소의 value 값으로 이미지 경로 넣어주기
-			document.querySelector("input[name=profile]").value=data.imagePath;
+			
 			
 		/*
             document.querySelector(" css 선택자 ")
@@ -99,18 +123,10 @@
             input [name=profile] : input 요소의 자손중에서 name속성의 값이 profile인 요소 선택
            	 띄어쓰기 유무 중요
          */
+			document.querySelector("input[name=profile]").value=data.imagePath;
 		});
 	});
 </script>
 </body>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </html>
-
-
-
-
-
-
-
-
-
-

@@ -1,399 +1,319 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script src="https://kit.fontawesome.com/2e01103920.js"
-   crossorigin="anonymous"></script>
-<link rel="stylesheet"
-   href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
-<script
-   src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script
-   src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script
-   src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- The Modal -->
-<div class="modal fade" id="loginmodal" tabindex="-1" role="dialog"
-   aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- login Modal -->
+<div class="modal fade" id="loginmodal">
+	<div class="modal-dialog modal-sm modal-dialog-centered">
+		<section id="loginmodalsection">
+			<div class="modal-content" id=loginmodalcontent>
+				<div id="login-img-logo">
+					<img
+						src="${pageContext.request.contextPath}/resources/images/ACORN LOGO.jpg"
+						id="modal-logo">
+				</div>
 
-   <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+				<!-- Modal Header -->
+				<header class="login-header">
+					<h2 class="modal-title" id="exampleModalLongTitle">로그인</h2>
+				</header>
 
-         <!-- Modal Header -->
-         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">로그인</h5>
-            <button type="button" class="close" data-dismiss="modal"
-               aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-            </button>
-         </div>
-         <!-- Modal body -->
-         <div class="modal-body">
-            <form class="animate__animated animate__bounceInDown"
-               action="${pageContext.request.contextPath}/users/login.do"
-               method="post">
-               <c:choose>
-                  <c:when test="${ empty param.url }">
-                     <input type="hidden" name="url"
-                        value="${pageContext.request.contextPath}/" />
-                  </c:when>
-                  <c:otherwise>
-                     <input type="hidden" name="url" value="${param.url }" />
-                  </c:otherwise>
-               </c:choose>
-               <div>
-                  <label class="control-label" for="id">아이디</label> <input
-                     class="form-control" type="text" name="id" id="id" />
-               </div>
-               <div>
-                  <label class="control-label" for="pwd">비밀번호</label> <input
-                     class="form-control" type="password" name="pwd" id="pwd" />
-               </div>
-               <!-- Modal footer -->
-               <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary">로그인</button>
-               </div>
-            </form>
-         </div>
-      </div>
-   </div>
+				<div class="login-body">
+					<form class="animate__animated_animate__bounceInDown"
+						action="${pageContext.request.contextPath}/users/login.do"
+						method="post" id="loginForm">
+						<input type="hidden" name="url"
+									value=""/>
+						<div class="login-label">
+							<label class="control-label" for="id"><input
+								class="form-control" type="text" name="id" id="signid"
+								placeholder="아이디" /></label>
+						</div>
+						<div class="login-label">
+							<label class="control-label" for="pwd"><input
+								class="form-control" type="password" name="pwd" id="signpwd"
+								placeholder="비밀번호" /></label>
+						</div>
+						<div class="btn" id="loginbtn">
+							<button class="modal-button" type="submit" class="btn-btn-primary">로그인</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</div>
 </div>
-<!-- The Modal -->
+
+<!-- signUp Modal -->
 <div class="modal fade" id="signupmodal">
-   <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+	<div class="modal-dialog modal-sm modal-dialog-centered">
+		<section id="signupmodalsection">
+			<div class="modal-content">
+				<div id="img-logo">
+					<img
+						src="${pageContext.request.contextPath}/resources/images/ACORN LOGO.jpg"
+						id="modal-logo">
+				</div>
 
-         <!-- Modal Header -->
-         <div class="modal-header">
-            <h4 class="modal-title">회원가입</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-         </div>
+				<!-- Modal Header -->
+				<header class="header">
+					<h2 class="modal-title">회원가입</h2>
+				</header>
 
-         <!-- Modal body -->
-         <div class="modal-body">
-            <form class="animate__animated animate__bounceInDown"
-               action="${pageContext.request.contextPath}/users/signup.do"
-               method="post" id="myForm">
-               <div>
-                  <label class="control-label" for="id">아이디</label> <input
-                     class="form-control" type="text" name="id" id="id" /> <small
-                     class="form-text text-muted">영문자 소문자로 시작하고 5글자~10글자 이내로
-                     입력하세요.</small>
-                  <div class="invalid-feedback">사용할수 없는 아이디 입니다.</div>
-               </div>
-               <div>
-                  <label class="control-label" for="pwd">비밀번호</label> <input
-                     class="form-control" type="password" name="pwd" id="pwd" /> <small
-                     class="form-text text-muted">5글자~10글자 이내로 입력하세요.</small>
-                  <div class="invalid-feedback">비밀번호를 확인 하세요.</div>
-               </div>
-               <div>
-                  <label class="control-label" for="pwd2">비밀번호 확인</label> <input
-                     class="form-control" type="password" name="pwd2" id="pwd2" />
-               </div>
-               <div>
-                  <label class="control-label" for="email">이메일</label> <input
-                     class="form-control" type="text" name="email" id="email" />
-                  <div class="invalid-feedback">이메일 형식을 확인 하세요.</div>
-               </div>
-               <div>
-                  <label class="control-label" for="mpn">휴대폰 번호</label> <input
-                     class="form-control" type="number" name="mpn" id="mpn" />
-                  <div class="invalid-feedback">정확한 번호를 기재해 주세요.</div>
-               </div>
-               <!-- Modal footer -->
-               <div class="modal-footer">
-                  <button class="btn btn-primary" type="submit">가입</button>
-               </div>
-            </form>
-         </div>
+				<div class="body">
+					<form class="animate__animated_animate__bounceInDown"
+						action="${pageContext.request.contextPath}/users/signup.do"
+						method="post" id="signForm">
+						<div class="label">
+							<label class="sign1-control-label" for="name">
+							<input class="form-control" type="text" name="name" id="name"
+							placeholder="이름"
+							/></label>
+						</div>
+						<div class="label">
+							<label class="sign2-control-label" for="id"><input
+								class="form-control" type="text" name="id" id="id"
+								placeholder="아이디" /></label>
+							<small class="form-text-text-muted">영문자 소문자로 시작하고 5글자~10글자 이내로 입력하세요.</small>
+							<div class="invalid-feedback">사용할수 없는 아이디 입니다.</div>
+						</div>
 
-
-
-      </div>
-   </div>
+						<div class="label">
+							<label class="sign2-control-label" for="pwd"><input
+								class="form-control" type="password" name="pwd" id="pwd"
+								placeholder="비밀번호" /></label>
+							<small class="form-text-text-muted">5글자~10글자 이내로 입력하세요.</small>
+							<div class="invalid-feedback">비밀번호를 확인 하세요.</div>
+						</div>
+						<div class="label">
+							<label class="sign1-control-label" for="pwd2"><input
+								class="form-control" type="password" name="pwd2" id="pwd2"
+								placeholder="비밀번호 확인" /></label>
+						</div>
+						<div class="label">
+							<label class="sign1-control-label" for="email"><input
+								class="form-control" type="text" name="email" id="email"
+								placeholder="이메일" /></label>
+							<div class="invalid-feedback">이메일 형식을 확인 하세요.</div>
+						</div>
+						<div class="button" id="submitbtn">
+							<button class="modal-button" type="submit">회원가입</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</div>
 </div>
-<style>
-@font-face {
-   font-family: 'MICEGothic Bold';
-   src:
-      url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2')
-      format('woff2');
-   font-weight: 700;
-   font-style: normal;
-}
 
-* {
-   font-family: 'MICEGothic Bold';
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-}
 
-html {
-   font-family: 'Noto Sans KR', sans-serif;
-   height: auto;
-}
-
-li {
-   list-style: none;
-}
-
-.navbar-box {
-   border-bottom: solid 0.8px black;
-   position: fixed;
-   width: 100%;
-   padding-top: 0.5rem;
-   background-color: white;
-}
-
-.navbar-ul {
-   display: flex;
-   margin: 0px 50px 15px 50px;
-   padding-left: 0px;
-}
-
-.css-logo {
-   width: 10rem;
-   height: 2.0625rem;
-}
-
-#logo {
-   margin-top: 7px;
-}
-
-.css-text {
-   display: flex;
-   align-items: center;
-   height: 3rem;
-   margin-left: 1.5rem;
-   text-decoration: none;
-}
-
-.navbar-atext {
-   text-decoration: none;
-   color: black;
-   opacity: 0.8;
-   border: 0;
-}
-
-.navbar-atext span {
-   display: flex;
-   align-items: center;
-}
-
-.css-textweb {
-   margin-right: 0.8rem;
-}
-
-.navbar-divicon #fuck {
-   position: absolute;
-   opacity: .65;
-   margin: 8px 0px 0px 7px;
-}
-
-.navbar-divicon input {
-   height: 2rem;
-   width: 17rem;
-   padding: 4px 10px 4px 2rem;
-   background-color: rgb(243, 243, 243);
-   border: 0px solid;
-}
-
-.css-search {
-   margin: 0 0 0 auto;
-}
-
-.navbar-divicon a {
-   text-decoration: none;
-}
-
-.navbar-margin {
-   margin-left: 0.5rem;
-}
-
-.navbar-color {
-   border: 1px solid black;
-   font-weight: 700;
-   border-radius: 5px;
-   font-size: 0.9rem;
-   display: flex;
-   justify-content: center;
-   height: 2rem;
-   width: 80px;
-}
-
-#haha {
-   display: none;
-   color: black;
-   opacity: 0.65;
-   margin-top: 5px;
-}
-
-.button-delete {
-   position: absolute;
-   right: 210px;
-   top: 1.3rem;
-   border: none;
-}
-
-@media screen and (max-width: 930px) {
-   .navbar-divicon input {
-      display: none;
-   }
-   #fuck {
-      display: none;
-   }
-   #haha {
-      display: block;
-   }
-   .button-delete {
-      display: none;
-   }
-}
-
-@media screen and (max-width: 670px) {
-   .navbar-ul {
-      display: flex;
-      justify-content: center;
-   }
-   .navbar-atext {
-      display: none;
-      width: 100%;
-      justify-content: center;
-      text-align: center;
-      height: 3rem;
-      align-items: center;
-   }
-   .css-hidden {
-      display: none;
-   }
-   #haha {
-      display: none;
-   }
-}
-
-.container {
-   padding-top: 100px;
-   text-decoration: none;
-}
-
-/* footer css */
-.css-footer-box {
-   width: 100%;
-   background-color: #222222;
-   height: auto;
-   display: flex;
-   font-size: 14px;
-   position: absolute;
-   bottom: 0;
-}
-
-.css-footer-margin {
-   margin-right: 0.4rem;
-}
-
-.css-footer-text {
-   flex-direction: column;
-   margin: 2rem 0px 2rem 3.125rem;
-}
-
-.css-footer-1line, .css-footer-2line, .css-footer-3line,
-   .css-footer-4line {
-   display: flex;
-}
-
-.css-footer-2line, .css-footer-3line {
-   margin-top: 1rem;
-}
-
-.css-footer-1line, .css-footer-2line {
-   color: #a5a5a7;
-}
-
-.css-footer-3line, .css-footer-4line {
-   color: #858585;
-}
-
-@media screen and (max-width: 670px) {
-   .css-footer-3line {
-      flex-direction: column;
-   }
-}
-</style>
 <nav class="navbar-box">
-   <ul class="navbar-ul">
-      <li class="navbar-li css-logo"><a
-         href="${pageContext.request.contextPath}/home.do"> <img
-            src="${pageContext.request.contextPath}/resources/images/watcha.png"
-            id="logo">
-      </a></li>
-      <li class="navbar-li css-text navbar-li-remove"><a
-         href="${pageContext.request.contextPath}/notice/list.do"
-         class="navbar-atext">공지</a></li>
-      <li class="navbar-li css-text navbar-li-remove"><a
-         href="${pageContext.request.contextPath}/movie/list.do"
-         class="navbar-atext">영화</a></li>
-      <li class="navbar-li css-text navbar-li-remove"><a
-         href="${pageContext.request.contextPath}/cafe/list.do"
-         class="navbar-atext">자유</a></li>
-      <li class="navbar-li css-text css-search">
-         <form action="#">
-            <div class="navbar-divicon">
-               <i class="fas fa-search" id="fuck"></i> <input type="text"
-                  placeholder="콘텐츠, 인물, 컬렉션를 검색해보세요."> <i
-                  class="fas fa-search" id="haha"></i>
-            </div>
-         </form>
-      </li>
-      <c:choose>
-         <c:when test="${ empty sessionScope.id}">
-            <li class="navbar-li css-text css-hidden"><a
-               href="${pageContext.request.contextPath}/users/loginform.do"
-               class="navbar-atext" data-toggle="modal" data-target="#loginmodal">로그인</a>
-
-
-               <a href="${pageContext.request.contextPath}/users/signup_form.do"
-               class="navbar-atext navbar-margin navbar-color" data-toggle="modal"
-               data-target="#signupmodal"> <span>회원가입</span>
-            </a></li>
-         </c:when>
-         <c:otherwise>
-            <li class="navbar-li css-text css-hidden"><a
-               href="${pageContext.request.contextPath}/users/info.do"
-               class="navbar-atext">${sessionScope.id }</a> <a
-               href="${pageContext.request.contextPath}/users/logout.do"
-               class="navbar-atext navbar-margin navbar-color"> <span>로그아웃</span>
-            </a></li>
-         </c:otherwise>
-      </c:choose>
-   </ul>
+	<ul class="navbar-ul">
+		<li class="navbar-li css-logo"><a
+			href="${pageContext.request.contextPath}/home.do"> <img
+				src="${pageContext.request.contextPath}/resources/images/ACORN LOGO.jpg"
+				id="logo">
+		</a></li>
+		<li class="navbar-li css-text navbar-li-remove"><a
+			href="${pageContext.request.contextPath}/notice/list.do"
+			class="navbar-atext">공지</a></li>
+		<li class="navbar-li css-text navbar-li-remove"><a
+			href="${pageContext.request.contextPath}/movie/list.do"
+			class="navbar-atext">영화</a></li>
+		<li class="navbar-li css-text navbar-li-remove"><a
+			href="${pageContext.request.contextPath}/cafe/list.do"
+			class="navbar-atext">자유</a></li>
+		<li class="navbar-li css-text css-search">
+			<form action="#">
+				<div class="navbar-divicon">
+					<i class="fas fa-search" id="fuck"></i> <input type="text"
+						placeholder="콘텐츠, 인물, 컬렉션를 검색해보세요."> <i
+						class="fas fa-search" id="haha"></i>
+				</div>
+			</form>
+		</li>
+		<c:choose>
+			<c:when test="${ empty sessionScope.id}">
+				<li class="navbar-li css-text css-hidden"><a
+					href="${pageContext.request.contextPath}/users/loginform.do"
+					class="navbar-atext" data-toggle="modal" data-target="#loginmodal">로그인</a>
+					<a href="${pageContext.request.contextPath}/users/signup_form.do"
+					class="navbar-atext navbar-margin navbar-color" data-toggle="modal"
+					data-target="#signupmodal"><span>회원가입</span></a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="navbar-li css-text css-hidden"><a
+					href="${pageContext.request.contextPath}/users/info.do"
+					class="navbar-atext">${sessionScope.id }</a> <a
+					href="${pageContext.request.contextPath}/users/logout.do"
+					class="navbar-atext navbar-margin navbar-color"> <span>로그아웃</span>
+				</a>
+				<li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
 </nav>
-
-</body>
+<nav class="navbar-box">
+	<ul class="navbar-ul">
+		<li class="navbar-li css-logo"><a
+			href="${pageContext.request.contextPath}/home.do"> <img
+				src="${pageContext.request.contextPath}/resources/images/ACORN LOGO.jpg"
+				id="logo">
+		</a></li>
+		<li class="navbar-li css-text navbar-li-remove"><a
+			href="${pageContext.request.contextPath}/notice/list.do"
+			class="navbar-atext">공지</a></li>
+		<li class="navbar-li css-text navbar-li-remove"><a
+			href="${pageContext.request.contextPath}/movie/list.do"
+			class="navbar-atext">영화</a></li>
+		<li class="navbar-li css-text navbar-li-remove"><a
+			href="${pageContext.request.contextPath}/cafe/list.do"
+			class="navbar-atext">자유</a></li>
+		<li class="navbar-li css-text css-search">
+			<form action="#">
+				<div class="navbar-divicon">
+					<i class="fas fa-search" id="fuck"></i> <input type="text"
+						placeholder="콘텐츠, 인물, 컬렉션를 검색해보세요."> <i
+						class="fas fa-search" id="haha"></i>
+				</div>
+			</form>
+		</li>
+		<c:choose>
+			<c:when test="${ empty sessionScope.id}">
+				<li class="navbar-li css-text css-hidden"><a id="login"
+					href="${pageContext.request.contextPath}/users/loginform.do"
+					class="navbar-atext" data-toggle="modal" data-target="#loginmodal">로그인</a>
+					<a href="${pageContext.request.contextPath}/users/signup_form.do"
+					class="navbar-atext navbar-margin navbar-color" data-toggle="modal"
+					data-target="#signupmodal"><span>회원가입</span></a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="navbar-li css-text css-hidden"><a
+					href="${pageContext.request.contextPath}/users/info.do"
+					class="navbar-atext">${sessionScope.id }</a> <a
+					href="${pageContext.request.contextPath}/users/logout.do"
+					class="navbar-atext navbar-margin navbar-color"> <span>로그아웃</span>
+				</a>
+				<li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
+</nav>
+<script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
-   const input = document.querySelector(".navbar-divicon input");
-   const navbarDivicon = document.querySelector(".navbar-divicon");
-   const buttonDaelete = document.querySelector(".button-delete");
-   const smallIcon = document.querySelector("#haha");
-   const navLiRemove = document.querySelectorAll(".navbar-li-remove");
+	//아이디, 비밀번호, 이메일의 유효성 여부를 관리한 변수 만들고 초기값 대입
+	let isIdValid=false;
+	let isPwdValid=false;
+	let isEmailValid=false;
 
-   function handleClick() {
-      const button = document.createElement("button");
-      button.innerText = ("✕")
-      navbarDivicon.appendChild(button);
-      button.classList.add("button-delete")
-      button.addEventListener("click", buttonremove);
-   }
+	//아이디를 입력했을때(input) 실행할 함수 등록 
+	document.querySelector("#id").addEventListener("input", function(){
+		//일단 is-valid,  is-invalid 클래스를 제거한다.
+		document.querySelector("#id").classList.remove("is-valid");
+		document.querySelector("#id").classList.remove("is-invalid");
+		
+		//1. 입력한 아이디 value 값 읽어오기  
+		let inputId=this.value;
+		//입력한 아이디를 검증할 정규 표현식
+		const reg_id=/^[a-z].{4,9}$/;
+		//만일 입력한 아이디가 정규표현식과 매칭되지 않는다면
+		if(!reg_id.test(inputId)){
+			isIdValid=false; //아이디가 매칭되지 않는다고 표시하고 
+			// is-invalid 클래스를 추가한다. 
+			document.querySelector("#id").classList.add("is-invalid");
+			return; //함수를 여기서 끝낸다 (ajax 전송 되지 않도록)
+		}
+		
+		//2. util 에 있는 함수를 이용해서 ajax 요청하기
+		ajaxPromise("${pageContext.request.contextPath}/users/checkid.do", "get", "inputId="+inputId)
+		.then(function(response){
+			return response.json();
+		})
+		.then(function(data){
+			console.log(data);
+			//data 는 {isExist:true} or {isExist:false} 형태의 object 이다.
+			if(data.isExist){//만일 존재한다면
+				//사용할수 없는 아이디라는 피드백을 보이게 한다. 
+				isIdValid=false;
+				// is-invalid 클래스를 추가한다. 
+				document.querySelector("#id").classList.add("is-invalid");
+			}else{
+				isIdValid=true;
+				document.querySelector("#id").classList.add("is-valid");
+			}
+		});
+	});
+	
+	//비밀 번호를 확인 하는 함수 
+	function checkPwd(){
+		document.querySelector("#pwd").classList.remove("is-valid");
+		document.querySelector("#pwd").classList.remove("is-invalid");
+		
+		const pwd=document.querySelector("#pwd").value;
+		const pwd2=document.querySelector("#pwd2").value;
+		
+		// 최소5글자 최대 10글자인지를 검증할 정규표현식
+		const reg_pwd=/^.{5,10}$/;
+		if(!reg_pwd.test(pwd)){
+			isPwdValid=false;
+			document.querySelector("#pwd").classList.add("is-invalid");
+			return; //함수를 여기서 종료
+		}
+		
+		if(pwd != pwd2){//비밀번호와 비밀번호 확인란이 다르면
+			//비밀번호를 잘못 입력한것이다.
+			isPwdValid=false;
+			document.querySelector("#pwd").classList.add("is-invalid");
+		}else{
+			isPwdValid=true;
+			document.querySelector("#pwd").classList.add("is-valid");
+		}
+	}
+	
+	//비밀번호 입력란에 input 이벤트가 일어 났을때 실행할 함수 등록
+	document.querySelector("#pwd").addEventListener("input", checkPwd);
+	document.querySelector("#pwd2").addEventListener("input", checkPwd);
+	
+	//이메일을 입력했을때 실행할 함수 등록
+	document.querySelector("#email").addEventListener("input", function(){
+		document.querySelector("#email").classList.remove("is-valid");
+		document.querySelector("#email").classList.remove("is-invalid");
+		
+		//1. 입력한 이메일을 읽어와서
+		const inputEmail=this.value;
+		//2. 이메일을 검증할 정규 표현식 객체를 만들어서
+		const reg_email=/@/;
+		//3. 정규표현식 매칭 여부에 따라 분기하기
+		if(reg_email.test(inputEmail)){//만일 매칭된다면
+			isEmailValid=true;
+			document.querySelector("#email").classList.add("is-valid");
+		}else{
+			isEmailValid=false;
+			document.querySelector("#email").classList.add("is-invalid");
+		}
+	});
+	
+	
+	//폼에 submit 이벤트가 발생했을때 실행할 함수 등록
+	document.querySelector("#signForm").addEventListener("submit", function(e){
+		//console.log(e);
+		/*
+			입력한 아이디, 비밀번호, 이메일의 유효성 여부를 확인해서 하나라도 유효 하지 않으면
+			e.preventDefault(); 
+			가 수행 되도록 해서 폼의 제출을 막아야 한다. 
+		*/
+		//폼 전체의 유효성 여부 알아내기 
+		let isFormValid = isIdValid && isPwdValid && isEmailValid;
+		if(!isFormValid){//폼이 유효하지 않으면
+			//폼 전송 막기 
+			e.preventDefault();
+			alert("양식에 맞게 입력해주세요");
+		}
+	});
+	
+	//login.do로 보낼 form에 현재페이지의 파라미터값까지 포함한 url값 담기
+	var link=document.location.href;
+	$('input[name=url]').attr('value',link)
 
-   function buttonremove() {
-      input.value = "";
-      document.querySelector(".button-delete").remove();
-   };
-
-   function handleInputClick() {
-   }
-
-   input.addEventListener("click", handleClick);
-   smallIcon.addEventListener("click", handleInputClick)
 </script>
+<!-- Navi Bar End -->

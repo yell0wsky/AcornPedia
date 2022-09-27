@@ -8,6 +8,11 @@
 <meta charset="UTF-8">
 <title>/views/notice/list.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
 <style>
    .page-ui a{
       text-decoration: none;
@@ -22,15 +27,25 @@
       color: red;
       font-weight: bold;
       text-decoration: underline;
+      
    }
    .page-ui ul{
+      display: block;
+      text-align:center;
       list-style-type: none;
       padding: 0;
    }
    
-   .page-ui ul > li{
-      float: left;
-      padding: 5px;
+   .page-ui ul{
+   	  display:flex;
+   	  justify-content:center;
+      text-align:center;
+      list-style-type: none;
+      padding: 0;
+   }
+   
+   .pagination li a{
+   	  margin: 0px 0.3rem;
    }
    
 </style>
@@ -42,14 +57,14 @@
    <a class="btn btn-default pull-right" href="insertform.do">글쓰기</a>
    </c:if>
    <h1>공지사항</h1>
-   <table class="table table" style="text-align: center;">
-      <thead>
+   <table class="table table-hover " style="text-align: center; ">
+      <thead class="table-light">
          <tr>
-            <th style="background-color: #eeeeee; text-align: center;">글번호</th>
-            <th style="background-color: #eeeeee; text-align: center;">작성자</th>
-            <th style="background-color: #eeeeee; text-align: center;">제목</th>
-            <th style="background-color: #eeeeee; text-align: center;">조회수</th>
-            <th style="background-color: #eeeeee; text-align: center;">등록일</th>
+            <th style="background-color: #; text-align: center; large; color: #808080">글번호</th>
+            <th style="background-color: #; text-align: center; large; color: #808080">작성자</th>
+            <th style="background-color: #; text-align: center; large; color: #808080">제목</th>
+            <th style="background-color: #; text-align: center; large; color: #808080">조회수</th>
+            <th style="background-color: #; text-align: center; large; color: #808080">등록일</th>
          </tr>
       </thead>
       <tbody>
@@ -58,7 +73,7 @@
             <td>${tmp.num }</td>
             <td>${tmp.writer }</td>
             <td>
-               <a href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}">${tmp.title }[]</a>
+               <a style="text-decoration-line: none" class="text-dark " href="detail.do?num=${tmp.num }&keyword=${encodedK }&condition=${condition}" >${tmp.title }</a>
             </td>
             <td>${tmp.viewCount }</td>
             <td>${tmp.regdate }</td>
@@ -67,10 +82,10 @@
       </tbody>
       
    </table>
-   <div class="page-ui clearfix">
+   <div class="page-ui clearfix" >
       <ul class="pagination">
          <c:if test="${startPageNum ne 1 }">
-            <li>
+            <li >
                <a href="list.do?pageNum=${startPageNum-1 }&condition=${condition }&keyword=${encodedK }">Prev</a>
             </li>
          </c:if>
@@ -97,13 +112,13 @@
    <div style="clear:both">
    
    <form action="list.do" method="get"> 
-      <div class="input-group">
-      <select style="width:300px" class="form-select form-select-sm" aria-label=".form-select-sm example" name="condition" id="condition">
+      <div class="input-group w-50" style="margin:0 auto">
+      <select class="form-select form-select-sm shadow-none" aria-label=".form-select-sm example" name="condition" id="condition">
          <option value="title_content" ${condition eq 'title_content' ? 'selected' : '' }>제목+내용</option>
          <option value="title" ${condition eq 'title' ? 'selected' : '' }>제목</option>
          <option value="writer" ${condition eq 'writer' ? 'selected' : '' }>작성자</option>
       </select>
-      <input style="width:300px" class="form-control " type="text" id="keyword" name="keyword" placeholder="검색어..." value="${keyword }"/>
+      <input style="width:350px" class="form-control" type="text" id="keyword" name="keyword" placeholder="검색어..." value="${keyword }"/>
       <button class="btn btn-outline-secondary pull-right" type="submit">검색</button>
       </div>
    </form>   
@@ -114,5 +129,6 @@
       </p>
    </c:if>
 </div>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>

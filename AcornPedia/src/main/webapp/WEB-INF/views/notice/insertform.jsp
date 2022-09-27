@@ -5,8 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/notice/insertform.jsp</title>
-<link rel="stylesheet" 
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/2e01103920.js" crossorigin="anonymous"></script>
 <style>
 	#content{
 		height: 500px;
@@ -106,6 +110,7 @@
 			
 		});
 </script>
+<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>
 

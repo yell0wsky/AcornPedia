@@ -25,7 +25,7 @@ public class UsersController {
 	
 	//회원 탈퇴 요청 처리
 	@RequestMapping("/users/delete")
-	public ModelAndView authDelete(HttpSession session, ModelAndView mView,
+	public ModelAndView Delete(HttpSession session, ModelAndView mView,
 			 HttpServletRequest request) {
 		
 		service.deleteUser(session, mView);
@@ -97,19 +97,12 @@ public class UsersController {
 		mView.setViewName("users/info");
 		return mView;
 	}
-	
-	
+		
 	@RequestMapping("/users/logout")
 	public String logout(HttpSession session) {
 		//세션에서 id 라는 키값으로 저장된 값 삭제 
 		session.removeAttribute("id");
 		return "users/logout";
-	}
-	
-	@RequestMapping(value = "/users/signup_form", method = RequestMethod.GET)
-	public String signupForm() {
-		
-		return "users/signup_form";
 	}
 	
 	//아이디 중복 확인을 해서 json 문자열을 리턴해주는 메소드 
@@ -137,8 +130,8 @@ public class UsersController {
 	}
 	//로그인 요청 처리
 	@RequestMapping("/users/login")
-	public ModelAndView login(ModelAndView mView, UsersDto dto,
-			@RequestParam String url, HttpSession session) {
+	public ModelAndView login(ModelAndView mView, UsersDto dto, @RequestParam String url,
+			HttpServletRequest request, HttpSession session) {
 		/*
 		 *  서비스에서 비즈니스 로직을 처리할때 필요로  하는 객체를 컨트롤러에서 직접 전달을 해 주어야 한다.
 		 *  주로, HttpServletRequest, HttpServletResponse, HttpSession, ModelAndView
@@ -152,5 +145,6 @@ public class UsersController {
 		
 		mView.setViewName("users/login");
 		return mView;
+		
 	}
 }

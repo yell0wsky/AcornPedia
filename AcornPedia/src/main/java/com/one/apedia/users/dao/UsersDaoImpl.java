@@ -49,11 +49,15 @@ public class UsersDaoImpl implements UsersDao{
 	@Override
 	public void delete(String id) {
 		session.delete("users.delete", id);
+		session.delete("users.deleteStar",id);
+	}
+	@Override
+	public void pointup(String id) {
+		session.update("users.pointup", id);
+	}
+	@Override
+	public void pointdown(String id) {
+		session.update("users.pointdown", id);
 	}
 	
 }
-
-
-
-
-
