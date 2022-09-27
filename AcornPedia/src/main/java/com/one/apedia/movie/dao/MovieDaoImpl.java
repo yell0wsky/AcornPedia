@@ -104,4 +104,29 @@ public class MovieDaoImpl implements MovieDao {
 		session.update("movie.updateStars", parameters);
 	}
 	
+	@Override
+	public void addHeart(String id, int num, String heart) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", id);
+		parameters.put("num", num);
+		parameters.put("heart", heart);
+		session.insert("movie.addHeart", parameters);
+	}
+	@Override
+	public Integer getHeart(String id, int num) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", id);
+		parameters.put("num", num);
+		return session.selectOne("movie.getStars", parameters);
+	}
+	
+	@Override
+	public void updateHeart(String id, int num, String heart) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", id);
+		parameters.put("num", num);
+		parameters.put("heart", heart);	
+		session.update("movie.updateHeart", parameters);
+	}
+	
 }

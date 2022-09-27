@@ -175,5 +175,10 @@ public class UsersServiceImpl implements UsersService{
 		dao.pointdown(id);
 		
 	}
+	@Override
+	public int count() {
+		int count=dao.count();
+		return count;
+	}
 	
 }
