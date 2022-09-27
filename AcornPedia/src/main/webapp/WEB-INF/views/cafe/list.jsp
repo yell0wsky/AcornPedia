@@ -81,7 +81,7 @@
 		</script>
 		</tbody>
 	</table>
-	<a class="btn btn-outline-danger pull-right "  href="insertform.do">글쓰기</a>
+	<button class="btn btn-outline-danger pull-right" id="cafeinsert">글쓰기</button>
 	<div class="page-ui clearfix">
 		<ul class="pagination">
 			<c:if test="${startPageNum ne 1 }">
@@ -129,6 +129,20 @@
 		</p>
 	</c:if>
 </div>
+<script type="text/javascript">
+	let isLogin=${ not empty id };
+	
+	document.querySelector("#cafeinsert").addEventListener("click", function(e){
+		if(!isLogin){
+			e.preventDefault();
+			alert("로그인이 필요합니다.");		
+			document.querySelector("#login").click();
+		}else{
+			location.href="${pageContext.request.contextPath}/cafe/insertform.do"
+		}
+		
+	})
+	</script>
 <jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -69,7 +69,5 @@
 		FROM Heart
 		WHERE movie_no=#{num} AND user_id=#{id}
 	</select>
-		
-	
-	
+			
 </mapper>

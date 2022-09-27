@@ -6,15 +6,9 @@
 	let idExist='<%=(String)session.getAttribute("id")%>';
 	if(idExist=='null') {
 		alert("아이디 혹은 비밀번호가 다릅니다.");
-		setTimeout(function(){location.href = "loginform.do?url=${requestScope.encodedUrl }"}, 500)
+		setTimeout(function(){location.href = "${requestScope.url}"}, 500)
 		
 	} else {
 		location.href = "${requestScope.url}";
 	}
 </script>
-
-
-
-
-
-

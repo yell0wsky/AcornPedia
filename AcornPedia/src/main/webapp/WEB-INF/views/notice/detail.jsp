@@ -201,7 +201,7 @@
                               </c:if>
                               <span>${tmp.regdate }</span>
                               <%-- 답글 링크를 눌렀을 때 해당 댓글의 글번호를 얻어오기 위해 data-num 속성에 댓글의 번호 넣어두기 --%>
-                              <a  data-num="${tmp.num }" href="javascript:" class="btn btn-outline-secondary pull-right reply-link">답글</a>
+                              <a data-num="${tmp.num }" class="reply-link btn btn-outline-secondary pull-right" href="javascript:">답글</a>
                               <%-- 만일 로그인을 했고 글 작성자가 로그인 된 사용자와 같다면 수정, 삭제 링클를 출력한다. --%>
                               <c:if test="${ (id ne null) and (tmp.writer eq id) }">
                                  <a data-num="${tmp.num }" class="btn btn-outline-secondary pull-right update-link" href="javascript:">수정</a>
@@ -273,7 +273,7 @@
    </form>
 </div>
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
-<script>
+<script type="text/javascript">
 	
 	//클라이언트가 로그인 했는지 여부
 	let isLogin=${ not empty id };
@@ -287,8 +287,8 @@
 				e.preventDefault();
 				//로그인 폼으로 이동 시킨다.
 				//로그인 성공후 다시 해당글 자세히 보기 페이지로 돌아올수 있도록 url 정보를 같이 전달한다.
-				location.href=
-					"${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/cafe/detail.do?num=${dto.num}";
+				alert("로그인이 필요합니다.");		
+				document.querySelector("#login").click();
 			}
 		});
 	
@@ -411,10 +411,9 @@
 			replyLinks[i].addEventListener("click", function(){
 				
 				if(!isLogin){
-					const isMove=confirm("로그인이 필요 합니다. 로그인 페이지로 이동 하시겠습니까?");
+					const isMove=confirm("로그인이 필요 합니다.");
 					if(isMove){
-						location.href=
-							"${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/cafe/detail.do?num=${dto.num}";
+						document.querySelector("#login").click();
 					}
 					return;
 				}

@@ -120,7 +120,7 @@
       <a class="btn btn-outline-danger pull-right" href="detail.do?num=${dto.nextNum }&keyword=${encodedK }&condition=${condition }">다음글</a>
    </c:if>
    <c:if test="${ not empty keyword }">
-      <p>
+      <p>   
          <strong>${condition }</strong> 조건, 
          <strong>${keyword }</strong> 검색어로 검색된 내용 자세히 보기 
       </p>
@@ -275,21 +275,23 @@
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
 <script>
    
-   //클라이언트가 로그인 했는지 여부
-   let isLogin=${ not empty id };
-   
-   //원글의 댓글 폼에 submit 이벤트가 일어났을 때 실행할 함수 등록
-   document.querySelector(".insert-form")
-      .addEventListener("submit", function(e){
-         //만일 로그인 하지 않았으면 
-         if(!isLogin){
-            //폼 전송을 막고 
-            e.preventDefault();
-            //로그인 폼으로 이동 시킨다.
-            //로그인 성공후 다시 해당글 자세히 보기 페이지로 돌아올 수 있도록 url 정보를 같이 전달한다.
-            location.href="${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/cafe/detail.do?num=${dto.num}";
-         }
-      });
+//클라이언트가 로그인 했는지 여부
+let isLogin=${ not empty id };
+
+//원글의 댓글 폼에 submit 이벤트가 일어났을 때 실행할 함수 등록
+document.querySelector(".insert-form")
+   .addEventListener("submit", function(e){
+      //만일 로그인 하지 않았으면 
+      if(!isLogin){
+         //폼 전송을 막고 
+         e.preventDefault();
+ 		alert("로그인이 필요합니다.");		
+ 		document.querySelector("#login").click();
+         //로그인 폼으로 이동 시킨다.
+         //로그인 성공후 다시 해당글 자세히 보기 페이지로 돌아올 수 있도록 url 정보를 같이 전달한다.
+         
+      }
+   });
    
    /*
       detail
