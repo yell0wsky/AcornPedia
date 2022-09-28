@@ -35,13 +35,12 @@
         margin-left: auto;
         margin-top: 70px;
       }
-	  @media (min-width: 1px) {
+	  @media (min-width: 2px) {
         #movieinfo {
           max-width: 1400px;
         }
       }
-    
-	 
+     
       #moviewrapper{
       	 width: 100%;
 		 height: 100%;
@@ -49,7 +48,7 @@
 		 position: relative;
 		 z-index: 1;
 		 background-color: #000;
-		 margin-top: 50px;
+		 
       }
      
       #moviewrapper:after{
@@ -83,7 +82,7 @@
       }
       #iwjsuy12{
       	display: flex;
-      	margin: 40px 0px 0px 25px;
+      	margin: 15px 0px 0px 25px;
       	width: 700px;
       	height: 410px;
       }
@@ -111,11 +110,19 @@
       	text-align: left;
       }
       .91jhijhi{
-      	height: 410px;
+      	height: 390px;
       }
       .movieGrade div{
       	margin-bottom: 5px;
       }
+      .movieSummary{
+      	overflow: scroll;
+      	height: 196px;
+      	-ms-overflow-style: none;
+      }
+      .movieSummary::-webkit-scrollbar {
+    	display: none;
+	  }
 </style>
 <body>
 	<jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>

@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/movie/list.jsp</title>
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet"
@@ -30,7 +31,6 @@
 	overflow: hidden;
 	z-index: 140;
 }
-
 .controls {
 	display: flex;
 	justify-content: space-between;
@@ -248,6 +248,7 @@
 		</div>
 	</main>
 	<jsp:include page="/WEB-INF/component/footer.jsp"></jsp:include>
+
 </body>
 <script>
 	var slides = document.querySelector(".slides"), slide = document
