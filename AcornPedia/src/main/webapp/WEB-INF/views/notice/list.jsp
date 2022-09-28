@@ -54,7 +54,7 @@
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container" >
    <c:if test="${id=='admin' }">
-   <button class="btn btn-default pull-right" id="noticeinsert">글쓰기</button>
+   <button class="btn btn-outline-danger pull-right" id="noticeinsert">글쓰기</button>
    </c:if>
    <h1>공지사항</h1>
    <table class="table table-hover " style="text-align: center; ">

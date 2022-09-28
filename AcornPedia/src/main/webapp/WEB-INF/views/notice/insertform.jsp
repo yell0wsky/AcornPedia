@@ -22,16 +22,18 @@
 <div class="container">
 	<h1>새글 작성 폼</h1>
 	<form action="insert.do" method="post" id="insertForm">
+	<br>
 		<div class="mb-3">
-			<label class="form-label" for="title">제목</label>
+			<label class="form-label" for="title" style="font-size:25px;">제목</label>
 			<input class="form-control" type="text" name="title" id="title"/>
 			<small class="form-tect text-muted">제목을 5글자 이상 입력하세요</small>
 		</div>
 		<div class="mb-3">
-			<label class="form-label" for="content">내용</label>
+			<label class="form-label" for="content" style="font-size:20px;">내용</label>
 			<textarea class="form-control"  name="content" id="content"></textarea>
 		</div>
-		<button class="btn btn-primary" type="submit">저장</button>
+		<button class="btn btn-outline-primary pull-right" type="submit">저장</button>
+		<a class="btn btn-outline-danger pull-right" type="reset" href="list.do">취소</a>
 	</form>
 </div>
 <%--

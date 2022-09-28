@@ -23,7 +23,6 @@
 <div class="container">
 	<h1>새글 작성 폼</h1>
 	<form action="insert.do" method="post" id="insertForm">
-	<button class="btn btn-outline-secondary pull-right" type="submit" style="float:right;">저장</button>
 	<br>
 		<div class="mb-3">
 			<label class="form-label" for="title" style="font-size:25px;">제목</label>
@@ -34,7 +33,8 @@
 			<label class="form-label" for="content" style="font-size:20px;">내용</label>
 			<textarea class="form-control"  name="content" id="content"></textarea>
 		</div>
-		
+		<button class="btn btn-outline-primary pull-right" type="submit">저장</button>
+		<a class="btn btn-outline-danger pull-right" type="reset" href="list.do">취소</a>
 	</form>
 </div>
 <%--

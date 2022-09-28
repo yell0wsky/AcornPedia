@@ -15,7 +15,7 @@
 <body>
 <jsp:include page="/WEB-INF/component/nav.jsp"></jsp:include>
 <div class="container">
-	<h1>글 수정 폼 입니다.</h1>
+	<h1>글 수정</h1>
 	<form action="update.do" method="post">
 		<input type="hidden" name="num" value="${dto.num }" />
 		<div class="mb-3">
@@ -23,15 +23,15 @@
 			<input class="form-control" type="text" id="writer" value="${dto.writer }" disabled/>
 		</div>
 		<div class="mb-3">
-			<label class="form-label"for="title">제목</label>
-			<input class="form-control" type="text" name="title" id="title" value="${dto.title }"/>
+			<label class="form-label" for="title" style="font-size:25px;">제목</label>
+			<input class="form-control"type="text" name="title" id="title" value="${dto.title }"/>
 		</div>
 		<div class="mb-3">
-			<label class="form-label"for="content">내용</label>
+			<label class="form-label" for="content" style="font-size:20px;">내용</label>
 			<textarea class="form-control" name="content" id="content">${dto.content }</textarea>
 		</div>
-		<button class="btn btn-outline-primary" type="submit" onclick="submitContents(this);">수정확인</button>
-		<button class="btn btn-outline-primary" type="reset">취소</button>
+		<button class="btn btn-outline-primary pull-right" type="submit" onclick="submitContents(this);">수정확인</button>
+		<a class="btn btn-outline-danger pull-right" type="reset" href="list.do">취소</a>
 	</form>
 </div>
 <!-- SmartEditor 에서 필요한 javascript 로딩  -->
