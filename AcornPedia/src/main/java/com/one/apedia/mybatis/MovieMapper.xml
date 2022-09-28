@@ -4,7 +4,7 @@
 	<select id="getList" parameterType="movieDto" resultType="movieDto">
 		SELECT *
 		FROM
-			(SELECT num, title, regexp_replace(genre,'[][:punct]') as genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path, stars
+			(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path, stars
 			FROM movie
 			left outer join (SELECT movie_no, ROUND(AVG(stars),1) as stars FROM stars GROUP BY movie_no) ms on movie.num=ms.movie_no
 			ORDER BY stars desc nulls last)
@@ -14,7 +14,7 @@
 	<select id="getList2" parameterType="movieDto" resultType="movieDto">
 		SELECT *
 		FROM
-			(SELECT num, title, regexp_replace(genre,'[][:punct]') as genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path, stars
+			(SELECT num, title, genre, TO_CHAR(TO_DATE(release_date, 'YYYY-MM-DD'), 'YYYY') as release_date, poster_path, stars
 			FROM movie
 			left outer join (SELECT movie_no, ROUND(AVG(stars),1) as stars FROM stars GROUP BY movie_no) ms on movie.num=ms.movie_no
 			ORDER BY dbms_random.value)

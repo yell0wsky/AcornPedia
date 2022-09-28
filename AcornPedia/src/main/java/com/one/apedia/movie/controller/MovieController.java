@@ -52,9 +52,7 @@ public class MovieController {
 				stars=service.getStars(id, num);
 			} 
 		}
-		String heart=service.getHeart(id, num);
-	
-		mView.addObject("heart", heart);
+
 		mView.addObject("stars", stars);
 		mView.setViewName("movie/detail");
 		

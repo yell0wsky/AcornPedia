@@ -17,14 +17,14 @@
    </sql>
 
    <select id="getList" parameterType="cafeDto" resultType="cafeDto">
-      SELECT *
+      SELECT result2.*, (SELECT NVL(MAX(ROWNUM), 0) FROM board_cafe_comment WHERE ref_group = result2.num) AS commentCount
       FROM
          (SELECT result1.*, ROWNUM AS rnum
          FROM
             (SELECT num,writer,title,content,viewCount,regdate
             FROM board_cafe
             <include refid="searchCondition"/>
-            ORDER BY num DESC) result1)
+            ORDER BY num DESC) result1) result2
       <![CDATA[ 
       WHERE rnum >= #{startRowNum} AND rnum <= #{endRowNum}
       ]]>

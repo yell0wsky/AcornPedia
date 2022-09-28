@@ -6,8 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/notice/detail.jsp</title>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/navbar.css" />
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -20,8 +21,8 @@
    
    /* 댓글 프로필 이미지를 작은 원형으로 만든다. */
    .profile-image{
-      width: 50px;
-      height: 50px;
+      width: 30px;
+      height: 30px;
       border: 1px solid #cecece;
       border-radius: 50%;
    }
@@ -102,12 +103,16 @@
       }
    }
    
-   .font-color-size{font-size: 16px; color:#C6C6C6}
+   .font-color-size{font-size: 16px; color: #C6C6C6}
    
-   .button{border-radius:0px; padding: 3px 6px;}
+   .button{border-radius: 0px; padding: 3px 6px;}
    
    .fright{float: right;}
    
+   .container{    
+      border-bottom-width: 100px;
+      margin-bottom: 100px;
+   }
 </style>
 </head>
 <body>
@@ -158,6 +163,7 @@
          <li><a class="btn btn-outline-secondary pull-right"href="delete.do?num=${dto.num }">삭제</a></li>
       </c:if>
    </ul>
+   <p style="color:#ff2e6d;">코멘트 ${totalRow }</p>
    <!-- 댓글 목록 -->
    <div class="comments ">
       <ul>
@@ -199,24 +205,27 @@
                               <c:if test="${tmp.num ne tmp.comment_group }">
                                  @<i>${tmp.target_id }</i>
                               </c:if>
-                              <span>${tmp.regdate }</span>
-                              <%-- 답글 링크를 눌렀을 때 해당 댓글의 글번호를 얻어오기 위해 data-num 속성에 댓글의 번호 넣어두기 --%>
-                              <a data-num="${tmp.num }" class="reply-link btn btn-outline-secondary pull-right" href="javascript:">답글</a>
                               <%-- 만일 로그인을 했고 글 작성자가 로그인 된 사용자와 같다면 수정, 삭제 링클를 출력한다. --%>
                               <c:if test="${ (id ne null) and (tmp.writer eq id) }">
-                                 <a data-num="${tmp.num }" class="btn btn-outline-secondary pull-right update-link" href="javascript:">수정</a>
-                                 <a data-num="${tmp.num }" class="btn btn-outline-secondary pull-right delete-link" href="javascript:">삭제</a>
+                                 <a data-num="${tmp.num }" class="btn btn-outline-secondary btn-sm shadow-none button fright update-link" href="javascript:">수정</a>
+                                 <a data-num="${tmp.num }" class="btn btn-outline-secondary btn-sm shadow-none button fright delete-link" href="javascript:">삭제</a>
                               </c:if>
-                           </dt>
-                           <dd>
+                              <p>
                               <%-- 댓글은 textarea 로 입력받아기 떄문에 tab, 공백, 개행기호도 존재한다.
                                  html 에서 pre 요소는 tab, 공백, 개행 기호를 해석해주는 요소이기 때문에
                                  pre 요소의 innerText 로 댓글의 내용을 출력했다.
-                                 그리고 해당 댓글을 javascript 로 바로 수정할 수 있도록 댓글 번호를 조합해서
-                                 아이디를 부여해 놓았다.
+                                                          그리고 해당 댓글을 javascript 로 바로 수정할 수 있도록 댓글 번호를 조합해서
+                                                          아이디를 부여해 놓았다.
                                --%>
-                              <pre id="pre${tmp.num }">${tmp.content }</pre>                  
-                           </dd>
+                                  <pre id="pre${tmp.num }">${tmp.content }</pre>
+                              </p>
+                              <p class="font-color-size" style="margin: 0px 0px 5px 0px;">
+                                  <span>${tmp.regdate }</span>
+						      </p>
+						      <p style="margin: 5px 0px 5px 0px;">
+						          <a  data-num="${tmp.num }" href="javascript:" class="btn btn-secondary btn-sm button shadow-none reply-link">답글</a>
+						      </p>    
+                           </dt>                                      
                         </dl>
                         <%--
                            댓글의 댓글 폼은 미리 만들어서 숨겨놓았다가 답글 링크를 누르면 보이도록 한다.
@@ -229,11 +238,11 @@
                            <input type="hidden" name="target_id" value="${tmp.writer }"/>
                            <input type="hidden" name="comment_group" value="${tmp.comment_group }"/>
                            <textarea name="content"></textarea>
-                           <button class="btn btn-outline-secondary pull-right" type="submit" >등록</button>
+                           <button class="btn btn-outline-secondary" type="submit" >등록</button>
                         </form>
                      <%-- 
-                        만일 글 작성자가 로그인한 작성자면 (본인이 작성한 댓글이라면) 댓글 수정 폼도 미리 준비해 놓고
-                        숨겨둔다.
+		                            만일 글 작성자가 로그인한 작성자면 (본인이 작성한 댓글이라면) 댓글 수정 폼도 미리 준비해 놓고
+		                            숨겨둔다.
                         javascript 에서 폼을 바로 선택할 수 있도록 댓글 번호를 조합해서 아이디를 부여해 놓았다.                           
                      --%>
                      <c:if test="${tmp.writer eq id }">
@@ -269,7 +278,7 @@
       <input type="hidden" name="target_id" value="${dto.writer }"/>
 
       <textarea name="content">${empty id ? '댓글 작성을 위해 로그인이 필요 합니다.' : '' }</textarea>
-      <button class="btn btn-outline-secondary pull-right" type="submit">등록</button>
+      <button class="btn btn-outline-dark shadow-none" type="submit">등록</button>
    </form>
 </div>
 <script src="${pageContext.request.contextPath}/resources/js/gura_util.js"></script>
@@ -287,7 +296,9 @@
 				e.preventDefault();
 				//로그인 폼으로 이동 시킨다.
 				//로그인 성공후 다시 해당글 자세히 보기 페이지로 돌아올수 있도록 url 정보를 같이 전달한다.
+
 				alert("로그인이 필요합니다.");		
+
 				document.querySelector("#login").click();
 			}
 		});
@@ -432,6 +443,7 @@
 					form.classList.add("animate__flash");
 					this.innerText="취소";	
 					form.addEventListener("animationend", function(){
+						
 						form.classList.remove("animate__flash");
 					}, {once:true});
 				}else if(current == "취소"){

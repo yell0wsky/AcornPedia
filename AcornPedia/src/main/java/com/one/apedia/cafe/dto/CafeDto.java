@@ -11,6 +11,7 @@ public class CafeDto {
 	private int endRowNum;
 	private int prevNum;
 	private int nextNum;
+	private int commentCount; //아래 setter, getter 메소드 다시 만들어야 합니다.
 	
 	public CafeDto() {}
 
